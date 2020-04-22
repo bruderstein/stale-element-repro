@@ -2,11 +2,20 @@
 <html>
   <body>
     Hello. This next box is re-rendered a lot:
+    <button class="start">Start rerendering</button>
     <div class="container"></div>
     <script>
-      setInterval(() => {
-        document.querySelector('.container').innerHTML = '<span class="inner">This is getting repeatedly replaced</span>';
-      }, 100);
+      document.querySelector('.start').addEventListener('click', () => {
+        let count = 0;
+        let interval = setInterval(() => {
+          document.querySelector('.container').innerHTML = '<span class="inner">This is getting repeatedly replaced</span>';
+          count++;
+          // stop refreshing after 5s (20*250)
+          if (count >= 20) {
+            clearInterval(interval);
+          }
+        }, 250);
+      });
     </script>
   </body>
 </html>
