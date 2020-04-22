@@ -1,0 +1,540 @@
+
+> stale-element-repro@1.0.0 test /Users/davebrotherstone/work/stale-element-repro
+> wdio
+
+
+Execution of 1 spec files started at 2020-04-22T13:15:04.254Z
+
+2020-04-22T13:15:04.278Z INFO @wdio/cli:launcher: Run onPrepare hook
+2020-04-22T13:15:04.279Z INFO @wdio/browserstack-service: browserstackLocal is not enabled - skipping...
+2020-04-22T13:15:04.281Z INFO @wdio/local-runner: Start worker 0-0 with arg: 
+[0-0] 2020-04-22T13:15:04.519Z INFO @wdio/local-runner: Run worker command: run
+[0-0] RUNNING in Edge - /tests/stale-element.js
+[0-0] 2020-04-22T13:15:04.617Z INFO webdriverio: Initiate new session using the webdriver protocol
+[0-0] 2020-04-22T13:15:04.619Z INFO webdriver: [POST] https://hub-cloud.browserstack.com:443/wd/hub/session
+[0-0] 2020-04-22T13:15:04.619Z INFO webdriver: DATA {
+  capabilities: {
+    alwaysMatch: {
+      browserName: 'Edge',
+      browserVersion: '15.0',
+      'browserstack.selenium_version': '3.10.0'
+    },
+    firstMatch: [ {} ]
+  },
+  desiredCapabilities: {
+    browserName: 'Edge',
+    browserVersion: '15.0',
+    'browserstack.selenium_version': '3.10.0'
+  }
+}
+[0-0] 2020-04-22T13:15:11.225Z INFO @wdio/browserstack-service: windows 10 MicrosoftEdge 40.15063.0.0 session: https://automate.browserstack.com/builds/d3aeb084f830d967f580cd25de455aa69fbf9b23/sessions/668e74d1c384522f2ea97cf7ab8fa6e4569345a8
+[0-0] 2020-04-22T13:15:11.236Z INFO webdriver: COMMAND navigateTo("https://stale-element-repro.netlify.app/")
+[0-0] 2020-04-22T13:15:11.236Z INFO webdriver: [POST] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/url
+[0-0] 2020-04-22T13:15:11.236Z INFO webdriver: DATA { url: 'https://stale-element-repro.netlify.app/' }
+[0-0] 2020-04-22T13:15:11.819Z INFO webdriver: COMMAND findElement("css selector", ".start")
+[0-0] 2020-04-22T13:15:11.819Z INFO webdriver: [POST] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element
+[0-0] 2020-04-22T13:15:11.819Z INFO webdriver: DATA { using: 'css selector', value: '.start' }
+[0-0] 2020-04-22T13:15:11.877Z INFO webdriver: RESULT {
+  'element-6066-11e4-a52e-4f735466cecf': 'ab7c16f0-313e-49bf-b112-c7e44de9ae70',
+  ELEMENT: 'ab7c16f0-313e-49bf-b112-c7e44de9ae70'
+}
+[0-0] 2020-04-22T13:15:11.882Z INFO webdriver: COMMAND elementClick("ab7c16f0-313e-49bf-b112-c7e44de9ae70")
+[0-0] 2020-04-22T13:15:11.882Z INFO webdriver: [POST] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/ab7c16f0-313e-49bf-b112-c7e44de9ae70/click
+[0-0] 2020-04-22T13:15:11.946Z INFO webdriver: COMMAND findElement("css selector", ".inner")
+[0-0] 2020-04-22T13:15:11.946Z INFO webdriver: [POST] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element
+[0-0] 2020-04-22T13:15:11.947Z INFO webdriver: DATA { using: 'css selector', value: '.inner' }
+[0-0] 2020-04-22T13:15:12.010Z INFO webdriver: RESULT { message: 'No such element' }
+[0-0] 2020-04-22T13:15:12.014Z INFO webdriver: COMMAND findElement("css selector", ".inner")
+[0-0] 2020-04-22T13:15:12.014Z INFO webdriver: [POST] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element
+[0-0] 2020-04-22T13:15:12.014Z INFO webdriver: DATA { using: 'css selector', value: '.inner' }
+[0-0] 2020-04-22T13:15:12.085Z INFO webdriver: RESULT { message: 'No such element' }
+[0-0] 2020-04-22T13:15:12.517Z INFO webdriver: COMMAND findElement("css selector", ".inner")
+[0-0] 2020-04-22T13:15:12.518Z INFO webdriver: [POST] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element
+[0-0] 2020-04-22T13:15:12.518Z INFO webdriver: DATA { using: 'css selector', value: '.inner' }
+[0-0] 2020-04-22T13:15:12.592Z INFO webdriver: RESULT {
+  'element-6066-11e4-a52e-4f735466cecf': '9047a06c-2ce1-442d-b9ec-2ba52d4eea4e',
+  ELEMENT: '9047a06c-2ce1-442d-b9ec-2ba52d4eea4e'
+}
+[0-0] 2020-04-22T13:15:12.594Z INFO webdriver: COMMAND isElementDisplayed("9047a06c-2ce1-442d-b9ec-2ba52d4eea4e")
+[0-0] 2020-04-22T13:15:12.594Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:12.653Z INFO webdriver: RESULT true
+[0-0] 2020-04-22T13:15:12.653Z INFO webdriver: COMMAND isElementDisplayed("9047a06c-2ce1-442d-b9ec-2ba52d4eea4e")
+[0-0] 2020-04-22T13:15:12.654Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:12.703Z WARN webdriver: Request failed due to Stale element reference
+[0-0] 2020-04-22T13:15:12.703Z INFO webdriver: Retrying 1/3
+2020-04-22T13:15:12.703Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:12.759Z WARN webdriver: Request failed due to Stale element reference
+[0-0] 2020-04-22T13:15:12.759Z INFO webdriver: Retrying 2/3
+2020-04-22T13:15:12.759Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:12.810Z WARN webdriver: Request failed due to Stale element reference
+[0-0] 2020-04-22T13:15:12.811Z INFO webdriver: Retrying 3/3
+2020-04-22T13:15:12.811Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:12.856Z ERROR webdriver: Request failed due to Error: Stale element reference
+    at getErrorFromResponseBody (/Users/davebrotherstone/work/stale-element-repro/node_modules/webdriver/build/utils.js:124:10)
+    at Request._callback (/Users/davebrotherstone/work/stale-element-repro/node_modules/webdriver/build/request.js:121:64)
+    at Request.self.callback (/Users/davebrotherstone/work/stale-element-repro/node_modules/request/request.js:185:22)
+    at Request.emit (events.js:223:5)
+    at Request.EventEmitter.emit (domain.js:475:20)
+    at Request.<anonymous> (/Users/davebrotherstone/work/stale-element-repro/node_modules/request/request.js:1154:10)
+    at Request.emit (events.js:223:5)
+    at Request.EventEmitter.emit (domain.js:475:20)
+    at IncomingMessage.<anonymous> (/Users/davebrotherstone/work/stale-element-repro/node_modules/request/request.js:1076:12)
+    at Object.onceWrapper (events.js:312:28)
+[0-0] 2020-04-22T13:15:13.154Z INFO webdriver: COMMAND isElementDisplayed("9047a06c-2ce1-442d-b9ec-2ba52d4eea4e")
+[0-0] 2020-04-22T13:15:13.154Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:13.214Z WARN webdriver: Request failed due to Stale element reference
+[0-0] 2020-04-22T13:15:13.214Z INFO webdriver: Retrying 1/3
+2020-04-22T13:15:13.214Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:13.274Z WARN webdriver: Request failed due to Stale element reference
+[0-0] 2020-04-22T13:15:13.274Z INFO webdriver: Retrying 2/3
+2020-04-22T13:15:13.274Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:13.320Z WARN webdriver: Request failed due to Stale element reference
+[0-0] 2020-04-22T13:15:13.320Z INFO webdriver: Retrying 3/3
+2020-04-22T13:15:13.320Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:13.370Z ERROR webdriver: Request failed due to Error: Stale element reference
+    at getErrorFromResponseBody (/Users/davebrotherstone/work/stale-element-repro/node_modules/webdriver/build/utils.js:124:10)
+    at Request._callback (/Users/davebrotherstone/work/stale-element-repro/node_modules/webdriver/build/request.js:121:64)
+    at Request.self.callback (/Users/davebrotherstone/work/stale-element-repro/node_modules/request/request.js:185:22)
+    at Request.emit (events.js:223:5)
+    at Request.EventEmitter.emit (domain.js:475:20)
+    at Request.<anonymous> (/Users/davebrotherstone/work/stale-element-repro/node_modules/request/request.js:1154:10)
+    at Request.emit (events.js:223:5)
+    at Request.EventEmitter.emit (domain.js:475:20)
+    at IncomingMessage.<anonymous> (/Users/davebrotherstone/work/stale-element-repro/node_modules/request/request.js:1076:12)
+    at Object.onceWrapper (events.js:312:28)
+[0-0] 2020-04-22T13:15:13.658Z INFO webdriver: COMMAND isElementDisplayed("9047a06c-2ce1-442d-b9ec-2ba52d4eea4e")
+[0-0] 2020-04-22T13:15:13.659Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:13.722Z WARN webdriver: Request failed due to Stale element reference
+[0-0] 2020-04-22T13:15:13.722Z INFO webdriver: Retrying 1/3
+2020-04-22T13:15:13.722Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:13.786Z WARN webdriver: Request failed due to Stale element reference
+[0-0] 2020-04-22T13:15:13.786Z INFO webdriver: Retrying 2/3
+2020-04-22T13:15:13.786Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:13.830Z WARN webdriver: Request failed due to Stale element reference
+[0-0] 2020-04-22T13:15:13.830Z INFO webdriver: Retrying 3/3
+2020-04-22T13:15:13.830Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:13.879Z ERROR webdriver: Request failed due to Error: Stale element reference
+    at getErrorFromResponseBody (/Users/davebrotherstone/work/stale-element-repro/node_modules/webdriver/build/utils.js:124:10)
+    at Request._callback (/Users/davebrotherstone/work/stale-element-repro/node_modules/webdriver/build/request.js:121:64)
+    at Request.self.callback (/Users/davebrotherstone/work/stale-element-repro/node_modules/request/request.js:185:22)
+    at Request.emit (events.js:223:5)
+    at Request.EventEmitter.emit (domain.js:475:20)
+    at Request.<anonymous> (/Users/davebrotherstone/work/stale-element-repro/node_modules/request/request.js:1154:10)
+    at Request.emit (events.js:223:5)
+    at Request.EventEmitter.emit (domain.js:475:20)
+    at IncomingMessage.<anonymous> (/Users/davebrotherstone/work/stale-element-repro/node_modules/request/request.js:1076:12)
+    at Object.onceWrapper (events.js:312:28)
+[0-0] 2020-04-22T13:15:14.158Z INFO webdriver: COMMAND isElementDisplayed("9047a06c-2ce1-442d-b9ec-2ba52d4eea4e")
+[0-0] 2020-04-22T13:15:14.158Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:14.205Z WARN webdriver: Request failed due to Stale element reference
+[0-0] 2020-04-22T13:15:14.205Z INFO webdriver: Retrying 1/3
+2020-04-22T13:15:14.205Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:14.263Z WARN webdriver: Request failed due to Stale element reference
+[0-0] 2020-04-22T13:15:14.263Z INFO webdriver: Retrying 2/3
+2020-04-22T13:15:14.263Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:14.326Z WARN webdriver: Request failed due to Stale element reference
+[0-0] 2020-04-22T13:15:14.326Z INFO webdriver: Retrying 3/3
+2020-04-22T13:15:14.326Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:14.369Z ERROR webdriver: Request failed due to Error: Stale element reference
+    at getErrorFromResponseBody (/Users/davebrotherstone/work/stale-element-repro/node_modules/webdriver/build/utils.js:124:10)
+    at Request._callback (/Users/davebrotherstone/work/stale-element-repro/node_modules/webdriver/build/request.js:121:64)
+    at Request.self.callback (/Users/davebrotherstone/work/stale-element-repro/node_modules/request/request.js:185:22)
+    at Request.emit (events.js:223:5)
+    at Request.EventEmitter.emit (domain.js:475:20)
+    at Request.<anonymous> (/Users/davebrotherstone/work/stale-element-repro/node_modules/request/request.js:1154:10)
+    at Request.emit (events.js:223:5)
+    at Request.EventEmitter.emit (domain.js:475:20)
+    at IncomingMessage.<anonymous> (/Users/davebrotherstone/work/stale-element-repro/node_modules/request/request.js:1076:12)
+    at Object.onceWrapper (events.js:312:28)
+[0-0] 2020-04-22T13:15:14.655Z INFO webdriver: COMMAND isElementDisplayed("9047a06c-2ce1-442d-b9ec-2ba52d4eea4e")
+[0-0] 2020-04-22T13:15:14.655Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:14.699Z WARN webdriver: Request failed due to Stale element reference
+[0-0] 2020-04-22T13:15:14.699Z INFO webdriver: Retrying 1/3
+2020-04-22T13:15:14.699Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:14.752Z WARN webdriver: Request failed due to Stale element reference
+[0-0] 2020-04-22T13:15:14.752Z INFO webdriver: Retrying 2/3
+2020-04-22T13:15:14.752Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:14.796Z WARN webdriver: Request failed due to Stale element reference
+[0-0] 2020-04-22T13:15:14.796Z INFO webdriver: Retrying 3/3
+2020-04-22T13:15:14.796Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:14.837Z ERROR webdriver: Request failed due to Error: Stale element reference
+    at getErrorFromResponseBody (/Users/davebrotherstone/work/stale-element-repro/node_modules/webdriver/build/utils.js:124:10)
+    at Request._callback (/Users/davebrotherstone/work/stale-element-repro/node_modules/webdriver/build/request.js:121:64)
+    at Request.self.callback (/Users/davebrotherstone/work/stale-element-repro/node_modules/request/request.js:185:22)
+    at Request.emit (events.js:223:5)
+    at Request.EventEmitter.emit (domain.js:475:20)
+    at Request.<anonymous> (/Users/davebrotherstone/work/stale-element-repro/node_modules/request/request.js:1154:10)
+    at Request.emit (events.js:223:5)
+    at Request.EventEmitter.emit (domain.js:475:20)
+    at IncomingMessage.<anonymous> (/Users/davebrotherstone/work/stale-element-repro/node_modules/request/request.js:1076:12)
+    at Object.onceWrapper (events.js:312:28)
+[0-0] 2020-04-22T13:15:15.158Z INFO webdriver: COMMAND isElementDisplayed("9047a06c-2ce1-442d-b9ec-2ba52d4eea4e")
+[0-0] 2020-04-22T13:15:15.158Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:15.209Z WARN webdriver: Request failed due to Stale element reference
+[0-0] 2020-04-22T13:15:15.209Z INFO webdriver: Retrying 1/3
+2020-04-22T13:15:15.209Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:15.256Z WARN webdriver: Request failed due to Stale element reference
+[0-0] 2020-04-22T13:15:15.256Z INFO webdriver: Retrying 2/3
+2020-04-22T13:15:15.256Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:15.295Z WARN webdriver: Request failed due to Stale element reference
+[0-0] 2020-04-22T13:15:15.295Z INFO webdriver: Retrying 3/3
+2020-04-22T13:15:15.295Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:15.339Z ERROR webdriver: Request failed due to Error: Stale element reference
+    at getErrorFromResponseBody (/Users/davebrotherstone/work/stale-element-repro/node_modules/webdriver/build/utils.js:124:10)
+    at Request._callback (/Users/davebrotherstone/work/stale-element-repro/node_modules/webdriver/build/request.js:121:64)
+    at Request.self.callback (/Users/davebrotherstone/work/stale-element-repro/node_modules/request/request.js:185:22)
+    at Request.emit (events.js:223:5)
+    at Request.EventEmitter.emit (domain.js:475:20)
+    at Request.<anonymous> (/Users/davebrotherstone/work/stale-element-repro/node_modules/request/request.js:1154:10)
+    at Request.emit (events.js:223:5)
+    at Request.EventEmitter.emit (domain.js:475:20)
+    at IncomingMessage.<anonymous> (/Users/davebrotherstone/work/stale-element-repro/node_modules/request/request.js:1076:12)
+    at Object.onceWrapper (events.js:312:28)
+[0-0] 2020-04-22T13:15:15.658Z INFO webdriver: COMMAND isElementDisplayed("9047a06c-2ce1-442d-b9ec-2ba52d4eea4e")
+[0-0] 2020-04-22T13:15:15.658Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:15.706Z WARN webdriver: Request failed due to Stale element reference
+[0-0] 2020-04-22T13:15:15.706Z INFO webdriver: Retrying 1/3
+2020-04-22T13:15:15.706Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:15.760Z WARN webdriver: Request failed due to Stale element reference
+[0-0] 2020-04-22T13:15:15.760Z INFO webdriver: Retrying 2/3
+2020-04-22T13:15:15.760Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:15.865Z WARN webdriver: Request failed due to Stale element reference
+[0-0] 2020-04-22T13:15:15.865Z INFO webdriver: Retrying 3/3
+2020-04-22T13:15:15.865Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:15.974Z ERROR webdriver: Request failed due to Error: Stale element reference
+    at getErrorFromResponseBody (/Users/davebrotherstone/work/stale-element-repro/node_modules/webdriver/build/utils.js:124:10)
+    at Request._callback (/Users/davebrotherstone/work/stale-element-repro/node_modules/webdriver/build/request.js:121:64)
+    at Request.self.callback (/Users/davebrotherstone/work/stale-element-repro/node_modules/request/request.js:185:22)
+    at Request.emit (events.js:223:5)
+    at Request.EventEmitter.emit (domain.js:475:20)
+    at Request.<anonymous> (/Users/davebrotherstone/work/stale-element-repro/node_modules/request/request.js:1154:10)
+    at Request.emit (events.js:223:5)
+    at Request.EventEmitter.emit (domain.js:475:20)
+    at IncomingMessage.<anonymous> (/Users/davebrotherstone/work/stale-element-repro/node_modules/request/request.js:1076:12)
+    at Object.onceWrapper (events.js:312:28)
+[0-0] 2020-04-22T13:15:16.159Z INFO webdriver: COMMAND isElementDisplayed("9047a06c-2ce1-442d-b9ec-2ba52d4eea4e")
+[0-0] 2020-04-22T13:15:16.159Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:16.341Z WARN webdriver: Request failed due to Stale element reference
+[0-0] 2020-04-22T13:15:16.341Z INFO webdriver: Retrying 1/3
+2020-04-22T13:15:16.341Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:16.428Z WARN webdriver: Request failed due to Stale element reference
+[0-0] 2020-04-22T13:15:16.428Z INFO webdriver: Retrying 2/3
+2020-04-22T13:15:16.428Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:16.631Z WARN webdriver: Request failed due to Stale element reference
+[0-0] 2020-04-22T13:15:16.631Z INFO webdriver: Retrying 3/3
+2020-04-22T13:15:16.631Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:16.687Z ERROR webdriver: Request failed due to Error: Stale element reference
+    at getErrorFromResponseBody (/Users/davebrotherstone/work/stale-element-repro/node_modules/webdriver/build/utils.js:124:10)
+    at Request._callback (/Users/davebrotherstone/work/stale-element-repro/node_modules/webdriver/build/request.js:121:64)
+    at Request.self.callback (/Users/davebrotherstone/work/stale-element-repro/node_modules/request/request.js:185:22)
+    at Request.emit (events.js:223:5)
+    at Request.EventEmitter.emit (domain.js:475:20)
+    at Request.<anonymous> (/Users/davebrotherstone/work/stale-element-repro/node_modules/request/request.js:1154:10)
+    at Request.emit (events.js:223:5)
+    at Request.EventEmitter.emit (domain.js:475:20)
+    at IncomingMessage.<anonymous> (/Users/davebrotherstone/work/stale-element-repro/node_modules/request/request.js:1076:12)
+    at Object.onceWrapper (events.js:312:28)
+[0-0] 2020-04-22T13:15:16.689Z INFO webdriver: COMMAND isElementDisplayed("9047a06c-2ce1-442d-b9ec-2ba52d4eea4e")
+[0-0] 2020-04-22T13:15:16.689Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:16.759Z WARN webdriver: Request failed due to Stale element reference
+[0-0] 2020-04-22T13:15:16.759Z INFO webdriver: Retrying 1/3
+2020-04-22T13:15:16.759Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:16.870Z WARN webdriver: Request failed due to Stale element reference
+[0-0] 2020-04-22T13:15:16.870Z INFO webdriver: Retrying 2/3
+2020-04-22T13:15:16.870Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:16.923Z WARN webdriver: Request failed due to Stale element reference
+[0-0] 2020-04-22T13:15:16.923Z INFO webdriver: Retrying 3/3
+2020-04-22T13:15:16.923Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:17.068Z ERROR webdriver: Request failed due to Error: Stale element reference
+    at getErrorFromResponseBody (/Users/davebrotherstone/work/stale-element-repro/node_modules/webdriver/build/utils.js:124:10)
+    at Request._callback (/Users/davebrotherstone/work/stale-element-repro/node_modules/webdriver/build/request.js:121:64)
+    at Request.self.callback (/Users/davebrotherstone/work/stale-element-repro/node_modules/request/request.js:185:22)
+    at Request.emit (events.js:223:5)
+    at Request.EventEmitter.emit (domain.js:475:20)
+    at Request.<anonymous> (/Users/davebrotherstone/work/stale-element-repro/node_modules/request/request.js:1154:10)
+    at Request.emit (events.js:223:5)
+    at Request.EventEmitter.emit (domain.js:475:20)
+    at IncomingMessage.<anonymous> (/Users/davebrotherstone/work/stale-element-repro/node_modules/request/request.js:1076:12)
+    at Object.onceWrapper (events.js:312:28)
+[0-0] 2020-04-22T13:15:17.157Z INFO webdriver: COMMAND isElementDisplayed("9047a06c-2ce1-442d-b9ec-2ba52d4eea4e")
+[0-0] 2020-04-22T13:15:17.158Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:17.202Z WARN webdriver: Request failed due to Stale element reference
+[0-0] 2020-04-22T13:15:17.202Z INFO webdriver: Retrying 1/3
+2020-04-22T13:15:17.202Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:17.249Z WARN webdriver: Request failed due to Stale element reference
+[0-0] 2020-04-22T13:15:17.250Z INFO webdriver: Retrying 2/3
+2020-04-22T13:15:17.250Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:17.299Z WARN webdriver: Request failed due to Stale element reference
+[0-0] 2020-04-22T13:15:17.299Z INFO webdriver: Retrying 3/3
+2020-04-22T13:15:17.299Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:17.402Z ERROR webdriver: Request failed due to Error: Stale element reference
+    at getErrorFromResponseBody (/Users/davebrotherstone/work/stale-element-repro/node_modules/webdriver/build/utils.js:124:10)
+    at Request._callback (/Users/davebrotherstone/work/stale-element-repro/node_modules/webdriver/build/request.js:121:64)
+    at Request.self.callback (/Users/davebrotherstone/work/stale-element-repro/node_modules/request/request.js:185:22)
+    at Request.emit (events.js:223:5)
+    at Request.EventEmitter.emit (domain.js:475:20)
+    at Request.<anonymous> (/Users/davebrotherstone/work/stale-element-repro/node_modules/request/request.js:1154:10)
+    at Request.emit (events.js:223:5)
+    at Request.EventEmitter.emit (domain.js:475:20)
+    at IncomingMessage.<anonymous> (/Users/davebrotherstone/work/stale-element-repro/node_modules/request/request.js:1076:12)
+    at Object.onceWrapper (events.js:312:28)
+[0-0] 2020-04-22T13:15:17.658Z INFO webdriver: COMMAND isElementDisplayed("9047a06c-2ce1-442d-b9ec-2ba52d4eea4e")
+[0-0] 2020-04-22T13:15:17.660Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:17.765Z WARN webdriver: Request failed due to Stale element reference
+[0-0] 2020-04-22T13:15:17.765Z INFO webdriver: Retrying 1/3
+2020-04-22T13:15:17.765Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:17.922Z WARN webdriver: Request failed due to Stale element reference
+[0-0] 2020-04-22T13:15:17.922Z INFO webdriver: Retrying 2/3
+2020-04-22T13:15:17.922Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:17.988Z WARN webdriver: Request failed due to Stale element reference
+[0-0] 2020-04-22T13:15:17.988Z INFO webdriver: Retrying 3/3
+2020-04-22T13:15:17.988Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:18.095Z ERROR webdriver: Request failed due to Error: Stale element reference
+    at getErrorFromResponseBody (/Users/davebrotherstone/work/stale-element-repro/node_modules/webdriver/build/utils.js:124:10)
+    at Request._callback (/Users/davebrotherstone/work/stale-element-repro/node_modules/webdriver/build/request.js:121:64)
+    at Request.self.callback (/Users/davebrotherstone/work/stale-element-repro/node_modules/request/request.js:185:22)
+    at Request.emit (events.js:223:5)
+    at Request.EventEmitter.emit (domain.js:475:20)
+    at Request.<anonymous> (/Users/davebrotherstone/work/stale-element-repro/node_modules/request/request.js:1154:10)
+    at Request.emit (events.js:223:5)
+    at Request.EventEmitter.emit (domain.js:475:20)
+    at IncomingMessage.<anonymous> (/Users/davebrotherstone/work/stale-element-repro/node_modules/request/request.js:1076:12)
+    at Object.onceWrapper (events.js:312:28)
+[0-0] 2020-04-22T13:15:18.156Z INFO webdriver: COMMAND isElementDisplayed("9047a06c-2ce1-442d-b9ec-2ba52d4eea4e")
+[0-0] 2020-04-22T13:15:18.157Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:18.206Z WARN webdriver: Request failed due to Stale element reference
+[0-0] 2020-04-22T13:15:18.207Z INFO webdriver: Retrying 1/3
+2020-04-22T13:15:18.207Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:18.248Z WARN webdriver: Request failed due to Stale element reference
+[0-0] 2020-04-22T13:15:18.248Z INFO webdriver: Retrying 2/3
+2020-04-22T13:15:18.248Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:18.323Z WARN webdriver: Request failed due to Stale element reference
+[0-0] 2020-04-22T13:15:18.324Z INFO webdriver: Retrying 3/3
+2020-04-22T13:15:18.324Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:18.370Z ERROR webdriver: Request failed due to Error: Stale element reference
+    at getErrorFromResponseBody (/Users/davebrotherstone/work/stale-element-repro/node_modules/webdriver/build/utils.js:124:10)
+    at Request._callback (/Users/davebrotherstone/work/stale-element-repro/node_modules/webdriver/build/request.js:121:64)
+    at Request.self.callback (/Users/davebrotherstone/work/stale-element-repro/node_modules/request/request.js:185:22)
+    at Request.emit (events.js:223:5)
+    at Request.EventEmitter.emit (domain.js:475:20)
+    at Request.<anonymous> (/Users/davebrotherstone/work/stale-element-repro/node_modules/request/request.js:1154:10)
+    at Request.emit (events.js:223:5)
+    at Request.EventEmitter.emit (domain.js:475:20)
+    at IncomingMessage.<anonymous> (/Users/davebrotherstone/work/stale-element-repro/node_modules/request/request.js:1076:12)
+    at Object.onceWrapper (events.js:312:28)
+[0-0] 2020-04-22T13:15:18.658Z INFO webdriver: COMMAND isElementDisplayed("9047a06c-2ce1-442d-b9ec-2ba52d4eea4e")
+[0-0] 2020-04-22T13:15:18.659Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:18.916Z WARN webdriver: Request failed due to Stale element reference
+[0-0] 2020-04-22T13:15:18.916Z INFO webdriver: Retrying 1/3
+2020-04-22T13:15:18.916Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:18.987Z WARN webdriver: Request failed due to Stale element reference
+[0-0] 2020-04-22T13:15:18.987Z INFO webdriver: Retrying 2/3
+2020-04-22T13:15:18.987Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:19.139Z WARN webdriver: Request failed due to Stale element reference
+[0-0] 2020-04-22T13:15:19.139Z INFO webdriver: Retrying 3/3
+2020-04-22T13:15:19.139Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:19.212Z ERROR webdriver: Request failed due to Error: Stale element reference
+    at getErrorFromResponseBody (/Users/davebrotherstone/work/stale-element-repro/node_modules/webdriver/build/utils.js:124:10)
+    at Request._callback (/Users/davebrotherstone/work/stale-element-repro/node_modules/webdriver/build/request.js:121:64)
+    at Request.self.callback (/Users/davebrotherstone/work/stale-element-repro/node_modules/request/request.js:185:22)
+    at Request.emit (events.js:223:5)
+    at Request.EventEmitter.emit (domain.js:475:20)
+    at Request.<anonymous> (/Users/davebrotherstone/work/stale-element-repro/node_modules/request/request.js:1154:10)
+    at Request.emit (events.js:223:5)
+    at Request.EventEmitter.emit (domain.js:475:20)
+    at IncomingMessage.<anonymous> (/Users/davebrotherstone/work/stale-element-repro/node_modules/request/request.js:1076:12)
+    at Object.onceWrapper (events.js:312:28)
+[0-0] 2020-04-22T13:15:19.213Z INFO webdriver: COMMAND isElementDisplayed("9047a06c-2ce1-442d-b9ec-2ba52d4eea4e")
+[0-0] 2020-04-22T13:15:19.214Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:19.336Z WARN webdriver: Request failed due to Stale element reference
+[0-0] 2020-04-22T13:15:19.336Z INFO webdriver: Retrying 1/3
+2020-04-22T13:15:19.336Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:19.384Z WARN webdriver: Request failed due to Stale element reference
+[0-0] 2020-04-22T13:15:19.384Z INFO webdriver: Retrying 2/3
+2020-04-22T13:15:19.384Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:19.443Z WARN webdriver: Request failed due to Stale element reference
+[0-0] 2020-04-22T13:15:19.443Z INFO webdriver: Retrying 3/3
+2020-04-22T13:15:19.443Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:19.608Z ERROR webdriver: Request failed due to Error: Stale element reference
+    at getErrorFromResponseBody (/Users/davebrotherstone/work/stale-element-repro/node_modules/webdriver/build/utils.js:124:10)
+    at Request._callback (/Users/davebrotherstone/work/stale-element-repro/node_modules/webdriver/build/request.js:121:64)
+    at Request.self.callback (/Users/davebrotherstone/work/stale-element-repro/node_modules/request/request.js:185:22)
+    at Request.emit (events.js:223:5)
+    at Request.EventEmitter.emit (domain.js:475:20)
+    at Request.<anonymous> (/Users/davebrotherstone/work/stale-element-repro/node_modules/request/request.js:1154:10)
+    at Request.emit (events.js:223:5)
+    at Request.EventEmitter.emit (domain.js:475:20)
+    at IncomingMessage.<anonymous> (/Users/davebrotherstone/work/stale-element-repro/node_modules/request/request.js:1076:12)
+    at Object.onceWrapper (events.js:312:28)
+[0-0] 2020-04-22T13:15:19.658Z INFO webdriver: COMMAND isElementDisplayed("9047a06c-2ce1-442d-b9ec-2ba52d4eea4e")
+[0-0] 2020-04-22T13:15:19.658Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:19.704Z WARN webdriver: Request failed due to Stale element reference
+[0-0] 2020-04-22T13:15:19.704Z INFO webdriver: Retrying 1/3
+2020-04-22T13:15:19.704Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:19.751Z WARN webdriver: Request failed due to Stale element reference
+[0-0] 2020-04-22T13:15:19.751Z INFO webdriver: Retrying 2/3
+2020-04-22T13:15:19.751Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:19.873Z WARN webdriver: Request failed due to Stale element reference
+[0-0] 2020-04-22T13:15:19.874Z INFO webdriver: Retrying 3/3
+2020-04-22T13:15:19.874Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:19.919Z ERROR webdriver: Request failed due to Error: Stale element reference
+    at getErrorFromResponseBody (/Users/davebrotherstone/work/stale-element-repro/node_modules/webdriver/build/utils.js:124:10)
+    at Request._callback (/Users/davebrotherstone/work/stale-element-repro/node_modules/webdriver/build/request.js:121:64)
+    at Request.self.callback (/Users/davebrotherstone/work/stale-element-repro/node_modules/request/request.js:185:22)
+    at Request.emit (events.js:223:5)
+    at Request.EventEmitter.emit (domain.js:475:20)
+    at Request.<anonymous> (/Users/davebrotherstone/work/stale-element-repro/node_modules/request/request.js:1154:10)
+    at Request.emit (events.js:223:5)
+    at Request.EventEmitter.emit (domain.js:475:20)
+    at IncomingMessage.<anonymous> (/Users/davebrotherstone/work/stale-element-repro/node_modules/request/request.js:1076:12)
+    at Object.onceWrapper (events.js:312:28)
+[0-0] 2020-04-22T13:15:20.157Z INFO webdriver: COMMAND isElementDisplayed("9047a06c-2ce1-442d-b9ec-2ba52d4eea4e")
+[0-0] 2020-04-22T13:15:20.157Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:20.204Z WARN webdriver: Request failed due to Stale element reference
+[0-0] 2020-04-22T13:15:20.204Z INFO webdriver: Retrying 1/3
+2020-04-22T13:15:20.204Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:20.250Z WARN webdriver: Request failed due to Stale element reference
+[0-0] 2020-04-22T13:15:20.250Z INFO webdriver: Retrying 2/3
+2020-04-22T13:15:20.251Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:20.300Z WARN webdriver: Request failed due to Stale element reference
+[0-0] 2020-04-22T13:15:20.300Z INFO webdriver: Retrying 3/3
+2020-04-22T13:15:20.300Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:20.356Z ERROR webdriver: Request failed due to Error: Stale element reference
+    at getErrorFromResponseBody (/Users/davebrotherstone/work/stale-element-repro/node_modules/webdriver/build/utils.js:124:10)
+    at Request._callback (/Users/davebrotherstone/work/stale-element-repro/node_modules/webdriver/build/request.js:121:64)
+    at Request.self.callback (/Users/davebrotherstone/work/stale-element-repro/node_modules/request/request.js:185:22)
+    at Request.emit (events.js:223:5)
+    at Request.EventEmitter.emit (domain.js:475:20)
+    at Request.<anonymous> (/Users/davebrotherstone/work/stale-element-repro/node_modules/request/request.js:1154:10)
+    at Request.emit (events.js:223:5)
+    at Request.EventEmitter.emit (domain.js:475:20)
+    at IncomingMessage.<anonymous> (/Users/davebrotherstone/work/stale-element-repro/node_modules/request/request.js:1076:12)
+    at Object.onceWrapper (events.js:312:28)
+[0-0] 2020-04-22T13:15:20.658Z INFO webdriver: COMMAND isElementDisplayed("9047a06c-2ce1-442d-b9ec-2ba52d4eea4e")
+[0-0] 2020-04-22T13:15:20.658Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:20.709Z WARN webdriver: Request failed due to Stale element reference
+[0-0] 2020-04-22T13:15:20.709Z INFO webdriver: Retrying 1/3
+2020-04-22T13:15:20.709Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:20.749Z WARN webdriver: Request failed due to Stale element reference
+[0-0] 2020-04-22T13:15:20.749Z INFO webdriver: Retrying 2/3
+2020-04-22T13:15:20.750Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:20.823Z WARN webdriver: Request failed due to Stale element reference
+[0-0] 2020-04-22T13:15:20.823Z INFO webdriver: Retrying 3/3
+2020-04-22T13:15:20.823Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:20.870Z ERROR webdriver: Request failed due to Error: Stale element reference
+    at getErrorFromResponseBody (/Users/davebrotherstone/work/stale-element-repro/node_modules/webdriver/build/utils.js:124:10)
+    at Request._callback (/Users/davebrotherstone/work/stale-element-repro/node_modules/webdriver/build/request.js:121:64)
+    at Request.self.callback (/Users/davebrotherstone/work/stale-element-repro/node_modules/request/request.js:185:22)
+    at Request.emit (events.js:223:5)
+    at Request.EventEmitter.emit (domain.js:475:20)
+    at Request.<anonymous> (/Users/davebrotherstone/work/stale-element-repro/node_modules/request/request.js:1154:10)
+    at Request.emit (events.js:223:5)
+    at Request.EventEmitter.emit (domain.js:475:20)
+    at IncomingMessage.<anonymous> (/Users/davebrotherstone/work/stale-element-repro/node_modules/request/request.js:1076:12)
+    at Object.onceWrapper (events.js:312:28)
+[0-0] 2020-04-22T13:15:21.157Z INFO webdriver: COMMAND isElementDisplayed("9047a06c-2ce1-442d-b9ec-2ba52d4eea4e")
+[0-0] 2020-04-22T13:15:21.157Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:21.201Z WARN webdriver: Request failed due to Stale element reference
+[0-0] 2020-04-22T13:15:21.201Z INFO webdriver: Retrying 1/3
+2020-04-22T13:15:21.201Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:21.254Z WARN webdriver: Request failed due to Stale element reference
+[0-0] 2020-04-22T13:15:21.254Z INFO webdriver: Retrying 2/3
+2020-04-22T13:15:21.254Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:21.320Z WARN webdriver: Request failed due to Stale element reference
+[0-0] 2020-04-22T13:15:21.320Z INFO webdriver: Retrying 3/3
+2020-04-22T13:15:21.320Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:21.371Z ERROR webdriver: Request failed due to Error: Stale element reference
+    at getErrorFromResponseBody (/Users/davebrotherstone/work/stale-element-repro/node_modules/webdriver/build/utils.js:124:10)
+    at Request._callback (/Users/davebrotherstone/work/stale-element-repro/node_modules/webdriver/build/request.js:121:64)
+    at Request.self.callback (/Users/davebrotherstone/work/stale-element-repro/node_modules/request/request.js:185:22)
+    at Request.emit (events.js:223:5)
+    at Request.EventEmitter.emit (domain.js:475:20)
+    at Request.<anonymous> (/Users/davebrotherstone/work/stale-element-repro/node_modules/request/request.js:1154:10)
+    at Request.emit (events.js:223:5)
+    at Request.EventEmitter.emit (domain.js:475:20)
+    at IncomingMessage.<anonymous> (/Users/davebrotherstone/work/stale-element-repro/node_modules/request/request.js:1076:12)
+    at Object.onceWrapper (events.js:312:28)
+[0-0] 2020-04-22T13:15:21.655Z INFO webdriver: COMMAND isElementDisplayed("9047a06c-2ce1-442d-b9ec-2ba52d4eea4e")
+[0-0] 2020-04-22T13:15:21.655Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:21.714Z WARN webdriver: Request failed due to Stale element reference
+[0-0] 2020-04-22T13:15:21.714Z INFO webdriver: Retrying 1/3
+2020-04-22T13:15:21.714Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:21.763Z WARN webdriver: Request failed due to Stale element reference
+[0-0] 2020-04-22T13:15:21.763Z INFO webdriver: Retrying 2/3
+2020-04-22T13:15:21.763Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:21.826Z WARN webdriver: Request failed due to Stale element reference
+[0-0] 2020-04-22T13:15:21.826Z INFO webdriver: Retrying 3/3
+2020-04-22T13:15:21.826Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:21.874Z ERROR webdriver: Request failed due to Error: Stale element reference
+    at getErrorFromResponseBody (/Users/davebrotherstone/work/stale-element-repro/node_modules/webdriver/build/utils.js:124:10)
+    at Request._callback (/Users/davebrotherstone/work/stale-element-repro/node_modules/webdriver/build/request.js:121:64)
+    at Request.self.callback (/Users/davebrotherstone/work/stale-element-repro/node_modules/request/request.js:185:22)
+    at Request.emit (events.js:223:5)
+    at Request.EventEmitter.emit (domain.js:475:20)
+    at Request.<anonymous> (/Users/davebrotherstone/work/stale-element-repro/node_modules/request/request.js:1154:10)
+    at Request.emit (events.js:223:5)
+    at Request.EventEmitter.emit (domain.js:475:20)
+    at IncomingMessage.<anonymous> (/Users/davebrotherstone/work/stale-element-repro/node_modules/request/request.js:1076:12)
+    at Object.onceWrapper (events.js:312:28)
+[0-0] 2020-04-22T13:15:22.157Z INFO webdriver: COMMAND isElementDisplayed("9047a06c-2ce1-442d-b9ec-2ba52d4eea4e")
+[0-0] 2020-04-22T13:15:22.157Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:22.199Z WARN webdriver: Request failed due to Stale element reference
+[0-0] 2020-04-22T13:15:22.199Z INFO webdriver: Retrying 1/3
+2020-04-22T13:15:22.199Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:22.243Z WARN webdriver: Request failed due to Stale element reference
+[0-0] 2020-04-22T13:15:22.243Z INFO webdriver: Retrying 2/3
+2020-04-22T13:15:22.243Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:22.284Z WARN webdriver: Request failed due to Stale element reference
+[0-0] 2020-04-22T13:15:22.285Z INFO webdriver: Retrying 3/3
+2020-04-22T13:15:22.285Z INFO webdriver: [GET] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8/element/9047a06c-2ce1-442d-b9ec-2ba52d4eea4e/displayed
+[0-0] 2020-04-22T13:15:22.366Z ERROR webdriver: Request failed due to Error: Stale element reference
+    at getErrorFromResponseBody (/Users/davebrotherstone/work/stale-element-repro/node_modules/webdriver/build/utils.js:124:10)
+    at Request._callback (/Users/davebrotherstone/work/stale-element-repro/node_modules/webdriver/build/request.js:121:64)
+    at Request.self.callback (/Users/davebrotherstone/work/stale-element-repro/node_modules/request/request.js:185:22)
+    at Request.emit (events.js:223:5)
+    at Request.EventEmitter.emit (domain.js:475:20)
+    at Request.<anonymous> (/Users/davebrotherstone/work/stale-element-repro/node_modules/request/request.js:1154:10)
+    at Request.emit (events.js:223:5)
+    at Request.EventEmitter.emit (domain.js:475:20)
+    at IncomingMessage.<anonymous> (/Users/davebrotherstone/work/stale-element-repro/node_modules/request/request.js:1076:12)
+    at Object.onceWrapper (events.js:312:28)
+[0-0] Error in "Stale elements shows the rerendered element as displayed"
+waitUntil condition failed with the following reason: Stale element reference
+[0-0] 2020-04-22T13:15:23.223Z INFO webdriver: COMMAND deleteSession()
+[0-0] 2020-04-22T13:15:23.224Z INFO webdriver: [DELETE] https://hub-cloud.browserstack.com:443/wd/hub/session/668e74d1c384522f2ea97cf7ab8fa6e4569345a8
+[0-0] 2020-04-22T13:15:25.471Z INFO webdriver: RESULT 
+[0-0] FAILED in Edge - /tests/stale-element.js
+2020-04-22T13:15:25.583Z INFO @wdio/cli:launcher: Run onComplete hook
+
+ "spec" Reporter:
+------------------------------------------------------------------
+[MicrosoftEdge 40.15063.0.0 windows 10 #0-0] Spec: /Users/davebrotherstone/work/stale-element-repro/tests/stale-element.js
+[MicrosoftEdge 40.15063.0.0 windows 10 #0-0] Running: MicrosoftEdge (v40.15063.0.0) on windows 10
+[MicrosoftEdge 40.15063.0.0 windows 10 #0-0] Session ID: 668e74d1c384522f2ea97cf7ab8fa6e4569345a8
+[MicrosoftEdge 40.15063.0.0 windows 10 #0-0]
+[MicrosoftEdge 40.15063.0.0 windows 10 #0-0] Stale elements
+[MicrosoftEdge 40.15063.0.0 windows 10 #0-0]    ✖ shows the rerendered element as displayed
+[MicrosoftEdge 40.15063.0.0 windows 10 #0-0]
+[MicrosoftEdge 40.15063.0.0 windows 10 #0-0] 1 failing (14.2s)
+[MicrosoftEdge 40.15063.0.0 windows 10 #0-0]
+[MicrosoftEdge 40.15063.0.0 windows 10 #0-0] 1) Stale elements shows the rerendered element as displayed
+[MicrosoftEdge 40.15063.0.0 windows 10 #0-0] waitUntil condition failed with the following reason: Stale element reference
+[MicrosoftEdge 40.15063.0.0 windows 10 #0-0] Error: waitUntil condition failed with the following reason: Stale element reference
+[MicrosoftEdge 40.15063.0.0 windows 10 #0-0]     at /Users/davebrotherstone/work/stale-element-repro/node_modules/webdriverio/build/commands/browser/waitUntil.js:36:11
+[MicrosoftEdge 40.15063.0.0 windows 10 #0-0]     at async Element.wrapCommandFn (/Users/davebrotherstone/work/stale-element-repro/node_modules/@wdio/utils/build/shim.js:74:23)
+[MicrosoftEdge 40.15063.0.0 windows 10 #0-0]     at async Element.elementErrorHandlerCallbackFn (/Users/davebrotherstone/work/stale-element-repro/node_modules/webdriverio/build/middlewares.js:21:24)
+[MicrosoftEdge 40.15063.0.0 windows 10 #0-0]     at async Element.wrapCommandFn (/Users/davebrotherstone/work/stale-element-repro/node_modules/@wdio/utils/build/shim.js:74:23)
+[MicrosoftEdge 40.15063.0.0 windows 10 #0-0]     at async Element.wrapCommandFn (/Users/davebrotherstone/work/stale-element-repro/node_modules/@wdio/utils/build/shim.js:74:23)
+[MicrosoftEdge 40.15063.0.0 windows 10 #0-0]     at async Element.elementErrorHandlerCallbackFn (/Users/davebrotherstone/work/stale-element-repro/node_modules/webdriverio/build/middlewares.js:21:24)
+[MicrosoftEdge 40.15063.0.0 windows 10 #0-0]     at async Element.wrapCommandFn (/Users/davebrotherstone/work/stale-element-repro/node_modules/@wdio/utils/build/shim.js:74:23)
+[MicrosoftEdge 40.15063.0.0 windows 10 #0-0]     at async Context.<anonymous> (/Users/davebrotherstone/work/stale-element-repro/tests/stale-element.js:9:5)
+[MicrosoftEdge 40.15063.0.0 windows 10 #0-0]     at async Context.executeAsync (/Users/davebrotherstone/work/stale-element-repro/node_modules/@wdio/utils/build/shim.js:123:12)
+[MicrosoftEdge 40.15063.0.0 windows 10 #0-0]     at async Context.testFrameworkFnWrapper (/Users/davebrotherstone/work/stale-element-repro/node_modules/@wdio/utils/build/test-framework/testFnWrapper.js:63:14)
+
+
+Spec Files:	 0 passed, 1 failed, 1 total (100% completed) in 00:00:21 
+
+2020-04-22T13:15:25.584Z INFO @wdio/local-runner: Shutting down spawned worker
+2020-04-22T13:15:25.840Z INFO @wdio/local-runner: Waiting for 0 to shut down gracefully
+2020-04-22T13:15:25.840Z INFO @wdio/local-runner: shutting down
+npm ERR! Test failed.  See above for more details.

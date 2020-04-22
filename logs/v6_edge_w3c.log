@@ -1,0 +1,4703 @@
+
+> stale-element-repro@1.0.0 test /Users/davebrotherstone/work/stale-element-repro
+> wdio run wdio-v6.conf.js
+
+
+Execution of 1 spec files started at 2020-04-22T13:23:51.976Z
+
+2020-04-22T13:23:52.011Z INFO @wdio/cli:launcher: Run onPrepare hook
+2020-04-22T13:23:52.011Z INFO @wdio/browserstack-service: browserstackLocal is not enabled - skipping...
+2020-04-22T13:23:52.012Z INFO @wdio/cli:launcher: Run onWorkerStart hook
+2020-04-22T13:23:52.013Z INFO @wdio/local-runner: Start worker 0-0 with arg: run,wdio-v6.conf.js
+[0-0] 2020-04-22T13:23:52.273Z INFO @wdio/local-runner: Run worker command: run
+[0-0] 2020-04-22T13:23:52.278Z INFO webdriverio: Initiate new session using the ./protocol-stub protocol
+[0-0] RUNNING in Edge - /tests/stale-element.js
+[0-0] 2020-04-22T13:23:52.363Z INFO webdriverio: Initiate new session using the webdriver protocol
+[0-0] 2020-04-22T13:23:52.365Z INFO webdriver: [POST] https://hub-cloud.browserstack.com/wd/hub/session
+[0-0] 2020-04-22T13:23:52.365Z INFO webdriver: DATA {
+  capabilities: {
+    alwaysMatch: { browserName: 'Edge', browserVersion: '18.0' },
+    firstMatch: [ {} ]
+  },
+  desiredCapabilities: { browserName: 'Edge', browserVersion: '18.0' }
+}
+[0-0] 2020-04-22T13:24:01.858Z INFO @wdio/browserstack-service: MicrosoftEdge 44.18362.449.0 session: https://automate.browserstack.com/builds/d3aeb084f830d967f580cd25de455aa69fbf9b23/sessions/159f50ea349902344c9c07db5f73339cb6a8ba75
+[0-0] 2020-04-22T13:24:01.944Z INFO webdriver: COMMAND navigateTo("https://stale-element-repro.netlify.app/")
+[0-0] 2020-04-22T13:24:01.944Z INFO webdriver: [POST] https://hub-cloud.browserstack.com/wd/hub/session/159f50ea349902344c9c07db5f73339cb6a8ba75/url
+[0-0] 2020-04-22T13:24:01.944Z INFO webdriver: DATA { url: 'https://stale-element-repro.netlify.app/' }
+[0-0] 2020-04-22T13:24:02.390Z INFO webdriver: COMMAND findElement("css selector", ".start")
+[0-0] 2020-04-22T13:24:02.391Z INFO webdriver: [POST] https://hub-cloud.browserstack.com/wd/hub/session/159f50ea349902344c9c07db5f73339cb6a8ba75/element
+[0-0] 2020-04-22T13:24:02.391Z INFO webdriver: DATA { using: 'css selector', value: '.start' }
+[0-0] 2020-04-22T13:24:02.666Z INFO webdriver: RESULT {
+  ELEMENT: '6add3829-f0cd-4d7f-8590-c6731592f665',
+  'element-6066-11e4-a52e-4f735466cecf': '6add3829-f0cd-4d7f-8590-c6731592f665'
+}
+[0-0] 2020-04-22T13:24:02.670Z INFO webdriver: COMMAND elementClick("6add3829-f0cd-4d7f-8590-c6731592f665")
+[0-0] 2020-04-22T13:24:02.670Z INFO webdriver: [POST] https://hub-cloud.browserstack.com/wd/hub/session/159f50ea349902344c9c07db5f73339cb6a8ba75/element/6add3829-f0cd-4d7f-8590-c6731592f665/click
+[0-0] 2020-04-22T13:24:02.851Z INFO webdriver: COMMAND findElement("css selector", ".inner")
+[0-0] 2020-04-22T13:24:02.851Z INFO webdriver: [POST] https://hub-cloud.browserstack.com/wd/hub/session/159f50ea349902344c9c07db5f73339cb6a8ba75/element
+[0-0] 2020-04-22T13:24:02.851Z INFO webdriver: DATA { using: 'css selector', value: '.inner' }
+[0-0] 2020-04-22T13:24:03.189Z INFO webdriver: RESULT {
+  ELEMENT: '837588d3-2d03-4d6a-9f74-59ff1599b24e',
+  'element-6066-11e4-a52e-4f735466cecf': '837588d3-2d03-4d6a-9f74-59ff1599b24e'
+}
+[0-0] 2020-04-22T13:24:03.191Z INFO webdriver: COMMAND executeScript(<fn>, <object>)
+[0-0] 2020-04-22T13:24:03.191Z INFO webdriver: [POST] https://hub-cloud.browserstack.com/wd/hub/session/159f50ea349902344c9c07db5f73339cb6a8ba75/execute/sync
+[0-0] 2020-04-22T13:24:03.191Z INFO webdriver: DATA {
+  script: 'return (function isElementDisplayed(element) {\n' +
+    '  function nodeIsElement(node) {\n' +
+    '    if (!node) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    switch (node.nodeType) {\n' +
+    '      case Node.ELEMENT_NODE:\n' +
+    '      case Node.DOCUMENT_NODE:\n' +
+    '      case Node.DOCUMENT_FRAGMENT_NODE:\n' +
+    '        return true;\n' +
+    '\n' +
+    '      default:\n' +
+    '        return false;\n' +
+    '    }\n' +
+    '  }\n' +
+    '\n' +
+    '  function parentElementForElement(element) {\n' +
+    '    if (!element) {\n' +
+    '      return null;\n' +
+    '    }\n' +
+    '\n' +
+    '    return enclosingNodeOrSelfMatchingPredicate(element.parentNode, nodeIsElement);\n' +
+    '  }\n' +
+    '\n' +
+    '  function enclosingNodeOrSelfMatchingPredicate(targetNode, predicate) {\n' +
+    '    for (let node = targetNode; node && node !== targetNode.ownerDocument; node = node.parentNode) if (predicate(node)) {\n' +
+    '      return node;\n' +
+    '    }\n' +
+    '\n' +
+    '    return null;\n' +
+    '  }\n' +
+    '\n' +
+    '  function enclosingElementOrSelfMatchingPredicate(targetElement, predicate) {\n' +
+    '    for (let element = targetElement; element && element !== targetElement.ownerDocument; element = parentElementForElement(element)) if (predicate(element)) {\n' +
+    '      return element;\n' +
+    '    }\n' +
+    '\n' +
+    '    return null;\n' +
+    '  }\n' +
+    '\n' +
+    '  function cascadedStylePropertyForElement(element, property) {\n' +
+    '    if (!element || !property) {\n' +
+    '      return null;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (element instanceof DocumentFragment) {\n' +
+    '      element = element.host;\n' +
+    '    }\n' +
+    '\n' +
+    '    let computedStyle = window.getComputedStyle(element);\n' +
+    '    let computedStyleProperty = computedStyle.getPropertyValue(property);\n' +
+    '\n' +
+    "    if (computedStyleProperty && computedStyleProperty !== 'inherit') {\n" +
+    '      return computedStyleProperty;\n' +
+    '    }\n' +
+    '\n' +
+    '    let parentElement = parentElementForElement(element);\n' +
+    '    return cascadedStylePropertyForElement(parentElement, property);\n' +
+    '  }\n' +
+    '\n' +
+    '  function elementSubtreeHasNonZeroDimensions(element) {\n' +
+    '    let boundingBox = element.getBoundingClientRect();\n' +
+    '\n' +
+    '    if (boundingBox.width > 0 && boundingBox.height > 0) {\n' +
+    '      return true;\n' +
+    '    }\n' +
+    '\n' +
+    "    if (element.tagName.toUpperCase() === 'PATH' && boundingBox.width + boundingBox.height > 0) {\n" +
+    "      let strokeWidth = cascadedStylePropertyForElement(element, 'stroke-width');\n" +
+    '      return !!strokeWidth && parseInt(strokeWidth, 10) > 0;\n' +
+    '    }\n' +
+    '\n' +
+    "    let cascadedOverflow = cascadedStylePropertyForElement(element, 'overflow');\n" +
+    '\n' +
+    "    if (cascadedOverflow === 'hidden') {\n" +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    return Array.from(element.childNodes).some(childNode => {\n' +
+    '      if (childNode.nodeType === Node.TEXT_NODE) {\n' +
+    '        return true;\n' +
+    '      }\n' +
+    '\n' +
+    '      if (nodeIsElement(childNode)) {\n' +
+    '        return elementSubtreeHasNonZeroDimensions(childNode);\n' +
+    '      }\n' +
+    '\n' +
+    '      return false;\n' +
+    '    });\n' +
+    '  }\n' +
+    '\n' +
+    '  function elementOverflowsContainer(element) {\n' +
+    "    let cascadedOverflow = cascadedStylePropertyForElement(element, 'overflow');\n" +
+    '\n' +
+    "    if (cascadedOverflow !== 'hidden') {\n" +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    return true;\n' +
+    '  }\n' +
+    '\n' +
+    '  function isElementSubtreeHiddenByOverflow(element) {\n' +
+    '    if (!element) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (!elementOverflowsContainer(element)) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (!element.childNodes.length) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    return Array.from(element.childNodes).every(childNode => {\n' +
+    '      if (childNode.nodeType === Node.TEXT_NODE) {\n' +
+    '        return false;\n' +
+    '      }\n' +
+    '\n' +
+    '      if (!nodeIsElement(childNode)) {\n' +
+    '        return true;\n' +
+    '      }\n' +
+    '\n' +
+    '      if (!elementSubtreeHasNonZeroDimensions(childNode)) {\n' +
+    '        return true;\n' +
+    '      }\n' +
+    '\n' +
+    '      return isElementSubtreeHiddenByOverflow(childNode);\n' +
+    '    });\n' +
+    '  }\n' +
+    '\n' +
+    '  function isElementInsideShadowRoot(element) {\n' +
+    '    if (!element) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (element.parentNode && element.parentNode.host) {\n' +
+    '      return true;\n' +
+    '    }\n' +
+    '\n' +
+    '    return isElementInsideShadowRoot(element.parentNode);\n' +
+    '  }\n' +
+    '\n' +
+    '  if (!isElementInsideShadowRoot(element) && !document.contains(element)) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  switch (element.tagName.toUpperCase()) {\n' +
+    "    case 'BODY':\n" +
+    '      return true;\n' +
+    '\n' +
+    "    case 'SCRIPT':\n" +
+    "    case 'NOSCRIPT':\n" +
+    '      return false;\n' +
+    '\n' +
+    "    case 'OPTGROUP':\n" +
+    "    case 'OPTION':\n" +
+    '      {\n' +
+    "        let enclosingSelectElement = enclosingNodeOrSelfMatchingPredicate(element, e => e.tagName.toUpperCase() === 'SELECT');\n" +
+    '        return isElementDisplayed(enclosingSelectElement);\n' +
+    '      }\n' +
+    '\n' +
+    "    case 'INPUT':\n" +
+    "      if (element.type === 'hidden') {\n" +
+    '        return false;\n' +
+    '      }\n' +
+    '\n' +
+    '      break;\n' +
+    '\n' +
+    '    default:\n' +
+    '      break;\n' +
+    '  }\n' +
+    '\n' +
+    "  if (cascadedStylePropertyForElement(element, 'visibility') !== 'visible') {\n" +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  let hasAncestorWithZeroOpacity = !!enclosingElementOrSelfMatchingPredicate(element, e => {\n' +
+    "    return Number(cascadedStylePropertyForElement(e, 'opacity')) === 0;\n" +
+    '  });\n' +
+    '  let hasAncestorWithDisplayNone = !!enclosingElementOrSelfMatchingPredicate(element, e => {\n' +
+    "    return cascadedStylePropertyForElement(e, 'display') === 'none';\n" +
+    '  });\n' +
+    '\n' +
+    '  if (hasAncestorWithZeroOpacity || hasAncestorWithDisplayNone) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  if (!elementSubtreeHasNonZeroDimensions(element)) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  if (isElementSubtreeHiddenByOverflow(element)) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  return true;\n' +
+    '}).apply(null, arguments)',
+  args: [
+    {
+      'element-6066-11e4-a52e-4f735466cecf': '837588d3-2d03-4d6a-9f74-59ff1599b24e',
+      ELEMENT: '837588d3-2d03-4d6a-9f74-59ff1599b24e'
+    }
+  ]
+}
+[0-0] 2020-04-22T13:24:03.251Z INFO webdriver: RESULT true
+[0-0] 2020-04-22T13:24:03.252Z INFO webdriver: COMMAND executeScript(<fn>, <object>)
+[0-0] 2020-04-22T13:24:03.252Z INFO webdriver: [POST] https://hub-cloud.browserstack.com/wd/hub/session/159f50ea349902344c9c07db5f73339cb6a8ba75/execute/sync
+[0-0] 2020-04-22T13:24:03.253Z INFO webdriver: DATA {
+  script: 'return (function isElementDisplayed(element) {\n' +
+    '  function nodeIsElement(node) {\n' +
+    '    if (!node) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    switch (node.nodeType) {\n' +
+    '      case Node.ELEMENT_NODE:\n' +
+    '      case Node.DOCUMENT_NODE:\n' +
+    '      case Node.DOCUMENT_FRAGMENT_NODE:\n' +
+    '        return true;\n' +
+    '\n' +
+    '      default:\n' +
+    '        return false;\n' +
+    '    }\n' +
+    '  }\n' +
+    '\n' +
+    '  function parentElementForElement(element) {\n' +
+    '    if (!element) {\n' +
+    '      return null;\n' +
+    '    }\n' +
+    '\n' +
+    '    return enclosingNodeOrSelfMatchingPredicate(element.parentNode, nodeIsElement);\n' +
+    '  }\n' +
+    '\n' +
+    '  function enclosingNodeOrSelfMatchingPredicate(targetNode, predicate) {\n' +
+    '    for (let node = targetNode; node && node !== targetNode.ownerDocument; node = node.parentNode) if (predicate(node)) {\n' +
+    '      return node;\n' +
+    '    }\n' +
+    '\n' +
+    '    return null;\n' +
+    '  }\n' +
+    '\n' +
+    '  function enclosingElementOrSelfMatchingPredicate(targetElement, predicate) {\n' +
+    '    for (let element = targetElement; element && element !== targetElement.ownerDocument; element = parentElementForElement(element)) if (predicate(element)) {\n' +
+    '      return element;\n' +
+    '    }\n' +
+    '\n' +
+    '    return null;\n' +
+    '  }\n' +
+    '\n' +
+    '  function cascadedStylePropertyForElement(element, property) {\n' +
+    '    if (!element || !property) {\n' +
+    '      return null;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (element instanceof DocumentFragment) {\n' +
+    '      element = element.host;\n' +
+    '    }\n' +
+    '\n' +
+    '    let computedStyle = window.getComputedStyle(element);\n' +
+    '    let computedStyleProperty = computedStyle.getPropertyValue(property);\n' +
+    '\n' +
+    "    if (computedStyleProperty && computedStyleProperty !== 'inherit') {\n" +
+    '      return computedStyleProperty;\n' +
+    '    }\n' +
+    '\n' +
+    '    let parentElement = parentElementForElement(element);\n' +
+    '    return cascadedStylePropertyForElement(parentElement, property);\n' +
+    '  }\n' +
+    '\n' +
+    '  function elementSubtreeHasNonZeroDimensions(element) {\n' +
+    '    let boundingBox = element.getBoundingClientRect();\n' +
+    '\n' +
+    '    if (boundingBox.width > 0 && boundingBox.height > 0) {\n' +
+    '      return true;\n' +
+    '    }\n' +
+    '\n' +
+    "    if (element.tagName.toUpperCase() === 'PATH' && boundingBox.width + boundingBox.height > 0) {\n" +
+    "      let strokeWidth = cascadedStylePropertyForElement(element, 'stroke-width');\n" +
+    '      return !!strokeWidth && parseInt(strokeWidth, 10) > 0;\n' +
+    '    }\n' +
+    '\n' +
+    "    let cascadedOverflow = cascadedStylePropertyForElement(element, 'overflow');\n" +
+    '\n' +
+    "    if (cascadedOverflow === 'hidden') {\n" +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    return Array.from(element.childNodes).some(childNode => {\n' +
+    '      if (childNode.nodeType === Node.TEXT_NODE) {\n' +
+    '        return true;\n' +
+    '      }\n' +
+    '\n' +
+    '      if (nodeIsElement(childNode)) {\n' +
+    '        return elementSubtreeHasNonZeroDimensions(childNode);\n' +
+    '      }\n' +
+    '\n' +
+    '      return false;\n' +
+    '    });\n' +
+    '  }\n' +
+    '\n' +
+    '  function elementOverflowsContainer(element) {\n' +
+    "    let cascadedOverflow = cascadedStylePropertyForElement(element, 'overflow');\n" +
+    '\n' +
+    "    if (cascadedOverflow !== 'hidden') {\n" +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    return true;\n' +
+    '  }\n' +
+    '\n' +
+    '  function isElementSubtreeHiddenByOverflow(element) {\n' +
+    '    if (!element) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (!elementOverflowsContainer(element)) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (!element.childNodes.length) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    return Array.from(element.childNodes).every(childNode => {\n' +
+    '      if (childNode.nodeType === Node.TEXT_NODE) {\n' +
+    '        return false;\n' +
+    '      }\n' +
+    '\n' +
+    '      if (!nodeIsElement(childNode)) {\n' +
+    '        return true;\n' +
+    '      }\n' +
+    '\n' +
+    '      if (!elementSubtreeHasNonZeroDimensions(childNode)) {\n' +
+    '        return true;\n' +
+    '      }\n' +
+    '\n' +
+    '      return isElementSubtreeHiddenByOverflow(childNode);\n' +
+    '    });\n' +
+    '  }\n' +
+    '\n' +
+    '  function isElementInsideShadowRoot(element) {\n' +
+    '    if (!element) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (element.parentNode && element.parentNode.host) {\n' +
+    '      return true;\n' +
+    '    }\n' +
+    '\n' +
+    '    return isElementInsideShadowRoot(element.parentNode);\n' +
+    '  }\n' +
+    '\n' +
+    '  if (!isElementInsideShadowRoot(element) && !document.contains(element)) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  switch (element.tagName.toUpperCase()) {\n' +
+    "    case 'BODY':\n" +
+    '      return true;\n' +
+    '\n' +
+    "    case 'SCRIPT':\n" +
+    "    case 'NOSCRIPT':\n" +
+    '      return false;\n' +
+    '\n' +
+    "    case 'OPTGROUP':\n" +
+    "    case 'OPTION':\n" +
+    '      {\n' +
+    "        let enclosingSelectElement = enclosingNodeOrSelfMatchingPredicate(element, e => e.tagName.toUpperCase() === 'SELECT');\n" +
+    '        return isElementDisplayed(enclosingSelectElement);\n' +
+    '      }\n' +
+    '\n' +
+    "    case 'INPUT':\n" +
+    "      if (element.type === 'hidden') {\n" +
+    '        return false;\n' +
+    '      }\n' +
+    '\n' +
+    '      break;\n' +
+    '\n' +
+    '    default:\n' +
+    '      break;\n' +
+    '  }\n' +
+    '\n' +
+    "  if (cascadedStylePropertyForElement(element, 'visibility') !== 'visible') {\n" +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  let hasAncestorWithZeroOpacity = !!enclosingElementOrSelfMatchingPredicate(element, e => {\n' +
+    "    return Number(cascadedStylePropertyForElement(e, 'opacity')) === 0;\n" +
+    '  });\n' +
+    '  let hasAncestorWithDisplayNone = !!enclosingElementOrSelfMatchingPredicate(element, e => {\n' +
+    "    return cascadedStylePropertyForElement(e, 'display') === 'none';\n" +
+    '  });\n' +
+    '\n' +
+    '  if (hasAncestorWithZeroOpacity || hasAncestorWithDisplayNone) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  if (!elementSubtreeHasNonZeroDimensions(element)) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  if (isElementSubtreeHiddenByOverflow(element)) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  return true;\n' +
+    '}).apply(null, arguments)',
+  args: [
+    {
+      'element-6066-11e4-a52e-4f735466cecf': '837588d3-2d03-4d6a-9f74-59ff1599b24e',
+      ELEMENT: '837588d3-2d03-4d6a-9f74-59ff1599b24e'
+    }
+  ]
+}
+[0-0] 2020-04-22T13:24:03.315Z INFO webdriver: RESULT true
+[0-0] 2020-04-22T13:24:03.316Z INFO webdriver: COMMAND executeScript(<fn>, <object>)
+[0-0] 2020-04-22T13:24:03.316Z INFO webdriver: [POST] https://hub-cloud.browserstack.com/wd/hub/session/159f50ea349902344c9c07db5f73339cb6a8ba75/execute/sync
+[0-0] 2020-04-22T13:24:03.316Z INFO webdriver: DATA {
+  script: 'return (function isElementDisplayed(element) {\n' +
+    '  function nodeIsElement(node) {\n' +
+    '    if (!node) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    switch (node.nodeType) {\n' +
+    '      case Node.ELEMENT_NODE:\n' +
+    '      case Node.DOCUMENT_NODE:\n' +
+    '      case Node.DOCUMENT_FRAGMENT_NODE:\n' +
+    '        return true;\n' +
+    '\n' +
+    '      default:\n' +
+    '        return false;\n' +
+    '    }\n' +
+    '  }\n' +
+    '\n' +
+    '  function parentElementForElement(element) {\n' +
+    '    if (!element) {\n' +
+    '      return null;\n' +
+    '    }\n' +
+    '\n' +
+    '    return enclosingNodeOrSelfMatchingPredicate(element.parentNode, nodeIsElement);\n' +
+    '  }\n' +
+    '\n' +
+    '  function enclosingNodeOrSelfMatchingPredicate(targetNode, predicate) {\n' +
+    '    for (let node = targetNode; node && node !== targetNode.ownerDocument; node = node.parentNode) if (predicate(node)) {\n' +
+    '      return node;\n' +
+    '    }\n' +
+    '\n' +
+    '    return null;\n' +
+    '  }\n' +
+    '\n' +
+    '  function enclosingElementOrSelfMatchingPredicate(targetElement, predicate) {\n' +
+    '    for (let element = targetElement; element && element !== targetElement.ownerDocument; element = parentElementForElement(element)) if (predicate(element)) {\n' +
+    '      return element;\n' +
+    '    }\n' +
+    '\n' +
+    '    return null;\n' +
+    '  }\n' +
+    '\n' +
+    '  function cascadedStylePropertyForElement(element, property) {\n' +
+    '    if (!element || !property) {\n' +
+    '      return null;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (element instanceof DocumentFragment) {\n' +
+    '      element = element.host;\n' +
+    '    }\n' +
+    '\n' +
+    '    let computedStyle = window.getComputedStyle(element);\n' +
+    '    let computedStyleProperty = computedStyle.getPropertyValue(property);\n' +
+    '\n' +
+    "    if (computedStyleProperty && computedStyleProperty !== 'inherit') {\n" +
+    '      return computedStyleProperty;\n' +
+    '    }\n' +
+    '\n' +
+    '    let parentElement = parentElementForElement(element);\n' +
+    '    return cascadedStylePropertyForElement(parentElement, property);\n' +
+    '  }\n' +
+    '\n' +
+    '  function elementSubtreeHasNonZeroDimensions(element) {\n' +
+    '    let boundingBox = element.getBoundingClientRect();\n' +
+    '\n' +
+    '    if (boundingBox.width > 0 && boundingBox.height > 0) {\n' +
+    '      return true;\n' +
+    '    }\n' +
+    '\n' +
+    "    if (element.tagName.toUpperCase() === 'PATH' && boundingBox.width + boundingBox.height > 0) {\n" +
+    "      let strokeWidth = cascadedStylePropertyForElement(element, 'stroke-width');\n" +
+    '      return !!strokeWidth && parseInt(strokeWidth, 10) > 0;\n' +
+    '    }\n' +
+    '\n' +
+    "    let cascadedOverflow = cascadedStylePropertyForElement(element, 'overflow');\n" +
+    '\n' +
+    "    if (cascadedOverflow === 'hidden') {\n" +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    return Array.from(element.childNodes).some(childNode => {\n' +
+    '      if (childNode.nodeType === Node.TEXT_NODE) {\n' +
+    '        return true;\n' +
+    '      }\n' +
+    '\n' +
+    '      if (nodeIsElement(childNode)) {\n' +
+    '        return elementSubtreeHasNonZeroDimensions(childNode);\n' +
+    '      }\n' +
+    '\n' +
+    '      return false;\n' +
+    '    });\n' +
+    '  }\n' +
+    '\n' +
+    '  function elementOverflowsContainer(element) {\n' +
+    "    let cascadedOverflow = cascadedStylePropertyForElement(element, 'overflow');\n" +
+    '\n' +
+    "    if (cascadedOverflow !== 'hidden') {\n" +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    return true;\n' +
+    '  }\n' +
+    '\n' +
+    '  function isElementSubtreeHiddenByOverflow(element) {\n' +
+    '    if (!element) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (!elementOverflowsContainer(element)) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (!element.childNodes.length) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    return Array.from(element.childNodes).every(childNode => {\n' +
+    '      if (childNode.nodeType === Node.TEXT_NODE) {\n' +
+    '        return false;\n' +
+    '      }\n' +
+    '\n' +
+    '      if (!nodeIsElement(childNode)) {\n' +
+    '        return true;\n' +
+    '      }\n' +
+    '\n' +
+    '      if (!elementSubtreeHasNonZeroDimensions(childNode)) {\n' +
+    '        return true;\n' +
+    '      }\n' +
+    '\n' +
+    '      return isElementSubtreeHiddenByOverflow(childNode);\n' +
+    '    });\n' +
+    '  }\n' +
+    '\n' +
+    '  function isElementInsideShadowRoot(element) {\n' +
+    '    if (!element) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (element.parentNode && element.parentNode.host) {\n' +
+    '      return true;\n' +
+    '    }\n' +
+    '\n' +
+    '    return isElementInsideShadowRoot(element.parentNode);\n' +
+    '  }\n' +
+    '\n' +
+    '  if (!isElementInsideShadowRoot(element) && !document.contains(element)) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  switch (element.tagName.toUpperCase()) {\n' +
+    "    case 'BODY':\n" +
+    '      return true;\n' +
+    '\n' +
+    "    case 'SCRIPT':\n" +
+    "    case 'NOSCRIPT':\n" +
+    '      return false;\n' +
+    '\n' +
+    "    case 'OPTGROUP':\n" +
+    "    case 'OPTION':\n" +
+    '      {\n' +
+    "        let enclosingSelectElement = enclosingNodeOrSelfMatchingPredicate(element, e => e.tagName.toUpperCase() === 'SELECT');\n" +
+    '        return isElementDisplayed(enclosingSelectElement);\n' +
+    '      }\n' +
+    '\n' +
+    "    case 'INPUT':\n" +
+    "      if (element.type === 'hidden') {\n" +
+    '        return false;\n' +
+    '      }\n' +
+    '\n' +
+    '      break;\n' +
+    '\n' +
+    '    default:\n' +
+    '      break;\n' +
+    '  }\n' +
+    '\n' +
+    "  if (cascadedStylePropertyForElement(element, 'visibility') !== 'visible') {\n" +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  let hasAncestorWithZeroOpacity = !!enclosingElementOrSelfMatchingPredicate(element, e => {\n' +
+    "    return Number(cascadedStylePropertyForElement(e, 'opacity')) === 0;\n" +
+    '  });\n' +
+    '  let hasAncestorWithDisplayNone = !!enclosingElementOrSelfMatchingPredicate(element, e => {\n' +
+    "    return cascadedStylePropertyForElement(e, 'display') === 'none';\n" +
+    '  });\n' +
+    '\n' +
+    '  if (hasAncestorWithZeroOpacity || hasAncestorWithDisplayNone) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  if (!elementSubtreeHasNonZeroDimensions(element)) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  if (isElementSubtreeHiddenByOverflow(element)) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  return true;\n' +
+    '}).apply(null, arguments)',
+  args: [
+    {
+      'element-6066-11e4-a52e-4f735466cecf': '837588d3-2d03-4d6a-9f74-59ff1599b24e',
+      ELEMENT: '837588d3-2d03-4d6a-9f74-59ff1599b24e'
+    }
+  ]
+}
+[0-0] 2020-04-22T13:24:03.392Z INFO webdriver: RESULT false
+[0-0] 2020-04-22T13:24:03.821Z INFO webdriver: COMMAND executeScript(<fn>, <object>)
+[0-0] 2020-04-22T13:24:03.821Z INFO webdriver: [POST] https://hub-cloud.browserstack.com/wd/hub/session/159f50ea349902344c9c07db5f73339cb6a8ba75/execute/sync
+[0-0] 2020-04-22T13:24:03.821Z INFO webdriver: DATA {
+  script: 'return (function isElementDisplayed(element) {\n' +
+    '  function nodeIsElement(node) {\n' +
+    '    if (!node) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    switch (node.nodeType) {\n' +
+    '      case Node.ELEMENT_NODE:\n' +
+    '      case Node.DOCUMENT_NODE:\n' +
+    '      case Node.DOCUMENT_FRAGMENT_NODE:\n' +
+    '        return true;\n' +
+    '\n' +
+    '      default:\n' +
+    '        return false;\n' +
+    '    }\n' +
+    '  }\n' +
+    '\n' +
+    '  function parentElementForElement(element) {\n' +
+    '    if (!element) {\n' +
+    '      return null;\n' +
+    '    }\n' +
+    '\n' +
+    '    return enclosingNodeOrSelfMatchingPredicate(element.parentNode, nodeIsElement);\n' +
+    '  }\n' +
+    '\n' +
+    '  function enclosingNodeOrSelfMatchingPredicate(targetNode, predicate) {\n' +
+    '    for (let node = targetNode; node && node !== targetNode.ownerDocument; node = node.parentNode) if (predicate(node)) {\n' +
+    '      return node;\n' +
+    '    }\n' +
+    '\n' +
+    '    return null;\n' +
+    '  }\n' +
+    '\n' +
+    '  function enclosingElementOrSelfMatchingPredicate(targetElement, predicate) {\n' +
+    '    for (let element = targetElement; element && element !== targetElement.ownerDocument; element = parentElementForElement(element)) if (predicate(element)) {\n' +
+    '      return element;\n' +
+    '    }\n' +
+    '\n' +
+    '    return null;\n' +
+    '  }\n' +
+    '\n' +
+    '  function cascadedStylePropertyForElement(element, property) {\n' +
+    '    if (!element || !property) {\n' +
+    '      return null;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (element instanceof DocumentFragment) {\n' +
+    '      element = element.host;\n' +
+    '    }\n' +
+    '\n' +
+    '    let computedStyle = window.getComputedStyle(element);\n' +
+    '    let computedStyleProperty = computedStyle.getPropertyValue(property);\n' +
+    '\n' +
+    "    if (computedStyleProperty && computedStyleProperty !== 'inherit') {\n" +
+    '      return computedStyleProperty;\n' +
+    '    }\n' +
+    '\n' +
+    '    let parentElement = parentElementForElement(element);\n' +
+    '    return cascadedStylePropertyForElement(parentElement, property);\n' +
+    '  }\n' +
+    '\n' +
+    '  function elementSubtreeHasNonZeroDimensions(element) {\n' +
+    '    let boundingBox = element.getBoundingClientRect();\n' +
+    '\n' +
+    '    if (boundingBox.width > 0 && boundingBox.height > 0) {\n' +
+    '      return true;\n' +
+    '    }\n' +
+    '\n' +
+    "    if (element.tagName.toUpperCase() === 'PATH' && boundingBox.width + boundingBox.height > 0) {\n" +
+    "      let strokeWidth = cascadedStylePropertyForElement(element, 'stroke-width');\n" +
+    '      return !!strokeWidth && parseInt(strokeWidth, 10) > 0;\n' +
+    '    }\n' +
+    '\n' +
+    "    let cascadedOverflow = cascadedStylePropertyForElement(element, 'overflow');\n" +
+    '\n' +
+    "    if (cascadedOverflow === 'hidden') {\n" +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    return Array.from(element.childNodes).some(childNode => {\n' +
+    '      if (childNode.nodeType === Node.TEXT_NODE) {\n' +
+    '        return true;\n' +
+    '      }\n' +
+    '\n' +
+    '      if (nodeIsElement(childNode)) {\n' +
+    '        return elementSubtreeHasNonZeroDimensions(childNode);\n' +
+    '      }\n' +
+    '\n' +
+    '      return false;\n' +
+    '    });\n' +
+    '  }\n' +
+    '\n' +
+    '  function elementOverflowsContainer(element) {\n' +
+    "    let cascadedOverflow = cascadedStylePropertyForElement(element, 'overflow');\n" +
+    '\n' +
+    "    if (cascadedOverflow !== 'hidden') {\n" +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    return true;\n' +
+    '  }\n' +
+    '\n' +
+    '  function isElementSubtreeHiddenByOverflow(element) {\n' +
+    '    if (!element) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (!elementOverflowsContainer(element)) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (!element.childNodes.length) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    return Array.from(element.childNodes).every(childNode => {\n' +
+    '      if (childNode.nodeType === Node.TEXT_NODE) {\n' +
+    '        return false;\n' +
+    '      }\n' +
+    '\n' +
+    '      if (!nodeIsElement(childNode)) {\n' +
+    '        return true;\n' +
+    '      }\n' +
+    '\n' +
+    '      if (!elementSubtreeHasNonZeroDimensions(childNode)) {\n' +
+    '        return true;\n' +
+    '      }\n' +
+    '\n' +
+    '      return isElementSubtreeHiddenByOverflow(childNode);\n' +
+    '    });\n' +
+    '  }\n' +
+    '\n' +
+    '  function isElementInsideShadowRoot(element) {\n' +
+    '    if (!element) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (element.parentNode && element.parentNode.host) {\n' +
+    '      return true;\n' +
+    '    }\n' +
+    '\n' +
+    '    return isElementInsideShadowRoot(element.parentNode);\n' +
+    '  }\n' +
+    '\n' +
+    '  if (!isElementInsideShadowRoot(element) && !document.contains(element)) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  switch (element.tagName.toUpperCase()) {\n' +
+    "    case 'BODY':\n" +
+    '      return true;\n' +
+    '\n' +
+    "    case 'SCRIPT':\n" +
+    "    case 'NOSCRIPT':\n" +
+    '      return false;\n' +
+    '\n' +
+    "    case 'OPTGROUP':\n" +
+    "    case 'OPTION':\n" +
+    '      {\n' +
+    "        let enclosingSelectElement = enclosingNodeOrSelfMatchingPredicate(element, e => e.tagName.toUpperCase() === 'SELECT');\n" +
+    '        return isElementDisplayed(enclosingSelectElement);\n' +
+    '      }\n' +
+    '\n' +
+    "    case 'INPUT':\n" +
+    "      if (element.type === 'hidden') {\n" +
+    '        return false;\n' +
+    '      }\n' +
+    '\n' +
+    '      break;\n' +
+    '\n' +
+    '    default:\n' +
+    '      break;\n' +
+    '  }\n' +
+    '\n' +
+    "  if (cascadedStylePropertyForElement(element, 'visibility') !== 'visible') {\n" +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  let hasAncestorWithZeroOpacity = !!enclosingElementOrSelfMatchingPredicate(element, e => {\n' +
+    "    return Number(cascadedStylePropertyForElement(e, 'opacity')) === 0;\n" +
+    '  });\n' +
+    '  let hasAncestorWithDisplayNone = !!enclosingElementOrSelfMatchingPredicate(element, e => {\n' +
+    "    return cascadedStylePropertyForElement(e, 'display') === 'none';\n" +
+    '  });\n' +
+    '\n' +
+    '  if (hasAncestorWithZeroOpacity || hasAncestorWithDisplayNone) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  if (!elementSubtreeHasNonZeroDimensions(element)) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  if (isElementSubtreeHiddenByOverflow(element)) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  return true;\n' +
+    '}).apply(null, arguments)',
+  args: [
+    {
+      'element-6066-11e4-a52e-4f735466cecf': '837588d3-2d03-4d6a-9f74-59ff1599b24e',
+      ELEMENT: '837588d3-2d03-4d6a-9f74-59ff1599b24e'
+    }
+  ]
+}
+[0-0] 2020-04-22T13:24:03.903Z INFO webdriver: RESULT false
+[0-0] 2020-04-22T13:24:04.318Z INFO webdriver: COMMAND executeScript(<fn>, <object>)
+[0-0] 2020-04-22T13:24:04.318Z INFO webdriver: [POST] https://hub-cloud.browserstack.com/wd/hub/session/159f50ea349902344c9c07db5f73339cb6a8ba75/execute/sync
+[0-0] 2020-04-22T13:24:04.318Z INFO webdriver: DATA {
+  script: 'return (function isElementDisplayed(element) {\n' +
+    '  function nodeIsElement(node) {\n' +
+    '    if (!node) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    switch (node.nodeType) {\n' +
+    '      case Node.ELEMENT_NODE:\n' +
+    '      case Node.DOCUMENT_NODE:\n' +
+    '      case Node.DOCUMENT_FRAGMENT_NODE:\n' +
+    '        return true;\n' +
+    '\n' +
+    '      default:\n' +
+    '        return false;\n' +
+    '    }\n' +
+    '  }\n' +
+    '\n' +
+    '  function parentElementForElement(element) {\n' +
+    '    if (!element) {\n' +
+    '      return null;\n' +
+    '    }\n' +
+    '\n' +
+    '    return enclosingNodeOrSelfMatchingPredicate(element.parentNode, nodeIsElement);\n' +
+    '  }\n' +
+    '\n' +
+    '  function enclosingNodeOrSelfMatchingPredicate(targetNode, predicate) {\n' +
+    '    for (let node = targetNode; node && node !== targetNode.ownerDocument; node = node.parentNode) if (predicate(node)) {\n' +
+    '      return node;\n' +
+    '    }\n' +
+    '\n' +
+    '    return null;\n' +
+    '  }\n' +
+    '\n' +
+    '  function enclosingElementOrSelfMatchingPredicate(targetElement, predicate) {\n' +
+    '    for (let element = targetElement; element && element !== targetElement.ownerDocument; element = parentElementForElement(element)) if (predicate(element)) {\n' +
+    '      return element;\n' +
+    '    }\n' +
+    '\n' +
+    '    return null;\n' +
+    '  }\n' +
+    '\n' +
+    '  function cascadedStylePropertyForElement(element, property) {\n' +
+    '    if (!element || !property) {\n' +
+    '      return null;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (element instanceof DocumentFragment) {\n' +
+    '      element = element.host;\n' +
+    '    }\n' +
+    '\n' +
+    '    let computedStyle = window.getComputedStyle(element);\n' +
+    '    let computedStyleProperty = computedStyle.getPropertyValue(property);\n' +
+    '\n' +
+    "    if (computedStyleProperty && computedStyleProperty !== 'inherit') {\n" +
+    '      return computedStyleProperty;\n' +
+    '    }\n' +
+    '\n' +
+    '    let parentElement = parentElementForElement(element);\n' +
+    '    return cascadedStylePropertyForElement(parentElement, property);\n' +
+    '  }\n' +
+    '\n' +
+    '  function elementSubtreeHasNonZeroDimensions(element) {\n' +
+    '    let boundingBox = element.getBoundingClientRect();\n' +
+    '\n' +
+    '    if (boundingBox.width > 0 && boundingBox.height > 0) {\n' +
+    '      return true;\n' +
+    '    }\n' +
+    '\n' +
+    "    if (element.tagName.toUpperCase() === 'PATH' && boundingBox.width + boundingBox.height > 0) {\n" +
+    "      let strokeWidth = cascadedStylePropertyForElement(element, 'stroke-width');\n" +
+    '      return !!strokeWidth && parseInt(strokeWidth, 10) > 0;\n' +
+    '    }\n' +
+    '\n' +
+    "    let cascadedOverflow = cascadedStylePropertyForElement(element, 'overflow');\n" +
+    '\n' +
+    "    if (cascadedOverflow === 'hidden') {\n" +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    return Array.from(element.childNodes).some(childNode => {\n' +
+    '      if (childNode.nodeType === Node.TEXT_NODE) {\n' +
+    '        return true;\n' +
+    '      }\n' +
+    '\n' +
+    '      if (nodeIsElement(childNode)) {\n' +
+    '        return elementSubtreeHasNonZeroDimensions(childNode);\n' +
+    '      }\n' +
+    '\n' +
+    '      return false;\n' +
+    '    });\n' +
+    '  }\n' +
+    '\n' +
+    '  function elementOverflowsContainer(element) {\n' +
+    "    let cascadedOverflow = cascadedStylePropertyForElement(element, 'overflow');\n" +
+    '\n' +
+    "    if (cascadedOverflow !== 'hidden') {\n" +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    return true;\n' +
+    '  }\n' +
+    '\n' +
+    '  function isElementSubtreeHiddenByOverflow(element) {\n' +
+    '    if (!element) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (!elementOverflowsContainer(element)) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (!element.childNodes.length) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    return Array.from(element.childNodes).every(childNode => {\n' +
+    '      if (childNode.nodeType === Node.TEXT_NODE) {\n' +
+    '        return false;\n' +
+    '      }\n' +
+    '\n' +
+    '      if (!nodeIsElement(childNode)) {\n' +
+    '        return true;\n' +
+    '      }\n' +
+    '\n' +
+    '      if (!elementSubtreeHasNonZeroDimensions(childNode)) {\n' +
+    '        return true;\n' +
+    '      }\n' +
+    '\n' +
+    '      return isElementSubtreeHiddenByOverflow(childNode);\n' +
+    '    });\n' +
+    '  }\n' +
+    '\n' +
+    '  function isElementInsideShadowRoot(element) {\n' +
+    '    if (!element) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (element.parentNode && element.parentNode.host) {\n' +
+    '      return true;\n' +
+    '    }\n' +
+    '\n' +
+    '    return isElementInsideShadowRoot(element.parentNode);\n' +
+    '  }\n' +
+    '\n' +
+    '  if (!isElementInsideShadowRoot(element) && !document.contains(element)) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  switch (element.tagName.toUpperCase()) {\n' +
+    "    case 'BODY':\n" +
+    '      return true;\n' +
+    '\n' +
+    "    case 'SCRIPT':\n" +
+    "    case 'NOSCRIPT':\n" +
+    '      return false;\n' +
+    '\n' +
+    "    case 'OPTGROUP':\n" +
+    "    case 'OPTION':\n" +
+    '      {\n' +
+    "        let enclosingSelectElement = enclosingNodeOrSelfMatchingPredicate(element, e => e.tagName.toUpperCase() === 'SELECT');\n" +
+    '        return isElementDisplayed(enclosingSelectElement);\n' +
+    '      }\n' +
+    '\n' +
+    "    case 'INPUT':\n" +
+    "      if (element.type === 'hidden') {\n" +
+    '        return false;\n' +
+    '      }\n' +
+    '\n' +
+    '      break;\n' +
+    '\n' +
+    '    default:\n' +
+    '      break;\n' +
+    '  }\n' +
+    '\n' +
+    "  if (cascadedStylePropertyForElement(element, 'visibility') !== 'visible') {\n" +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  let hasAncestorWithZeroOpacity = !!enclosingElementOrSelfMatchingPredicate(element, e => {\n' +
+    "    return Number(cascadedStylePropertyForElement(e, 'opacity')) === 0;\n" +
+    '  });\n' +
+    '  let hasAncestorWithDisplayNone = !!enclosingElementOrSelfMatchingPredicate(element, e => {\n' +
+    "    return cascadedStylePropertyForElement(e, 'display') === 'none';\n" +
+    '  });\n' +
+    '\n' +
+    '  if (hasAncestorWithZeroOpacity || hasAncestorWithDisplayNone) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  if (!elementSubtreeHasNonZeroDimensions(element)) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  if (isElementSubtreeHiddenByOverflow(element)) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  return true;\n' +
+    '}).apply(null, arguments)',
+  args: [
+    {
+      'element-6066-11e4-a52e-4f735466cecf': '837588d3-2d03-4d6a-9f74-59ff1599b24e',
+      ELEMENT: '837588d3-2d03-4d6a-9f74-59ff1599b24e'
+    }
+  ]
+}
+[0-0] 2020-04-22T13:24:04.384Z INFO webdriver: RESULT false
+[0-0] 2020-04-22T13:24:04.819Z INFO webdriver: COMMAND executeScript(<fn>, <object>)
+[0-0] 2020-04-22T13:24:04.819Z INFO webdriver: [POST] https://hub-cloud.browserstack.com/wd/hub/session/159f50ea349902344c9c07db5f73339cb6a8ba75/execute/sync
+[0-0] 2020-04-22T13:24:04.819Z INFO webdriver: DATA {
+  script: 'return (function isElementDisplayed(element) {\n' +
+    '  function nodeIsElement(node) {\n' +
+    '    if (!node) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    switch (node.nodeType) {\n' +
+    '      case Node.ELEMENT_NODE:\n' +
+    '      case Node.DOCUMENT_NODE:\n' +
+    '      case Node.DOCUMENT_FRAGMENT_NODE:\n' +
+    '        return true;\n' +
+    '\n' +
+    '      default:\n' +
+    '        return false;\n' +
+    '    }\n' +
+    '  }\n' +
+    '\n' +
+    '  function parentElementForElement(element) {\n' +
+    '    if (!element) {\n' +
+    '      return null;\n' +
+    '    }\n' +
+    '\n' +
+    '    return enclosingNodeOrSelfMatchingPredicate(element.parentNode, nodeIsElement);\n' +
+    '  }\n' +
+    '\n' +
+    '  function enclosingNodeOrSelfMatchingPredicate(targetNode, predicate) {\n' +
+    '    for (let node = targetNode; node && node !== targetNode.ownerDocument; node = node.parentNode) if (predicate(node)) {\n' +
+    '      return node;\n' +
+    '    }\n' +
+    '\n' +
+    '    return null;\n' +
+    '  }\n' +
+    '\n' +
+    '  function enclosingElementOrSelfMatchingPredicate(targetElement, predicate) {\n' +
+    '    for (let element = targetElement; element && element !== targetElement.ownerDocument; element = parentElementForElement(element)) if (predicate(element)) {\n' +
+    '      return element;\n' +
+    '    }\n' +
+    '\n' +
+    '    return null;\n' +
+    '  }\n' +
+    '\n' +
+    '  function cascadedStylePropertyForElement(element, property) {\n' +
+    '    if (!element || !property) {\n' +
+    '      return null;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (element instanceof DocumentFragment) {\n' +
+    '      element = element.host;\n' +
+    '    }\n' +
+    '\n' +
+    '    let computedStyle = window.getComputedStyle(element);\n' +
+    '    let computedStyleProperty = computedStyle.getPropertyValue(property);\n' +
+    '\n' +
+    "    if (computedStyleProperty && computedStyleProperty !== 'inherit') {\n" +
+    '      return computedStyleProperty;\n' +
+    '    }\n' +
+    '\n' +
+    '    let parentElement = parentElementForElement(element);\n' +
+    '    return cascadedStylePropertyForElement(parentElement, property);\n' +
+    '  }\n' +
+    '\n' +
+    '  function elementSubtreeHasNonZeroDimensions(element) {\n' +
+    '    let boundingBox = element.getBoundingClientRect();\n' +
+    '\n' +
+    '    if (boundingBox.width > 0 && boundingBox.height > 0) {\n' +
+    '      return true;\n' +
+    '    }\n' +
+    '\n' +
+    "    if (element.tagName.toUpperCase() === 'PATH' && boundingBox.width + boundingBox.height > 0) {\n" +
+    "      let strokeWidth = cascadedStylePropertyForElement(element, 'stroke-width');\n" +
+    '      return !!strokeWidth && parseInt(strokeWidth, 10) > 0;\n' +
+    '    }\n' +
+    '\n' +
+    "    let cascadedOverflow = cascadedStylePropertyForElement(element, 'overflow');\n" +
+    '\n' +
+    "    if (cascadedOverflow === 'hidden') {\n" +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    return Array.from(element.childNodes).some(childNode => {\n' +
+    '      if (childNode.nodeType === Node.TEXT_NODE) {\n' +
+    '        return true;\n' +
+    '      }\n' +
+    '\n' +
+    '      if (nodeIsElement(childNode)) {\n' +
+    '        return elementSubtreeHasNonZeroDimensions(childNode);\n' +
+    '      }\n' +
+    '\n' +
+    '      return false;\n' +
+    '    });\n' +
+    '  }\n' +
+    '\n' +
+    '  function elementOverflowsContainer(element) {\n' +
+    "    let cascadedOverflow = cascadedStylePropertyForElement(element, 'overflow');\n" +
+    '\n' +
+    "    if (cascadedOverflow !== 'hidden') {\n" +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    return true;\n' +
+    '  }\n' +
+    '\n' +
+    '  function isElementSubtreeHiddenByOverflow(element) {\n' +
+    '    if (!element) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (!elementOverflowsContainer(element)) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (!element.childNodes.length) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    return Array.from(element.childNodes).every(childNode => {\n' +
+    '      if (childNode.nodeType === Node.TEXT_NODE) {\n' +
+    '        return false;\n' +
+    '      }\n' +
+    '\n' +
+    '      if (!nodeIsElement(childNode)) {\n' +
+    '        return true;\n' +
+    '      }\n' +
+    '\n' +
+    '      if (!elementSubtreeHasNonZeroDimensions(childNode)) {\n' +
+    '        return true;\n' +
+    '      }\n' +
+    '\n' +
+    '      return isElementSubtreeHiddenByOverflow(childNode);\n' +
+    '    });\n' +
+    '  }\n' +
+    '\n' +
+    '  function isElementInsideShadowRoot(element) {\n' +
+    '    if (!element) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (element.parentNode && element.parentNode.host) {\n' +
+    '      return true;\n' +
+    '    }\n' +
+    '\n' +
+    '    return isElementInsideShadowRoot(element.parentNode);\n' +
+    '  }\n' +
+    '\n' +
+    '  if (!isElementInsideShadowRoot(element) && !document.contains(element)) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  switch (element.tagName.toUpperCase()) {\n' +
+    "    case 'BODY':\n" +
+    '      return true;\n' +
+    '\n' +
+    "    case 'SCRIPT':\n" +
+    "    case 'NOSCRIPT':\n" +
+    '      return false;\n' +
+    '\n' +
+    "    case 'OPTGROUP':\n" +
+    "    case 'OPTION':\n" +
+    '      {\n' +
+    "        let enclosingSelectElement = enclosingNodeOrSelfMatchingPredicate(element, e => e.tagName.toUpperCase() === 'SELECT');\n" +
+    '        return isElementDisplayed(enclosingSelectElement);\n' +
+    '      }\n' +
+    '\n' +
+    "    case 'INPUT':\n" +
+    "      if (element.type === 'hidden') {\n" +
+    '        return false;\n' +
+    '      }\n' +
+    '\n' +
+    '      break;\n' +
+    '\n' +
+    '    default:\n' +
+    '      break;\n' +
+    '  }\n' +
+    '\n' +
+    "  if (cascadedStylePropertyForElement(element, 'visibility') !== 'visible') {\n" +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  let hasAncestorWithZeroOpacity = !!enclosingElementOrSelfMatchingPredicate(element, e => {\n' +
+    "    return Number(cascadedStylePropertyForElement(e, 'opacity')) === 0;\n" +
+    '  });\n' +
+    '  let hasAncestorWithDisplayNone = !!enclosingElementOrSelfMatchingPredicate(element, e => {\n' +
+    "    return cascadedStylePropertyForElement(e, 'display') === 'none';\n" +
+    '  });\n' +
+    '\n' +
+    '  if (hasAncestorWithZeroOpacity || hasAncestorWithDisplayNone) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  if (!elementSubtreeHasNonZeroDimensions(element)) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  if (isElementSubtreeHiddenByOverflow(element)) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  return true;\n' +
+    '}).apply(null, arguments)',
+  args: [
+    {
+      'element-6066-11e4-a52e-4f735466cecf': '837588d3-2d03-4d6a-9f74-59ff1599b24e',
+      ELEMENT: '837588d3-2d03-4d6a-9f74-59ff1599b24e'
+    }
+  ]
+}
+[0-0] 2020-04-22T13:24:04.877Z INFO webdriver: RESULT false
+[0-0] 2020-04-22T13:24:05.320Z INFO webdriver: COMMAND executeScript(<fn>, <object>)
+[0-0] 2020-04-22T13:24:05.320Z INFO webdriver: [POST] https://hub-cloud.browserstack.com/wd/hub/session/159f50ea349902344c9c07db5f73339cb6a8ba75/execute/sync
+[0-0] 2020-04-22T13:24:05.321Z INFO webdriver: DATA {
+  script: 'return (function isElementDisplayed(element) {\n' +
+    '  function nodeIsElement(node) {\n' +
+    '    if (!node) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    switch (node.nodeType) {\n' +
+    '      case Node.ELEMENT_NODE:\n' +
+    '      case Node.DOCUMENT_NODE:\n' +
+    '      case Node.DOCUMENT_FRAGMENT_NODE:\n' +
+    '        return true;\n' +
+    '\n' +
+    '      default:\n' +
+    '        return false;\n' +
+    '    }\n' +
+    '  }\n' +
+    '\n' +
+    '  function parentElementForElement(element) {\n' +
+    '    if (!element) {\n' +
+    '      return null;\n' +
+    '    }\n' +
+    '\n' +
+    '    return enclosingNodeOrSelfMatchingPredicate(element.parentNode, nodeIsElement);\n' +
+    '  }\n' +
+    '\n' +
+    '  function enclosingNodeOrSelfMatchingPredicate(targetNode, predicate) {\n' +
+    '    for (let node = targetNode; node && node !== targetNode.ownerDocument; node = node.parentNode) if (predicate(node)) {\n' +
+    '      return node;\n' +
+    '    }\n' +
+    '\n' +
+    '    return null;\n' +
+    '  }\n' +
+    '\n' +
+    '  function enclosingElementOrSelfMatchingPredicate(targetElement, predicate) {\n' +
+    '    for (let element = targetElement; element && element !== targetElement.ownerDocument; element = parentElementForElement(element)) if (predicate(element)) {\n' +
+    '      return element;\n' +
+    '    }\n' +
+    '\n' +
+    '    return null;\n' +
+    '  }\n' +
+    '\n' +
+    '  function cascadedStylePropertyForElement(element, property) {\n' +
+    '    if (!element || !property) {\n' +
+    '      return null;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (element instanceof DocumentFragment) {\n' +
+    '      element = element.host;\n' +
+    '    }\n' +
+    '\n' +
+    '    let computedStyle = window.getComputedStyle(element);\n' +
+    '    let computedStyleProperty = computedStyle.getPropertyValue(property);\n' +
+    '\n' +
+    "    if (computedStyleProperty && computedStyleProperty !== 'inherit') {\n" +
+    '      return computedStyleProperty;\n' +
+    '    }\n' +
+    '\n' +
+    '    let parentElement = parentElementForElement(element);\n' +
+    '    return cascadedStylePropertyForElement(parentElement, property);\n' +
+    '  }\n' +
+    '\n' +
+    '  function elementSubtreeHasNonZeroDimensions(element) {\n' +
+    '    let boundingBox = element.getBoundingClientRect();\n' +
+    '\n' +
+    '    if (boundingBox.width > 0 && boundingBox.height > 0) {\n' +
+    '      return true;\n' +
+    '    }\n' +
+    '\n' +
+    "    if (element.tagName.toUpperCase() === 'PATH' && boundingBox.width + boundingBox.height > 0) {\n" +
+    "      let strokeWidth = cascadedStylePropertyForElement(element, 'stroke-width');\n" +
+    '      return !!strokeWidth && parseInt(strokeWidth, 10) > 0;\n' +
+    '    }\n' +
+    '\n' +
+    "    let cascadedOverflow = cascadedStylePropertyForElement(element, 'overflow');\n" +
+    '\n' +
+    "    if (cascadedOverflow === 'hidden') {\n" +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    return Array.from(element.childNodes).some(childNode => {\n' +
+    '      if (childNode.nodeType === Node.TEXT_NODE) {\n' +
+    '        return true;\n' +
+    '      }\n' +
+    '\n' +
+    '      if (nodeIsElement(childNode)) {\n' +
+    '        return elementSubtreeHasNonZeroDimensions(childNode);\n' +
+    '      }\n' +
+    '\n' +
+    '      return false;\n' +
+    '    });\n' +
+    '  }\n' +
+    '\n' +
+    '  function elementOverflowsContainer(element) {\n' +
+    "    let cascadedOverflow = cascadedStylePropertyForElement(element, 'overflow');\n" +
+    '\n' +
+    "    if (cascadedOverflow !== 'hidden') {\n" +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    return true;\n' +
+    '  }\n' +
+    '\n' +
+    '  function isElementSubtreeHiddenByOverflow(element) {\n' +
+    '    if (!element) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (!elementOverflowsContainer(element)) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (!element.childNodes.length) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    return Array.from(element.childNodes).every(childNode => {\n' +
+    '      if (childNode.nodeType === Node.TEXT_NODE) {\n' +
+    '        return false;\n' +
+    '      }\n' +
+    '\n' +
+    '      if (!nodeIsElement(childNode)) {\n' +
+    '        return true;\n' +
+    '      }\n' +
+    '\n' +
+    '      if (!elementSubtreeHasNonZeroDimensions(childNode)) {\n' +
+    '        return true;\n' +
+    '      }\n' +
+    '\n' +
+    '      return isElementSubtreeHiddenByOverflow(childNode);\n' +
+    '    });\n' +
+    '  }\n' +
+    '\n' +
+    '  function isElementInsideShadowRoot(element) {\n' +
+    '    if (!element) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (element.parentNode && element.parentNode.host) {\n' +
+    '      return true;\n' +
+    '    }\n' +
+    '\n' +
+    '    return isElementInsideShadowRoot(element.parentNode);\n' +
+    '  }\n' +
+    '\n' +
+    '  if (!isElementInsideShadowRoot(element) && !document.contains(element)) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  switch (element.tagName.toUpperCase()) {\n' +
+    "    case 'BODY':\n" +
+    '      return true;\n' +
+    '\n' +
+    "    case 'SCRIPT':\n" +
+    "    case 'NOSCRIPT':\n" +
+    '      return false;\n' +
+    '\n' +
+    "    case 'OPTGROUP':\n" +
+    "    case 'OPTION':\n" +
+    '      {\n' +
+    "        let enclosingSelectElement = enclosingNodeOrSelfMatchingPredicate(element, e => e.tagName.toUpperCase() === 'SELECT');\n" +
+    '        return isElementDisplayed(enclosingSelectElement);\n' +
+    '      }\n' +
+    '\n' +
+    "    case 'INPUT':\n" +
+    "      if (element.type === 'hidden') {\n" +
+    '        return false;\n' +
+    '      }\n' +
+    '\n' +
+    '      break;\n' +
+    '\n' +
+    '    default:\n' +
+    '      break;\n' +
+    '  }\n' +
+    '\n' +
+    "  if (cascadedStylePropertyForElement(element, 'visibility') !== 'visible') {\n" +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  let hasAncestorWithZeroOpacity = !!enclosingElementOrSelfMatchingPredicate(element, e => {\n' +
+    "    return Number(cascadedStylePropertyForElement(e, 'opacity')) === 0;\n" +
+    '  });\n' +
+    '  let hasAncestorWithDisplayNone = !!enclosingElementOrSelfMatchingPredicate(element, e => {\n' +
+    "    return cascadedStylePropertyForElement(e, 'display') === 'none';\n" +
+    '  });\n' +
+    '\n' +
+    '  if (hasAncestorWithZeroOpacity || hasAncestorWithDisplayNone) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  if (!elementSubtreeHasNonZeroDimensions(element)) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  if (isElementSubtreeHiddenByOverflow(element)) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  return true;\n' +
+    '}).apply(null, arguments)',
+  args: [
+    {
+      'element-6066-11e4-a52e-4f735466cecf': '837588d3-2d03-4d6a-9f74-59ff1599b24e',
+      ELEMENT: '837588d3-2d03-4d6a-9f74-59ff1599b24e'
+    }
+  ]
+}
+[0-0] 2020-04-22T13:24:05.370Z INFO webdriver: RESULT false
+[0-0] 2020-04-22T13:24:05.821Z INFO webdriver: COMMAND executeScript(<fn>, <object>)
+[0-0] 2020-04-22T13:24:05.822Z INFO webdriver: [POST] https://hub-cloud.browserstack.com/wd/hub/session/159f50ea349902344c9c07db5f73339cb6a8ba75/execute/sync
+[0-0] 2020-04-22T13:24:05.822Z INFO webdriver: DATA {
+  script: 'return (function isElementDisplayed(element) {\n' +
+    '  function nodeIsElement(node) {\n' +
+    '    if (!node) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    switch (node.nodeType) {\n' +
+    '      case Node.ELEMENT_NODE:\n' +
+    '      case Node.DOCUMENT_NODE:\n' +
+    '      case Node.DOCUMENT_FRAGMENT_NODE:\n' +
+    '        return true;\n' +
+    '\n' +
+    '      default:\n' +
+    '        return false;\n' +
+    '    }\n' +
+    '  }\n' +
+    '\n' +
+    '  function parentElementForElement(element) {\n' +
+    '    if (!element) {\n' +
+    '      return null;\n' +
+    '    }\n' +
+    '\n' +
+    '    return enclosingNodeOrSelfMatchingPredicate(element.parentNode, nodeIsElement);\n' +
+    '  }\n' +
+    '\n' +
+    '  function enclosingNodeOrSelfMatchingPredicate(targetNode, predicate) {\n' +
+    '    for (let node = targetNode; node && node !== targetNode.ownerDocument; node = node.parentNode) if (predicate(node)) {\n' +
+    '      return node;\n' +
+    '    }\n' +
+    '\n' +
+    '    return null;\n' +
+    '  }\n' +
+    '\n' +
+    '  function enclosingElementOrSelfMatchingPredicate(targetElement, predicate) {\n' +
+    '    for (let element = targetElement; element && element !== targetElement.ownerDocument; element = parentElementForElement(element)) if (predicate(element)) {\n' +
+    '      return element;\n' +
+    '    }\n' +
+    '\n' +
+    '    return null;\n' +
+    '  }\n' +
+    '\n' +
+    '  function cascadedStylePropertyForElement(element, property) {\n' +
+    '    if (!element || !property) {\n' +
+    '      return null;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (element instanceof DocumentFragment) {\n' +
+    '      element = element.host;\n' +
+    '    }\n' +
+    '\n' +
+    '    let computedStyle = window.getComputedStyle(element);\n' +
+    '    let computedStyleProperty = computedStyle.getPropertyValue(property);\n' +
+    '\n' +
+    "    if (computedStyleProperty && computedStyleProperty !== 'inherit') {\n" +
+    '      return computedStyleProperty;\n' +
+    '    }\n' +
+    '\n' +
+    '    let parentElement = parentElementForElement(element);\n' +
+    '    return cascadedStylePropertyForElement(parentElement, property);\n' +
+    '  }\n' +
+    '\n' +
+    '  function elementSubtreeHasNonZeroDimensions(element) {\n' +
+    '    let boundingBox = element.getBoundingClientRect();\n' +
+    '\n' +
+    '    if (boundingBox.width > 0 && boundingBox.height > 0) {\n' +
+    '      return true;\n' +
+    '    }\n' +
+    '\n' +
+    "    if (element.tagName.toUpperCase() === 'PATH' && boundingBox.width + boundingBox.height > 0) {\n" +
+    "      let strokeWidth = cascadedStylePropertyForElement(element, 'stroke-width');\n" +
+    '      return !!strokeWidth && parseInt(strokeWidth, 10) > 0;\n' +
+    '    }\n' +
+    '\n' +
+    "    let cascadedOverflow = cascadedStylePropertyForElement(element, 'overflow');\n" +
+    '\n' +
+    "    if (cascadedOverflow === 'hidden') {\n" +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    return Array.from(element.childNodes).some(childNode => {\n' +
+    '      if (childNode.nodeType === Node.TEXT_NODE) {\n' +
+    '        return true;\n' +
+    '      }\n' +
+    '\n' +
+    '      if (nodeIsElement(childNode)) {\n' +
+    '        return elementSubtreeHasNonZeroDimensions(childNode);\n' +
+    '      }\n' +
+    '\n' +
+    '      return false;\n' +
+    '    });\n' +
+    '  }\n' +
+    '\n' +
+    '  function elementOverflowsContainer(element) {\n' +
+    "    let cascadedOverflow = cascadedStylePropertyForElement(element, 'overflow');\n" +
+    '\n' +
+    "    if (cascadedOverflow !== 'hidden') {\n" +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    return true;\n' +
+    '  }\n' +
+    '\n' +
+    '  function isElementSubtreeHiddenByOverflow(element) {\n' +
+    '    if (!element) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (!elementOverflowsContainer(element)) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (!element.childNodes.length) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    return Array.from(element.childNodes).every(childNode => {\n' +
+    '      if (childNode.nodeType === Node.TEXT_NODE) {\n' +
+    '        return false;\n' +
+    '      }\n' +
+    '\n' +
+    '      if (!nodeIsElement(childNode)) {\n' +
+    '        return true;\n' +
+    '      }\n' +
+    '\n' +
+    '      if (!elementSubtreeHasNonZeroDimensions(childNode)) {\n' +
+    '        return true;\n' +
+    '      }\n' +
+    '\n' +
+    '      return isElementSubtreeHiddenByOverflow(childNode);\n' +
+    '    });\n' +
+    '  }\n' +
+    '\n' +
+    '  function isElementInsideShadowRoot(element) {\n' +
+    '    if (!element) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (element.parentNode && element.parentNode.host) {\n' +
+    '      return true;\n' +
+    '    }\n' +
+    '\n' +
+    '    return isElementInsideShadowRoot(element.parentNode);\n' +
+    '  }\n' +
+    '\n' +
+    '  if (!isElementInsideShadowRoot(element) && !document.contains(element)) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  switch (element.tagName.toUpperCase()) {\n' +
+    "    case 'BODY':\n" +
+    '      return true;\n' +
+    '\n' +
+    "    case 'SCRIPT':\n" +
+    "    case 'NOSCRIPT':\n" +
+    '      return false;\n' +
+    '\n' +
+    "    case 'OPTGROUP':\n" +
+    "    case 'OPTION':\n" +
+    '      {\n' +
+    "        let enclosingSelectElement = enclosingNodeOrSelfMatchingPredicate(element, e => e.tagName.toUpperCase() === 'SELECT');\n" +
+    '        return isElementDisplayed(enclosingSelectElement);\n' +
+    '      }\n' +
+    '\n' +
+    "    case 'INPUT':\n" +
+    "      if (element.type === 'hidden') {\n" +
+    '        return false;\n' +
+    '      }\n' +
+    '\n' +
+    '      break;\n' +
+    '\n' +
+    '    default:\n' +
+    '      break;\n' +
+    '  }\n' +
+    '\n' +
+    "  if (cascadedStylePropertyForElement(element, 'visibility') !== 'visible') {\n" +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  let hasAncestorWithZeroOpacity = !!enclosingElementOrSelfMatchingPredicate(element, e => {\n' +
+    "    return Number(cascadedStylePropertyForElement(e, 'opacity')) === 0;\n" +
+    '  });\n' +
+    '  let hasAncestorWithDisplayNone = !!enclosingElementOrSelfMatchingPredicate(element, e => {\n' +
+    "    return cascadedStylePropertyForElement(e, 'display') === 'none';\n" +
+    '  });\n' +
+    '\n' +
+    '  if (hasAncestorWithZeroOpacity || hasAncestorWithDisplayNone) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  if (!elementSubtreeHasNonZeroDimensions(element)) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  if (isElementSubtreeHiddenByOverflow(element)) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  return true;\n' +
+    '}).apply(null, arguments)',
+  args: [
+    {
+      'element-6066-11e4-a52e-4f735466cecf': '837588d3-2d03-4d6a-9f74-59ff1599b24e',
+      ELEMENT: '837588d3-2d03-4d6a-9f74-59ff1599b24e'
+    }
+  ]
+}
+[0-0] 2020-04-22T13:24:05.874Z INFO webdriver: RESULT false
+[0-0] 2020-04-22T13:24:06.317Z INFO webdriver: COMMAND executeScript(<fn>, <object>)
+[0-0] 2020-04-22T13:24:06.318Z INFO webdriver: [POST] https://hub-cloud.browserstack.com/wd/hub/session/159f50ea349902344c9c07db5f73339cb6a8ba75/execute/sync
+[0-0] 2020-04-22T13:24:06.318Z INFO webdriver: DATA {
+  script: 'return (function isElementDisplayed(element) {\n' +
+    '  function nodeIsElement(node) {\n' +
+    '    if (!node) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    switch (node.nodeType) {\n' +
+    '      case Node.ELEMENT_NODE:\n' +
+    '      case Node.DOCUMENT_NODE:\n' +
+    '      case Node.DOCUMENT_FRAGMENT_NODE:\n' +
+    '        return true;\n' +
+    '\n' +
+    '      default:\n' +
+    '        return false;\n' +
+    '    }\n' +
+    '  }\n' +
+    '\n' +
+    '  function parentElementForElement(element) {\n' +
+    '    if (!element) {\n' +
+    '      return null;\n' +
+    '    }\n' +
+    '\n' +
+    '    return enclosingNodeOrSelfMatchingPredicate(element.parentNode, nodeIsElement);\n' +
+    '  }\n' +
+    '\n' +
+    '  function enclosingNodeOrSelfMatchingPredicate(targetNode, predicate) {\n' +
+    '    for (let node = targetNode; node && node !== targetNode.ownerDocument; node = node.parentNode) if (predicate(node)) {\n' +
+    '      return node;\n' +
+    '    }\n' +
+    '\n' +
+    '    return null;\n' +
+    '  }\n' +
+    '\n' +
+    '  function enclosingElementOrSelfMatchingPredicate(targetElement, predicate) {\n' +
+    '    for (let element = targetElement; element && element !== targetElement.ownerDocument; element = parentElementForElement(element)) if (predicate(element)) {\n' +
+    '      return element;\n' +
+    '    }\n' +
+    '\n' +
+    '    return null;\n' +
+    '  }\n' +
+    '\n' +
+    '  function cascadedStylePropertyForElement(element, property) {\n' +
+    '    if (!element || !property) {\n' +
+    '      return null;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (element instanceof DocumentFragment) {\n' +
+    '      element = element.host;\n' +
+    '    }\n' +
+    '\n' +
+    '    let computedStyle = window.getComputedStyle(element);\n' +
+    '    let computedStyleProperty = computedStyle.getPropertyValue(property);\n' +
+    '\n' +
+    "    if (computedStyleProperty && computedStyleProperty !== 'inherit') {\n" +
+    '      return computedStyleProperty;\n' +
+    '    }\n' +
+    '\n' +
+    '    let parentElement = parentElementForElement(element);\n' +
+    '    return cascadedStylePropertyForElement(parentElement, property);\n' +
+    '  }\n' +
+    '\n' +
+    '  function elementSubtreeHasNonZeroDimensions(element) {\n' +
+    '    let boundingBox = element.getBoundingClientRect();\n' +
+    '\n' +
+    '    if (boundingBox.width > 0 && boundingBox.height > 0) {\n' +
+    '      return true;\n' +
+    '    }\n' +
+    '\n' +
+    "    if (element.tagName.toUpperCase() === 'PATH' && boundingBox.width + boundingBox.height > 0) {\n" +
+    "      let strokeWidth = cascadedStylePropertyForElement(element, 'stroke-width');\n" +
+    '      return !!strokeWidth && parseInt(strokeWidth, 10) > 0;\n' +
+    '    }\n' +
+    '\n' +
+    "    let cascadedOverflow = cascadedStylePropertyForElement(element, 'overflow');\n" +
+    '\n' +
+    "    if (cascadedOverflow === 'hidden') {\n" +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    return Array.from(element.childNodes).some(childNode => {\n' +
+    '      if (childNode.nodeType === Node.TEXT_NODE) {\n' +
+    '        return true;\n' +
+    '      }\n' +
+    '\n' +
+    '      if (nodeIsElement(childNode)) {\n' +
+    '        return elementSubtreeHasNonZeroDimensions(childNode);\n' +
+    '      }\n' +
+    '\n' +
+    '      return false;\n' +
+    '    });\n' +
+    '  }\n' +
+    '\n' +
+    '  function elementOverflowsContainer(element) {\n' +
+    "    let cascadedOverflow = cascadedStylePropertyForElement(element, 'overflow');\n" +
+    '\n' +
+    "    if (cascadedOverflow !== 'hidden') {\n" +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    return true;\n' +
+    '  }\n' +
+    '\n' +
+    '  function isElementSubtreeHiddenByOverflow(element) {\n' +
+    '    if (!element) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (!elementOverflowsContainer(element)) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (!element.childNodes.length) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    return Array.from(element.childNodes).every(childNode => {\n' +
+    '      if (childNode.nodeType === Node.TEXT_NODE) {\n' +
+    '        return false;\n' +
+    '      }\n' +
+    '\n' +
+    '      if (!nodeIsElement(childNode)) {\n' +
+    '        return true;\n' +
+    '      }\n' +
+    '\n' +
+    '      if (!elementSubtreeHasNonZeroDimensions(childNode)) {\n' +
+    '        return true;\n' +
+    '      }\n' +
+    '\n' +
+    '      return isElementSubtreeHiddenByOverflow(childNode);\n' +
+    '    });\n' +
+    '  }\n' +
+    '\n' +
+    '  function isElementInsideShadowRoot(element) {\n' +
+    '    if (!element) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (element.parentNode && element.parentNode.host) {\n' +
+    '      return true;\n' +
+    '    }\n' +
+    '\n' +
+    '    return isElementInsideShadowRoot(element.parentNode);\n' +
+    '  }\n' +
+    '\n' +
+    '  if (!isElementInsideShadowRoot(element) && !document.contains(element)) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  switch (element.tagName.toUpperCase()) {\n' +
+    "    case 'BODY':\n" +
+    '      return true;\n' +
+    '\n' +
+    "    case 'SCRIPT':\n" +
+    "    case 'NOSCRIPT':\n" +
+    '      return false;\n' +
+    '\n' +
+    "    case 'OPTGROUP':\n" +
+    "    case 'OPTION':\n" +
+    '      {\n' +
+    "        let enclosingSelectElement = enclosingNodeOrSelfMatchingPredicate(element, e => e.tagName.toUpperCase() === 'SELECT');\n" +
+    '        return isElementDisplayed(enclosingSelectElement);\n' +
+    '      }\n' +
+    '\n' +
+    "    case 'INPUT':\n" +
+    "      if (element.type === 'hidden') {\n" +
+    '        return false;\n' +
+    '      }\n' +
+    '\n' +
+    '      break;\n' +
+    '\n' +
+    '    default:\n' +
+    '      break;\n' +
+    '  }\n' +
+    '\n' +
+    "  if (cascadedStylePropertyForElement(element, 'visibility') !== 'visible') {\n" +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  let hasAncestorWithZeroOpacity = !!enclosingElementOrSelfMatchingPredicate(element, e => {\n' +
+    "    return Number(cascadedStylePropertyForElement(e, 'opacity')) === 0;\n" +
+    '  });\n' +
+    '  let hasAncestorWithDisplayNone = !!enclosingElementOrSelfMatchingPredicate(element, e => {\n' +
+    "    return cascadedStylePropertyForElement(e, 'display') === 'none';\n" +
+    '  });\n' +
+    '\n' +
+    '  if (hasAncestorWithZeroOpacity || hasAncestorWithDisplayNone) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  if (!elementSubtreeHasNonZeroDimensions(element)) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  if (isElementSubtreeHiddenByOverflow(element)) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  return true;\n' +
+    '}).apply(null, arguments)',
+  args: [
+    {
+      'element-6066-11e4-a52e-4f735466cecf': '837588d3-2d03-4d6a-9f74-59ff1599b24e',
+      ELEMENT: '837588d3-2d03-4d6a-9f74-59ff1599b24e'
+    }
+  ]
+}
+[0-0] 2020-04-22T13:24:06.393Z INFO webdriver: RESULT false
+[0-0] 2020-04-22T13:24:06.816Z INFO webdriver: COMMAND executeScript(<fn>, <object>)
+[0-0] 2020-04-22T13:24:06.816Z INFO webdriver: [POST] https://hub-cloud.browserstack.com/wd/hub/session/159f50ea349902344c9c07db5f73339cb6a8ba75/execute/sync
+[0-0] 2020-04-22T13:24:06.816Z INFO webdriver: DATA {
+  script: 'return (function isElementDisplayed(element) {\n' +
+    '  function nodeIsElement(node) {\n' +
+    '    if (!node) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    switch (node.nodeType) {\n' +
+    '      case Node.ELEMENT_NODE:\n' +
+    '      case Node.DOCUMENT_NODE:\n' +
+    '      case Node.DOCUMENT_FRAGMENT_NODE:\n' +
+    '        return true;\n' +
+    '\n' +
+    '      default:\n' +
+    '        return false;\n' +
+    '    }\n' +
+    '  }\n' +
+    '\n' +
+    '  function parentElementForElement(element) {\n' +
+    '    if (!element) {\n' +
+    '      return null;\n' +
+    '    }\n' +
+    '\n' +
+    '    return enclosingNodeOrSelfMatchingPredicate(element.parentNode, nodeIsElement);\n' +
+    '  }\n' +
+    '\n' +
+    '  function enclosingNodeOrSelfMatchingPredicate(targetNode, predicate) {\n' +
+    '    for (let node = targetNode; node && node !== targetNode.ownerDocument; node = node.parentNode) if (predicate(node)) {\n' +
+    '      return node;\n' +
+    '    }\n' +
+    '\n' +
+    '    return null;\n' +
+    '  }\n' +
+    '\n' +
+    '  function enclosingElementOrSelfMatchingPredicate(targetElement, predicate) {\n' +
+    '    for (let element = targetElement; element && element !== targetElement.ownerDocument; element = parentElementForElement(element)) if (predicate(element)) {\n' +
+    '      return element;\n' +
+    '    }\n' +
+    '\n' +
+    '    return null;\n' +
+    '  }\n' +
+    '\n' +
+    '  function cascadedStylePropertyForElement(element, property) {\n' +
+    '    if (!element || !property) {\n' +
+    '      return null;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (element instanceof DocumentFragment) {\n' +
+    '      element = element.host;\n' +
+    '    }\n' +
+    '\n' +
+    '    let computedStyle = window.getComputedStyle(element);\n' +
+    '    let computedStyleProperty = computedStyle.getPropertyValue(property);\n' +
+    '\n' +
+    "    if (computedStyleProperty && computedStyleProperty !== 'inherit') {\n" +
+    '      return computedStyleProperty;\n' +
+    '    }\n' +
+    '\n' +
+    '    let parentElement = parentElementForElement(element);\n' +
+    '    return cascadedStylePropertyForElement(parentElement, property);\n' +
+    '  }\n' +
+    '\n' +
+    '  function elementSubtreeHasNonZeroDimensions(element) {\n' +
+    '    let boundingBox = element.getBoundingClientRect();\n' +
+    '\n' +
+    '    if (boundingBox.width > 0 && boundingBox.height > 0) {\n' +
+    '      return true;\n' +
+    '    }\n' +
+    '\n' +
+    "    if (element.tagName.toUpperCase() === 'PATH' && boundingBox.width + boundingBox.height > 0) {\n" +
+    "      let strokeWidth = cascadedStylePropertyForElement(element, 'stroke-width');\n" +
+    '      return !!strokeWidth && parseInt(strokeWidth, 10) > 0;\n' +
+    '    }\n' +
+    '\n' +
+    "    let cascadedOverflow = cascadedStylePropertyForElement(element, 'overflow');\n" +
+    '\n' +
+    "    if (cascadedOverflow === 'hidden') {\n" +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    return Array.from(element.childNodes).some(childNode => {\n' +
+    '      if (childNode.nodeType === Node.TEXT_NODE) {\n' +
+    '        return true;\n' +
+    '      }\n' +
+    '\n' +
+    '      if (nodeIsElement(childNode)) {\n' +
+    '        return elementSubtreeHasNonZeroDimensions(childNode);\n' +
+    '      }\n' +
+    '\n' +
+    '      return false;\n' +
+    '    });\n' +
+    '  }\n' +
+    '\n' +
+    '  function elementOverflowsContainer(element) {\n' +
+    "    let cascadedOverflow = cascadedStylePropertyForElement(element, 'overflow');\n" +
+    '\n' +
+    "    if (cascadedOverflow !== 'hidden') {\n" +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    return true;\n' +
+    '  }\n' +
+    '\n' +
+    '  function isElementSubtreeHiddenByOverflow(element) {\n' +
+    '    if (!element) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (!elementOverflowsContainer(element)) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (!element.childNodes.length) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    return Array.from(element.childNodes).every(childNode => {\n' +
+    '      if (childNode.nodeType === Node.TEXT_NODE) {\n' +
+    '        return false;\n' +
+    '      }\n' +
+    '\n' +
+    '      if (!nodeIsElement(childNode)) {\n' +
+    '        return true;\n' +
+    '      }\n' +
+    '\n' +
+    '      if (!elementSubtreeHasNonZeroDimensions(childNode)) {\n' +
+    '        return true;\n' +
+    '      }\n' +
+    '\n' +
+    '      return isElementSubtreeHiddenByOverflow(childNode);\n' +
+    '    });\n' +
+    '  }\n' +
+    '\n' +
+    '  function isElementInsideShadowRoot(element) {\n' +
+    '    if (!element) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (element.parentNode && element.parentNode.host) {\n' +
+    '      return true;\n' +
+    '    }\n' +
+    '\n' +
+    '    return isElementInsideShadowRoot(element.parentNode);\n' +
+    '  }\n' +
+    '\n' +
+    '  if (!isElementInsideShadowRoot(element) && !document.contains(element)) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  switch (element.tagName.toUpperCase()) {\n' +
+    "    case 'BODY':\n" +
+    '      return true;\n' +
+    '\n' +
+    "    case 'SCRIPT':\n" +
+    "    case 'NOSCRIPT':\n" +
+    '      return false;\n' +
+    '\n' +
+    "    case 'OPTGROUP':\n" +
+    "    case 'OPTION':\n" +
+    '      {\n' +
+    "        let enclosingSelectElement = enclosingNodeOrSelfMatchingPredicate(element, e => e.tagName.toUpperCase() === 'SELECT');\n" +
+    '        return isElementDisplayed(enclosingSelectElement);\n' +
+    '      }\n' +
+    '\n' +
+    "    case 'INPUT':\n" +
+    "      if (element.type === 'hidden') {\n" +
+    '        return false;\n' +
+    '      }\n' +
+    '\n' +
+    '      break;\n' +
+    '\n' +
+    '    default:\n' +
+    '      break;\n' +
+    '  }\n' +
+    '\n' +
+    "  if (cascadedStylePropertyForElement(element, 'visibility') !== 'visible') {\n" +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  let hasAncestorWithZeroOpacity = !!enclosingElementOrSelfMatchingPredicate(element, e => {\n' +
+    "    return Number(cascadedStylePropertyForElement(e, 'opacity')) === 0;\n" +
+    '  });\n' +
+    '  let hasAncestorWithDisplayNone = !!enclosingElementOrSelfMatchingPredicate(element, e => {\n' +
+    "    return cascadedStylePropertyForElement(e, 'display') === 'none';\n" +
+    '  });\n' +
+    '\n' +
+    '  if (hasAncestorWithZeroOpacity || hasAncestorWithDisplayNone) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  if (!elementSubtreeHasNonZeroDimensions(element)) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  if (isElementSubtreeHiddenByOverflow(element)) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  return true;\n' +
+    '}).apply(null, arguments)',
+  args: [
+    {
+      'element-6066-11e4-a52e-4f735466cecf': '837588d3-2d03-4d6a-9f74-59ff1599b24e',
+      ELEMENT: '837588d3-2d03-4d6a-9f74-59ff1599b24e'
+    }
+  ]
+}
+[0-0] 2020-04-22T13:24:06.876Z INFO webdriver: RESULT false
+[0-0] 2020-04-22T13:24:07.317Z INFO webdriver: COMMAND executeScript(<fn>, <object>)
+[0-0] 2020-04-22T13:24:07.317Z INFO webdriver: [POST] https://hub-cloud.browserstack.com/wd/hub/session/159f50ea349902344c9c07db5f73339cb6a8ba75/execute/sync
+[0-0] 2020-04-22T13:24:07.317Z INFO webdriver: DATA {
+  script: 'return (function isElementDisplayed(element) {\n' +
+    '  function nodeIsElement(node) {\n' +
+    '    if (!node) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    switch (node.nodeType) {\n' +
+    '      case Node.ELEMENT_NODE:\n' +
+    '      case Node.DOCUMENT_NODE:\n' +
+    '      case Node.DOCUMENT_FRAGMENT_NODE:\n' +
+    '        return true;\n' +
+    '\n' +
+    '      default:\n' +
+    '        return false;\n' +
+    '    }\n' +
+    '  }\n' +
+    '\n' +
+    '  function parentElementForElement(element) {\n' +
+    '    if (!element) {\n' +
+    '      return null;\n' +
+    '    }\n' +
+    '\n' +
+    '    return enclosingNodeOrSelfMatchingPredicate(element.parentNode, nodeIsElement);\n' +
+    '  }\n' +
+    '\n' +
+    '  function enclosingNodeOrSelfMatchingPredicate(targetNode, predicate) {\n' +
+    '    for (let node = targetNode; node && node !== targetNode.ownerDocument; node = node.parentNode) if (predicate(node)) {\n' +
+    '      return node;\n' +
+    '    }\n' +
+    '\n' +
+    '    return null;\n' +
+    '  }\n' +
+    '\n' +
+    '  function enclosingElementOrSelfMatchingPredicate(targetElement, predicate) {\n' +
+    '    for (let element = targetElement; element && element !== targetElement.ownerDocument; element = parentElementForElement(element)) if (predicate(element)) {\n' +
+    '      return element;\n' +
+    '    }\n' +
+    '\n' +
+    '    return null;\n' +
+    '  }\n' +
+    '\n' +
+    '  function cascadedStylePropertyForElement(element, property) {\n' +
+    '    if (!element || !property) {\n' +
+    '      return null;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (element instanceof DocumentFragment) {\n' +
+    '      element = element.host;\n' +
+    '    }\n' +
+    '\n' +
+    '    let computedStyle = window.getComputedStyle(element);\n' +
+    '    let computedStyleProperty = computedStyle.getPropertyValue(property);\n' +
+    '\n' +
+    "    if (computedStyleProperty && computedStyleProperty !== 'inherit') {\n" +
+    '      return computedStyleProperty;\n' +
+    '    }\n' +
+    '\n' +
+    '    let parentElement = parentElementForElement(element);\n' +
+    '    return cascadedStylePropertyForElement(parentElement, property);\n' +
+    '  }\n' +
+    '\n' +
+    '  function elementSubtreeHasNonZeroDimensions(element) {\n' +
+    '    let boundingBox = element.getBoundingClientRect();\n' +
+    '\n' +
+    '    if (boundingBox.width > 0 && boundingBox.height > 0) {\n' +
+    '      return true;\n' +
+    '    }\n' +
+    '\n' +
+    "    if (element.tagName.toUpperCase() === 'PATH' && boundingBox.width + boundingBox.height > 0) {\n" +
+    "      let strokeWidth = cascadedStylePropertyForElement(element, 'stroke-width');\n" +
+    '      return !!strokeWidth && parseInt(strokeWidth, 10) > 0;\n' +
+    '    }\n' +
+    '\n' +
+    "    let cascadedOverflow = cascadedStylePropertyForElement(element, 'overflow');\n" +
+    '\n' +
+    "    if (cascadedOverflow === 'hidden') {\n" +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    return Array.from(element.childNodes).some(childNode => {\n' +
+    '      if (childNode.nodeType === Node.TEXT_NODE) {\n' +
+    '        return true;\n' +
+    '      }\n' +
+    '\n' +
+    '      if (nodeIsElement(childNode)) {\n' +
+    '        return elementSubtreeHasNonZeroDimensions(childNode);\n' +
+    '      }\n' +
+    '\n' +
+    '      return false;\n' +
+    '    });\n' +
+    '  }\n' +
+    '\n' +
+    '  function elementOverflowsContainer(element) {\n' +
+    "    let cascadedOverflow = cascadedStylePropertyForElement(element, 'overflow');\n" +
+    '\n' +
+    "    if (cascadedOverflow !== 'hidden') {\n" +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    return true;\n' +
+    '  }\n' +
+    '\n' +
+    '  function isElementSubtreeHiddenByOverflow(element) {\n' +
+    '    if (!element) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (!elementOverflowsContainer(element)) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (!element.childNodes.length) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    return Array.from(element.childNodes).every(childNode => {\n' +
+    '      if (childNode.nodeType === Node.TEXT_NODE) {\n' +
+    '        return false;\n' +
+    '      }\n' +
+    '\n' +
+    '      if (!nodeIsElement(childNode)) {\n' +
+    '        return true;\n' +
+    '      }\n' +
+    '\n' +
+    '      if (!elementSubtreeHasNonZeroDimensions(childNode)) {\n' +
+    '        return true;\n' +
+    '      }\n' +
+    '\n' +
+    '      return isElementSubtreeHiddenByOverflow(childNode);\n' +
+    '    });\n' +
+    '  }\n' +
+    '\n' +
+    '  function isElementInsideShadowRoot(element) {\n' +
+    '    if (!element) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (element.parentNode && element.parentNode.host) {\n' +
+    '      return true;\n' +
+    '    }\n' +
+    '\n' +
+    '    return isElementInsideShadowRoot(element.parentNode);\n' +
+    '  }\n' +
+    '\n' +
+    '  if (!isElementInsideShadowRoot(element) && !document.contains(element)) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  switch (element.tagName.toUpperCase()) {\n' +
+    "    case 'BODY':\n" +
+    '      return true;\n' +
+    '\n' +
+    "    case 'SCRIPT':\n" +
+    "    case 'NOSCRIPT':\n" +
+    '      return false;\n' +
+    '\n' +
+    "    case 'OPTGROUP':\n" +
+    "    case 'OPTION':\n" +
+    '      {\n' +
+    "        let enclosingSelectElement = enclosingNodeOrSelfMatchingPredicate(element, e => e.tagName.toUpperCase() === 'SELECT');\n" +
+    '        return isElementDisplayed(enclosingSelectElement);\n' +
+    '      }\n' +
+    '\n' +
+    "    case 'INPUT':\n" +
+    "      if (element.type === 'hidden') {\n" +
+    '        return false;\n' +
+    '      }\n' +
+    '\n' +
+    '      break;\n' +
+    '\n' +
+    '    default:\n' +
+    '      break;\n' +
+    '  }\n' +
+    '\n' +
+    "  if (cascadedStylePropertyForElement(element, 'visibility') !== 'visible') {\n" +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  let hasAncestorWithZeroOpacity = !!enclosingElementOrSelfMatchingPredicate(element, e => {\n' +
+    "    return Number(cascadedStylePropertyForElement(e, 'opacity')) === 0;\n" +
+    '  });\n' +
+    '  let hasAncestorWithDisplayNone = !!enclosingElementOrSelfMatchingPredicate(element, e => {\n' +
+    "    return cascadedStylePropertyForElement(e, 'display') === 'none';\n" +
+    '  });\n' +
+    '\n' +
+    '  if (hasAncestorWithZeroOpacity || hasAncestorWithDisplayNone) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  if (!elementSubtreeHasNonZeroDimensions(element)) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  if (isElementSubtreeHiddenByOverflow(element)) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  return true;\n' +
+    '}).apply(null, arguments)',
+  args: [
+    {
+      'element-6066-11e4-a52e-4f735466cecf': '837588d3-2d03-4d6a-9f74-59ff1599b24e',
+      ELEMENT: '837588d3-2d03-4d6a-9f74-59ff1599b24e'
+    }
+  ]
+}
+[0-0] 2020-04-22T13:24:07.379Z INFO webdriver: RESULT false
+[0-0] 2020-04-22T13:24:07.821Z INFO webdriver: COMMAND executeScript(<fn>, <object>)
+[0-0] 2020-04-22T13:24:07.821Z INFO webdriver: [POST] https://hub-cloud.browserstack.com/wd/hub/session/159f50ea349902344c9c07db5f73339cb6a8ba75/execute/sync
+[0-0] 2020-04-22T13:24:07.822Z INFO webdriver: DATA {
+  script: 'return (function isElementDisplayed(element) {\n' +
+    '  function nodeIsElement(node) {\n' +
+    '    if (!node) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    switch (node.nodeType) {\n' +
+    '      case Node.ELEMENT_NODE:\n' +
+    '      case Node.DOCUMENT_NODE:\n' +
+    '      case Node.DOCUMENT_FRAGMENT_NODE:\n' +
+    '        return true;\n' +
+    '\n' +
+    '      default:\n' +
+    '        return false;\n' +
+    '    }\n' +
+    '  }\n' +
+    '\n' +
+    '  function parentElementForElement(element) {\n' +
+    '    if (!element) {\n' +
+    '      return null;\n' +
+    '    }\n' +
+    '\n' +
+    '    return enclosingNodeOrSelfMatchingPredicate(element.parentNode, nodeIsElement);\n' +
+    '  }\n' +
+    '\n' +
+    '  function enclosingNodeOrSelfMatchingPredicate(targetNode, predicate) {\n' +
+    '    for (let node = targetNode; node && node !== targetNode.ownerDocument; node = node.parentNode) if (predicate(node)) {\n' +
+    '      return node;\n' +
+    '    }\n' +
+    '\n' +
+    '    return null;\n' +
+    '  }\n' +
+    '\n' +
+    '  function enclosingElementOrSelfMatchingPredicate(targetElement, predicate) {\n' +
+    '    for (let element = targetElement; element && element !== targetElement.ownerDocument; element = parentElementForElement(element)) if (predicate(element)) {\n' +
+    '      return element;\n' +
+    '    }\n' +
+    '\n' +
+    '    return null;\n' +
+    '  }\n' +
+    '\n' +
+    '  function cascadedStylePropertyForElement(element, property) {\n' +
+    '    if (!element || !property) {\n' +
+    '      return null;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (element instanceof DocumentFragment) {\n' +
+    '      element = element.host;\n' +
+    '    }\n' +
+    '\n' +
+    '    let computedStyle = window.getComputedStyle(element);\n' +
+    '    let computedStyleProperty = computedStyle.getPropertyValue(property);\n' +
+    '\n' +
+    "    if (computedStyleProperty && computedStyleProperty !== 'inherit') {\n" +
+    '      return computedStyleProperty;\n' +
+    '    }\n' +
+    '\n' +
+    '    let parentElement = parentElementForElement(element);\n' +
+    '    return cascadedStylePropertyForElement(parentElement, property);\n' +
+    '  }\n' +
+    '\n' +
+    '  function elementSubtreeHasNonZeroDimensions(element) {\n' +
+    '    let boundingBox = element.getBoundingClientRect();\n' +
+    '\n' +
+    '    if (boundingBox.width > 0 && boundingBox.height > 0) {\n' +
+    '      return true;\n' +
+    '    }\n' +
+    '\n' +
+    "    if (element.tagName.toUpperCase() === 'PATH' && boundingBox.width + boundingBox.height > 0) {\n" +
+    "      let strokeWidth = cascadedStylePropertyForElement(element, 'stroke-width');\n" +
+    '      return !!strokeWidth && parseInt(strokeWidth, 10) > 0;\n' +
+    '    }\n' +
+    '\n' +
+    "    let cascadedOverflow = cascadedStylePropertyForElement(element, 'overflow');\n" +
+    '\n' +
+    "    if (cascadedOverflow === 'hidden') {\n" +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    return Array.from(element.childNodes).some(childNode => {\n' +
+    '      if (childNode.nodeType === Node.TEXT_NODE) {\n' +
+    '        return true;\n' +
+    '      }\n' +
+    '\n' +
+    '      if (nodeIsElement(childNode)) {\n' +
+    '        return elementSubtreeHasNonZeroDimensions(childNode);\n' +
+    '      }\n' +
+    '\n' +
+    '      return false;\n' +
+    '    });\n' +
+    '  }\n' +
+    '\n' +
+    '  function elementOverflowsContainer(element) {\n' +
+    "    let cascadedOverflow = cascadedStylePropertyForElement(element, 'overflow');\n" +
+    '\n' +
+    "    if (cascadedOverflow !== 'hidden') {\n" +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    return true;\n' +
+    '  }\n' +
+    '\n' +
+    '  function isElementSubtreeHiddenByOverflow(element) {\n' +
+    '    if (!element) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (!elementOverflowsContainer(element)) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (!element.childNodes.length) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    return Array.from(element.childNodes).every(childNode => {\n' +
+    '      if (childNode.nodeType === Node.TEXT_NODE) {\n' +
+    '        return false;\n' +
+    '      }\n' +
+    '\n' +
+    '      if (!nodeIsElement(childNode)) {\n' +
+    '        return true;\n' +
+    '      }\n' +
+    '\n' +
+    '      if (!elementSubtreeHasNonZeroDimensions(childNode)) {\n' +
+    '        return true;\n' +
+    '      }\n' +
+    '\n' +
+    '      return isElementSubtreeHiddenByOverflow(childNode);\n' +
+    '    });\n' +
+    '  }\n' +
+    '\n' +
+    '  function isElementInsideShadowRoot(element) {\n' +
+    '    if (!element) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (element.parentNode && element.parentNode.host) {\n' +
+    '      return true;\n' +
+    '    }\n' +
+    '\n' +
+    '    return isElementInsideShadowRoot(element.parentNode);\n' +
+    '  }\n' +
+    '\n' +
+    '  if (!isElementInsideShadowRoot(element) && !document.contains(element)) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  switch (element.tagName.toUpperCase()) {\n' +
+    "    case 'BODY':\n" +
+    '      return true;\n' +
+    '\n' +
+    "    case 'SCRIPT':\n" +
+    "    case 'NOSCRIPT':\n" +
+    '      return false;\n' +
+    '\n' +
+    "    case 'OPTGROUP':\n" +
+    "    case 'OPTION':\n" +
+    '      {\n' +
+    "        let enclosingSelectElement = enclosingNodeOrSelfMatchingPredicate(element, e => e.tagName.toUpperCase() === 'SELECT');\n" +
+    '        return isElementDisplayed(enclosingSelectElement);\n' +
+    '      }\n' +
+    '\n' +
+    "    case 'INPUT':\n" +
+    "      if (element.type === 'hidden') {\n" +
+    '        return false;\n' +
+    '      }\n' +
+    '\n' +
+    '      break;\n' +
+    '\n' +
+    '    default:\n' +
+    '      break;\n' +
+    '  }\n' +
+    '\n' +
+    "  if (cascadedStylePropertyForElement(element, 'visibility') !== 'visible') {\n" +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  let hasAncestorWithZeroOpacity = !!enclosingElementOrSelfMatchingPredicate(element, e => {\n' +
+    "    return Number(cascadedStylePropertyForElement(e, 'opacity')) === 0;\n" +
+    '  });\n' +
+    '  let hasAncestorWithDisplayNone = !!enclosingElementOrSelfMatchingPredicate(element, e => {\n' +
+    "    return cascadedStylePropertyForElement(e, 'display') === 'none';\n" +
+    '  });\n' +
+    '\n' +
+    '  if (hasAncestorWithZeroOpacity || hasAncestorWithDisplayNone) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  if (!elementSubtreeHasNonZeroDimensions(element)) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  if (isElementSubtreeHiddenByOverflow(element)) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  return true;\n' +
+    '}).apply(null, arguments)',
+  args: [
+    {
+      'element-6066-11e4-a52e-4f735466cecf': '837588d3-2d03-4d6a-9f74-59ff1599b24e',
+      ELEMENT: '837588d3-2d03-4d6a-9f74-59ff1599b24e'
+    }
+  ]
+}
+[0-0] 2020-04-22T13:24:07.892Z INFO webdriver: RESULT false
+[0-0] 2020-04-22T13:24:08.321Z INFO webdriver: COMMAND executeScript(<fn>, <object>)
+[0-0] 2020-04-22T13:24:08.321Z INFO webdriver: [POST] https://hub-cloud.browserstack.com/wd/hub/session/159f50ea349902344c9c07db5f73339cb6a8ba75/execute/sync
+[0-0] 2020-04-22T13:24:08.321Z INFO webdriver: DATA {
+  script: 'return (function isElementDisplayed(element) {\n' +
+    '  function nodeIsElement(node) {\n' +
+    '    if (!node) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    switch (node.nodeType) {\n' +
+    '      case Node.ELEMENT_NODE:\n' +
+    '      case Node.DOCUMENT_NODE:\n' +
+    '      case Node.DOCUMENT_FRAGMENT_NODE:\n' +
+    '        return true;\n' +
+    '\n' +
+    '      default:\n' +
+    '        return false;\n' +
+    '    }\n' +
+    '  }\n' +
+    '\n' +
+    '  function parentElementForElement(element) {\n' +
+    '    if (!element) {\n' +
+    '      return null;\n' +
+    '    }\n' +
+    '\n' +
+    '    return enclosingNodeOrSelfMatchingPredicate(element.parentNode, nodeIsElement);\n' +
+    '  }\n' +
+    '\n' +
+    '  function enclosingNodeOrSelfMatchingPredicate(targetNode, predicate) {\n' +
+    '    for (let node = targetNode; node && node !== targetNode.ownerDocument; node = node.parentNode) if (predicate(node)) {\n' +
+    '      return node;\n' +
+    '    }\n' +
+    '\n' +
+    '    return null;\n' +
+    '  }\n' +
+    '\n' +
+    '  function enclosingElementOrSelfMatchingPredicate(targetElement, predicate) {\n' +
+    '    for (let element = targetElement; element && element !== targetElement.ownerDocument; element = parentElementForElement(element)) if (predicate(element)) {\n' +
+    '      return element;\n' +
+    '    }\n' +
+    '\n' +
+    '    return null;\n' +
+    '  }\n' +
+    '\n' +
+    '  function cascadedStylePropertyForElement(element, property) {\n' +
+    '    if (!element || !property) {\n' +
+    '      return null;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (element instanceof DocumentFragment) {\n' +
+    '      element = element.host;\n' +
+    '    }\n' +
+    '\n' +
+    '    let computedStyle = window.getComputedStyle(element);\n' +
+    '    let computedStyleProperty = computedStyle.getPropertyValue(property);\n' +
+    '\n' +
+    "    if (computedStyleProperty && computedStyleProperty !== 'inherit') {\n" +
+    '      return computedStyleProperty;\n' +
+    '    }\n' +
+    '\n' +
+    '    let parentElement = parentElementForElement(element);\n' +
+    '    return cascadedStylePropertyForElement(parentElement, property);\n' +
+    '  }\n' +
+    '\n' +
+    '  function elementSubtreeHasNonZeroDimensions(element) {\n' +
+    '    let boundingBox = element.getBoundingClientRect();\n' +
+    '\n' +
+    '    if (boundingBox.width > 0 && boundingBox.height > 0) {\n' +
+    '      return true;\n' +
+    '    }\n' +
+    '\n' +
+    "    if (element.tagName.toUpperCase() === 'PATH' && boundingBox.width + boundingBox.height > 0) {\n" +
+    "      let strokeWidth = cascadedStylePropertyForElement(element, 'stroke-width');\n" +
+    '      return !!strokeWidth && parseInt(strokeWidth, 10) > 0;\n' +
+    '    }\n' +
+    '\n' +
+    "    let cascadedOverflow = cascadedStylePropertyForElement(element, 'overflow');\n" +
+    '\n' +
+    "    if (cascadedOverflow === 'hidden') {\n" +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    return Array.from(element.childNodes).some(childNode => {\n' +
+    '      if (childNode.nodeType === Node.TEXT_NODE) {\n' +
+    '        return true;\n' +
+    '      }\n' +
+    '\n' +
+    '      if (nodeIsElement(childNode)) {\n' +
+    '        return elementSubtreeHasNonZeroDimensions(childNode);\n' +
+    '      }\n' +
+    '\n' +
+    '      return false;\n' +
+    '    });\n' +
+    '  }\n' +
+    '\n' +
+    '  function elementOverflowsContainer(element) {\n' +
+    "    let cascadedOverflow = cascadedStylePropertyForElement(element, 'overflow');\n" +
+    '\n' +
+    "    if (cascadedOverflow !== 'hidden') {\n" +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    return true;\n' +
+    '  }\n' +
+    '\n' +
+    '  function isElementSubtreeHiddenByOverflow(element) {\n' +
+    '    if (!element) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (!elementOverflowsContainer(element)) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (!element.childNodes.length) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    return Array.from(element.childNodes).every(childNode => {\n' +
+    '      if (childNode.nodeType === Node.TEXT_NODE) {\n' +
+    '        return false;\n' +
+    '      }\n' +
+    '\n' +
+    '      if (!nodeIsElement(childNode)) {\n' +
+    '        return true;\n' +
+    '      }\n' +
+    '\n' +
+    '      if (!elementSubtreeHasNonZeroDimensions(childNode)) {\n' +
+    '        return true;\n' +
+    '      }\n' +
+    '\n' +
+    '      return isElementSubtreeHiddenByOverflow(childNode);\n' +
+    '    });\n' +
+    '  }\n' +
+    '\n' +
+    '  function isElementInsideShadowRoot(element) {\n' +
+    '    if (!element) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (element.parentNode && element.parentNode.host) {\n' +
+    '      return true;\n' +
+    '    }\n' +
+    '\n' +
+    '    return isElementInsideShadowRoot(element.parentNode);\n' +
+    '  }\n' +
+    '\n' +
+    '  if (!isElementInsideShadowRoot(element) && !document.contains(element)) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  switch (element.tagName.toUpperCase()) {\n' +
+    "    case 'BODY':\n" +
+    '      return true;\n' +
+    '\n' +
+    "    case 'SCRIPT':\n" +
+    "    case 'NOSCRIPT':\n" +
+    '      return false;\n' +
+    '\n' +
+    "    case 'OPTGROUP':\n" +
+    "    case 'OPTION':\n" +
+    '      {\n' +
+    "        let enclosingSelectElement = enclosingNodeOrSelfMatchingPredicate(element, e => e.tagName.toUpperCase() === 'SELECT');\n" +
+    '        return isElementDisplayed(enclosingSelectElement);\n' +
+    '      }\n' +
+    '\n' +
+    "    case 'INPUT':\n" +
+    "      if (element.type === 'hidden') {\n" +
+    '        return false;\n' +
+    '      }\n' +
+    '\n' +
+    '      break;\n' +
+    '\n' +
+    '    default:\n' +
+    '      break;\n' +
+    '  }\n' +
+    '\n' +
+    "  if (cascadedStylePropertyForElement(element, 'visibility') !== 'visible') {\n" +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  let hasAncestorWithZeroOpacity = !!enclosingElementOrSelfMatchingPredicate(element, e => {\n' +
+    "    return Number(cascadedStylePropertyForElement(e, 'opacity')) === 0;\n" +
+    '  });\n' +
+    '  let hasAncestorWithDisplayNone = !!enclosingElementOrSelfMatchingPredicate(element, e => {\n' +
+    "    return cascadedStylePropertyForElement(e, 'display') === 'none';\n" +
+    '  });\n' +
+    '\n' +
+    '  if (hasAncestorWithZeroOpacity || hasAncestorWithDisplayNone) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  if (!elementSubtreeHasNonZeroDimensions(element)) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  if (isElementSubtreeHiddenByOverflow(element)) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  return true;\n' +
+    '}).apply(null, arguments)',
+  args: [
+    {
+      'element-6066-11e4-a52e-4f735466cecf': '837588d3-2d03-4d6a-9f74-59ff1599b24e',
+      ELEMENT: '837588d3-2d03-4d6a-9f74-59ff1599b24e'
+    }
+  ]
+}
+[0-0] 2020-04-22T13:24:08.376Z INFO webdriver: RESULT false
+[0-0] 2020-04-22T13:24:08.818Z INFO webdriver: COMMAND executeScript(<fn>, <object>)
+[0-0] 2020-04-22T13:24:08.818Z INFO webdriver: [POST] https://hub-cloud.browserstack.com/wd/hub/session/159f50ea349902344c9c07db5f73339cb6a8ba75/execute/sync
+[0-0] 2020-04-22T13:24:08.818Z INFO webdriver: DATA {
+  script: 'return (function isElementDisplayed(element) {\n' +
+    '  function nodeIsElement(node) {\n' +
+    '    if (!node) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    switch (node.nodeType) {\n' +
+    '      case Node.ELEMENT_NODE:\n' +
+    '      case Node.DOCUMENT_NODE:\n' +
+    '      case Node.DOCUMENT_FRAGMENT_NODE:\n' +
+    '        return true;\n' +
+    '\n' +
+    '      default:\n' +
+    '        return false;\n' +
+    '    }\n' +
+    '  }\n' +
+    '\n' +
+    '  function parentElementForElement(element) {\n' +
+    '    if (!element) {\n' +
+    '      return null;\n' +
+    '    }\n' +
+    '\n' +
+    '    return enclosingNodeOrSelfMatchingPredicate(element.parentNode, nodeIsElement);\n' +
+    '  }\n' +
+    '\n' +
+    '  function enclosingNodeOrSelfMatchingPredicate(targetNode, predicate) {\n' +
+    '    for (let node = targetNode; node && node !== targetNode.ownerDocument; node = node.parentNode) if (predicate(node)) {\n' +
+    '      return node;\n' +
+    '    }\n' +
+    '\n' +
+    '    return null;\n' +
+    '  }\n' +
+    '\n' +
+    '  function enclosingElementOrSelfMatchingPredicate(targetElement, predicate) {\n' +
+    '    for (let element = targetElement; element && element !== targetElement.ownerDocument; element = parentElementForElement(element)) if (predicate(element)) {\n' +
+    '      return element;\n' +
+    '    }\n' +
+    '\n' +
+    '    return null;\n' +
+    '  }\n' +
+    '\n' +
+    '  function cascadedStylePropertyForElement(element, property) {\n' +
+    '    if (!element || !property) {\n' +
+    '      return null;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (element instanceof DocumentFragment) {\n' +
+    '      element = element.host;\n' +
+    '    }\n' +
+    '\n' +
+    '    let computedStyle = window.getComputedStyle(element);\n' +
+    '    let computedStyleProperty = computedStyle.getPropertyValue(property);\n' +
+    '\n' +
+    "    if (computedStyleProperty && computedStyleProperty !== 'inherit') {\n" +
+    '      return computedStyleProperty;\n' +
+    '    }\n' +
+    '\n' +
+    '    let parentElement = parentElementForElement(element);\n' +
+    '    return cascadedStylePropertyForElement(parentElement, property);\n' +
+    '  }\n' +
+    '\n' +
+    '  function elementSubtreeHasNonZeroDimensions(element) {\n' +
+    '    let boundingBox = element.getBoundingClientRect();\n' +
+    '\n' +
+    '    if (boundingBox.width > 0 && boundingBox.height > 0) {\n' +
+    '      return true;\n' +
+    '    }\n' +
+    '\n' +
+    "    if (element.tagName.toUpperCase() === 'PATH' && boundingBox.width + boundingBox.height > 0) {\n" +
+    "      let strokeWidth = cascadedStylePropertyForElement(element, 'stroke-width');\n" +
+    '      return !!strokeWidth && parseInt(strokeWidth, 10) > 0;\n' +
+    '    }\n' +
+    '\n' +
+    "    let cascadedOverflow = cascadedStylePropertyForElement(element, 'overflow');\n" +
+    '\n' +
+    "    if (cascadedOverflow === 'hidden') {\n" +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    return Array.from(element.childNodes).some(childNode => {\n' +
+    '      if (childNode.nodeType === Node.TEXT_NODE) {\n' +
+    '        return true;\n' +
+    '      }\n' +
+    '\n' +
+    '      if (nodeIsElement(childNode)) {\n' +
+    '        return elementSubtreeHasNonZeroDimensions(childNode);\n' +
+    '      }\n' +
+    '\n' +
+    '      return false;\n' +
+    '    });\n' +
+    '  }\n' +
+    '\n' +
+    '  function elementOverflowsContainer(element) {\n' +
+    "    let cascadedOverflow = cascadedStylePropertyForElement(element, 'overflow');\n" +
+    '\n' +
+    "    if (cascadedOverflow !== 'hidden') {\n" +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    return true;\n' +
+    '  }\n' +
+    '\n' +
+    '  function isElementSubtreeHiddenByOverflow(element) {\n' +
+    '    if (!element) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (!elementOverflowsContainer(element)) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (!element.childNodes.length) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    return Array.from(element.childNodes).every(childNode => {\n' +
+    '      if (childNode.nodeType === Node.TEXT_NODE) {\n' +
+    '        return false;\n' +
+    '      }\n' +
+    '\n' +
+    '      if (!nodeIsElement(childNode)) {\n' +
+    '        return true;\n' +
+    '      }\n' +
+    '\n' +
+    '      if (!elementSubtreeHasNonZeroDimensions(childNode)) {\n' +
+    '        return true;\n' +
+    '      }\n' +
+    '\n' +
+    '      return isElementSubtreeHiddenByOverflow(childNode);\n' +
+    '    });\n' +
+    '  }\n' +
+    '\n' +
+    '  function isElementInsideShadowRoot(element) {\n' +
+    '    if (!element) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (element.parentNode && element.parentNode.host) {\n' +
+    '      return true;\n' +
+    '    }\n' +
+    '\n' +
+    '    return isElementInsideShadowRoot(element.parentNode);\n' +
+    '  }\n' +
+    '\n' +
+    '  if (!isElementInsideShadowRoot(element) && !document.contains(element)) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  switch (element.tagName.toUpperCase()) {\n' +
+    "    case 'BODY':\n" +
+    '      return true;\n' +
+    '\n' +
+    "    case 'SCRIPT':\n" +
+    "    case 'NOSCRIPT':\n" +
+    '      return false;\n' +
+    '\n' +
+    "    case 'OPTGROUP':\n" +
+    "    case 'OPTION':\n" +
+    '      {\n' +
+    "        let enclosingSelectElement = enclosingNodeOrSelfMatchingPredicate(element, e => e.tagName.toUpperCase() === 'SELECT');\n" +
+    '        return isElementDisplayed(enclosingSelectElement);\n' +
+    '      }\n' +
+    '\n' +
+    "    case 'INPUT':\n" +
+    "      if (element.type === 'hidden') {\n" +
+    '        return false;\n' +
+    '      }\n' +
+    '\n' +
+    '      break;\n' +
+    '\n' +
+    '    default:\n' +
+    '      break;\n' +
+    '  }\n' +
+    '\n' +
+    "  if (cascadedStylePropertyForElement(element, 'visibility') !== 'visible') {\n" +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  let hasAncestorWithZeroOpacity = !!enclosingElementOrSelfMatchingPredicate(element, e => {\n' +
+    "    return Number(cascadedStylePropertyForElement(e, 'opacity')) === 0;\n" +
+    '  });\n' +
+    '  let hasAncestorWithDisplayNone = !!enclosingElementOrSelfMatchingPredicate(element, e => {\n' +
+    "    return cascadedStylePropertyForElement(e, 'display') === 'none';\n" +
+    '  });\n' +
+    '\n' +
+    '  if (hasAncestorWithZeroOpacity || hasAncestorWithDisplayNone) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  if (!elementSubtreeHasNonZeroDimensions(element)) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  if (isElementSubtreeHiddenByOverflow(element)) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  return true;\n' +
+    '}).apply(null, arguments)',
+  args: [
+    {
+      'element-6066-11e4-a52e-4f735466cecf': '837588d3-2d03-4d6a-9f74-59ff1599b24e',
+      ELEMENT: '837588d3-2d03-4d6a-9f74-59ff1599b24e'
+    }
+  ]
+}
+[0-0] 2020-04-22T13:24:08.884Z INFO webdriver: RESULT false
+[0-0] 2020-04-22T13:24:09.318Z INFO webdriver: COMMAND executeScript(<fn>, <object>)
+[0-0] 2020-04-22T13:24:09.318Z INFO webdriver: [POST] https://hub-cloud.browserstack.com/wd/hub/session/159f50ea349902344c9c07db5f73339cb6a8ba75/execute/sync
+[0-0] 2020-04-22T13:24:09.318Z INFO webdriver: DATA {
+  script: 'return (function isElementDisplayed(element) {\n' +
+    '  function nodeIsElement(node) {\n' +
+    '    if (!node) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    switch (node.nodeType) {\n' +
+    '      case Node.ELEMENT_NODE:\n' +
+    '      case Node.DOCUMENT_NODE:\n' +
+    '      case Node.DOCUMENT_FRAGMENT_NODE:\n' +
+    '        return true;\n' +
+    '\n' +
+    '      default:\n' +
+    '        return false;\n' +
+    '    }\n' +
+    '  }\n' +
+    '\n' +
+    '  function parentElementForElement(element) {\n' +
+    '    if (!element) {\n' +
+    '      return null;\n' +
+    '    }\n' +
+    '\n' +
+    '    return enclosingNodeOrSelfMatchingPredicate(element.parentNode, nodeIsElement);\n' +
+    '  }\n' +
+    '\n' +
+    '  function enclosingNodeOrSelfMatchingPredicate(targetNode, predicate) {\n' +
+    '    for (let node = targetNode; node && node !== targetNode.ownerDocument; node = node.parentNode) if (predicate(node)) {\n' +
+    '      return node;\n' +
+    '    }\n' +
+    '\n' +
+    '    return null;\n' +
+    '  }\n' +
+    '\n' +
+    '  function enclosingElementOrSelfMatchingPredicate(targetElement, predicate) {\n' +
+    '    for (let element = targetElement; element && element !== targetElement.ownerDocument; element = parentElementForElement(element)) if (predicate(element)) {\n' +
+    '      return element;\n' +
+    '    }\n' +
+    '\n' +
+    '    return null;\n' +
+    '  }\n' +
+    '\n' +
+    '  function cascadedStylePropertyForElement(element, property) {\n' +
+    '    if (!element || !property) {\n' +
+    '      return null;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (element instanceof DocumentFragment) {\n' +
+    '      element = element.host;\n' +
+    '    }\n' +
+    '\n' +
+    '    let computedStyle = window.getComputedStyle(element);\n' +
+    '    let computedStyleProperty = computedStyle.getPropertyValue(property);\n' +
+    '\n' +
+    "    if (computedStyleProperty && computedStyleProperty !== 'inherit') {\n" +
+    '      return computedStyleProperty;\n' +
+    '    }\n' +
+    '\n' +
+    '    let parentElement = parentElementForElement(element);\n' +
+    '    return cascadedStylePropertyForElement(parentElement, property);\n' +
+    '  }\n' +
+    '\n' +
+    '  function elementSubtreeHasNonZeroDimensions(element) {\n' +
+    '    let boundingBox = element.getBoundingClientRect();\n' +
+    '\n' +
+    '    if (boundingBox.width > 0 && boundingBox.height > 0) {\n' +
+    '      return true;\n' +
+    '    }\n' +
+    '\n' +
+    "    if (element.tagName.toUpperCase() === 'PATH' && boundingBox.width + boundingBox.height > 0) {\n" +
+    "      let strokeWidth = cascadedStylePropertyForElement(element, 'stroke-width');\n" +
+    '      return !!strokeWidth && parseInt(strokeWidth, 10) > 0;\n' +
+    '    }\n' +
+    '\n' +
+    "    let cascadedOverflow = cascadedStylePropertyForElement(element, 'overflow');\n" +
+    '\n' +
+    "    if (cascadedOverflow === 'hidden') {\n" +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    return Array.from(element.childNodes).some(childNode => {\n' +
+    '      if (childNode.nodeType === Node.TEXT_NODE) {\n' +
+    '        return true;\n' +
+    '      }\n' +
+    '\n' +
+    '      if (nodeIsElement(childNode)) {\n' +
+    '        return elementSubtreeHasNonZeroDimensions(childNode);\n' +
+    '      }\n' +
+    '\n' +
+    '      return false;\n' +
+    '    });\n' +
+    '  }\n' +
+    '\n' +
+    '  function elementOverflowsContainer(element) {\n' +
+    "    let cascadedOverflow = cascadedStylePropertyForElement(element, 'overflow');\n" +
+    '\n' +
+    "    if (cascadedOverflow !== 'hidden') {\n" +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    return true;\n' +
+    '  }\n' +
+    '\n' +
+    '  function isElementSubtreeHiddenByOverflow(element) {\n' +
+    '    if (!element) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (!elementOverflowsContainer(element)) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (!element.childNodes.length) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    return Array.from(element.childNodes).every(childNode => {\n' +
+    '      if (childNode.nodeType === Node.TEXT_NODE) {\n' +
+    '        return false;\n' +
+    '      }\n' +
+    '\n' +
+    '      if (!nodeIsElement(childNode)) {\n' +
+    '        return true;\n' +
+    '      }\n' +
+    '\n' +
+    '      if (!elementSubtreeHasNonZeroDimensions(childNode)) {\n' +
+    '        return true;\n' +
+    '      }\n' +
+    '\n' +
+    '      return isElementSubtreeHiddenByOverflow(childNode);\n' +
+    '    });\n' +
+    '  }\n' +
+    '\n' +
+    '  function isElementInsideShadowRoot(element) {\n' +
+    '    if (!element) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (element.parentNode && element.parentNode.host) {\n' +
+    '      return true;\n' +
+    '    }\n' +
+    '\n' +
+    '    return isElementInsideShadowRoot(element.parentNode);\n' +
+    '  }\n' +
+    '\n' +
+    '  if (!isElementInsideShadowRoot(element) && !document.contains(element)) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  switch (element.tagName.toUpperCase()) {\n' +
+    "    case 'BODY':\n" +
+    '      return true;\n' +
+    '\n' +
+    "    case 'SCRIPT':\n" +
+    "    case 'NOSCRIPT':\n" +
+    '      return false;\n' +
+    '\n' +
+    "    case 'OPTGROUP':\n" +
+    "    case 'OPTION':\n" +
+    '      {\n' +
+    "        let enclosingSelectElement = enclosingNodeOrSelfMatchingPredicate(element, e => e.tagName.toUpperCase() === 'SELECT');\n" +
+    '        return isElementDisplayed(enclosingSelectElement);\n' +
+    '      }\n' +
+    '\n' +
+    "    case 'INPUT':\n" +
+    "      if (element.type === 'hidden') {\n" +
+    '        return false;\n' +
+    '      }\n' +
+    '\n' +
+    '      break;\n' +
+    '\n' +
+    '    default:\n' +
+    '      break;\n' +
+    '  }\n' +
+    '\n' +
+    "  if (cascadedStylePropertyForElement(element, 'visibility') !== 'visible') {\n" +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  let hasAncestorWithZeroOpacity = !!enclosingElementOrSelfMatchingPredicate(element, e => {\n' +
+    "    return Number(cascadedStylePropertyForElement(e, 'opacity')) === 0;\n" +
+    '  });\n' +
+    '  let hasAncestorWithDisplayNone = !!enclosingElementOrSelfMatchingPredicate(element, e => {\n' +
+    "    return cascadedStylePropertyForElement(e, 'display') === 'none';\n" +
+    '  });\n' +
+    '\n' +
+    '  if (hasAncestorWithZeroOpacity || hasAncestorWithDisplayNone) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  if (!elementSubtreeHasNonZeroDimensions(element)) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  if (isElementSubtreeHiddenByOverflow(element)) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  return true;\n' +
+    '}).apply(null, arguments)',
+  args: [
+    {
+      'element-6066-11e4-a52e-4f735466cecf': '837588d3-2d03-4d6a-9f74-59ff1599b24e',
+      ELEMENT: '837588d3-2d03-4d6a-9f74-59ff1599b24e'
+    }
+  ]
+}
+[0-0] 2020-04-22T13:24:09.381Z INFO webdriver: RESULT false
+[0-0] 2020-04-22T13:24:09.820Z INFO webdriver: COMMAND executeScript(<fn>, <object>)
+[0-0] 2020-04-22T13:24:09.820Z INFO webdriver: [POST] https://hub-cloud.browserstack.com/wd/hub/session/159f50ea349902344c9c07db5f73339cb6a8ba75/execute/sync
+[0-0] 2020-04-22T13:24:09.820Z INFO webdriver: DATA {
+  script: 'return (function isElementDisplayed(element) {\n' +
+    '  function nodeIsElement(node) {\n' +
+    '    if (!node) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    switch (node.nodeType) {\n' +
+    '      case Node.ELEMENT_NODE:\n' +
+    '      case Node.DOCUMENT_NODE:\n' +
+    '      case Node.DOCUMENT_FRAGMENT_NODE:\n' +
+    '        return true;\n' +
+    '\n' +
+    '      default:\n' +
+    '        return false;\n' +
+    '    }\n' +
+    '  }\n' +
+    '\n' +
+    '  function parentElementForElement(element) {\n' +
+    '    if (!element) {\n' +
+    '      return null;\n' +
+    '    }\n' +
+    '\n' +
+    '    return enclosingNodeOrSelfMatchingPredicate(element.parentNode, nodeIsElement);\n' +
+    '  }\n' +
+    '\n' +
+    '  function enclosingNodeOrSelfMatchingPredicate(targetNode, predicate) {\n' +
+    '    for (let node = targetNode; node && node !== targetNode.ownerDocument; node = node.parentNode) if (predicate(node)) {\n' +
+    '      return node;\n' +
+    '    }\n' +
+    '\n' +
+    '    return null;\n' +
+    '  }\n' +
+    '\n' +
+    '  function enclosingElementOrSelfMatchingPredicate(targetElement, predicate) {\n' +
+    '    for (let element = targetElement; element && element !== targetElement.ownerDocument; element = parentElementForElement(element)) if (predicate(element)) {\n' +
+    '      return element;\n' +
+    '    }\n' +
+    '\n' +
+    '    return null;\n' +
+    '  }\n' +
+    '\n' +
+    '  function cascadedStylePropertyForElement(element, property) {\n' +
+    '    if (!element || !property) {\n' +
+    '      return null;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (element instanceof DocumentFragment) {\n' +
+    '      element = element.host;\n' +
+    '    }\n' +
+    '\n' +
+    '    let computedStyle = window.getComputedStyle(element);\n' +
+    '    let computedStyleProperty = computedStyle.getPropertyValue(property);\n' +
+    '\n' +
+    "    if (computedStyleProperty && computedStyleProperty !== 'inherit') {\n" +
+    '      return computedStyleProperty;\n' +
+    '    }\n' +
+    '\n' +
+    '    let parentElement = parentElementForElement(element);\n' +
+    '    return cascadedStylePropertyForElement(parentElement, property);\n' +
+    '  }\n' +
+    '\n' +
+    '  function elementSubtreeHasNonZeroDimensions(element) {\n' +
+    '    let boundingBox = element.getBoundingClientRect();\n' +
+    '\n' +
+    '    if (boundingBox.width > 0 && boundingBox.height > 0) {\n' +
+    '      return true;\n' +
+    '    }\n' +
+    '\n' +
+    "    if (element.tagName.toUpperCase() === 'PATH' && boundingBox.width + boundingBox.height > 0) {\n" +
+    "      let strokeWidth = cascadedStylePropertyForElement(element, 'stroke-width');\n" +
+    '      return !!strokeWidth && parseInt(strokeWidth, 10) > 0;\n' +
+    '    }\n' +
+    '\n' +
+    "    let cascadedOverflow = cascadedStylePropertyForElement(element, 'overflow');\n" +
+    '\n' +
+    "    if (cascadedOverflow === 'hidden') {\n" +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    return Array.from(element.childNodes).some(childNode => {\n' +
+    '      if (childNode.nodeType === Node.TEXT_NODE) {\n' +
+    '        return true;\n' +
+    '      }\n' +
+    '\n' +
+    '      if (nodeIsElement(childNode)) {\n' +
+    '        return elementSubtreeHasNonZeroDimensions(childNode);\n' +
+    '      }\n' +
+    '\n' +
+    '      return false;\n' +
+    '    });\n' +
+    '  }\n' +
+    '\n' +
+    '  function elementOverflowsContainer(element) {\n' +
+    "    let cascadedOverflow = cascadedStylePropertyForElement(element, 'overflow');\n" +
+    '\n' +
+    "    if (cascadedOverflow !== 'hidden') {\n" +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    return true;\n' +
+    '  }\n' +
+    '\n' +
+    '  function isElementSubtreeHiddenByOverflow(element) {\n' +
+    '    if (!element) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (!elementOverflowsContainer(element)) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (!element.childNodes.length) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    return Array.from(element.childNodes).every(childNode => {\n' +
+    '      if (childNode.nodeType === Node.TEXT_NODE) {\n' +
+    '        return false;\n' +
+    '      }\n' +
+    '\n' +
+    '      if (!nodeIsElement(childNode)) {\n' +
+    '        return true;\n' +
+    '      }\n' +
+    '\n' +
+    '      if (!elementSubtreeHasNonZeroDimensions(childNode)) {\n' +
+    '        return true;\n' +
+    '      }\n' +
+    '\n' +
+    '      return isElementSubtreeHiddenByOverflow(childNode);\n' +
+    '    });\n' +
+    '  }\n' +
+    '\n' +
+    '  function isElementInsideShadowRoot(element) {\n' +
+    '    if (!element) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (element.parentNode && element.parentNode.host) {\n' +
+    '      return true;\n' +
+    '    }\n' +
+    '\n' +
+    '    return isElementInsideShadowRoot(element.parentNode);\n' +
+    '  }\n' +
+    '\n' +
+    '  if (!isElementInsideShadowRoot(element) && !document.contains(element)) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  switch (element.tagName.toUpperCase()) {\n' +
+    "    case 'BODY':\n" +
+    '      return true;\n' +
+    '\n' +
+    "    case 'SCRIPT':\n" +
+    "    case 'NOSCRIPT':\n" +
+    '      return false;\n' +
+    '\n' +
+    "    case 'OPTGROUP':\n" +
+    "    case 'OPTION':\n" +
+    '      {\n' +
+    "        let enclosingSelectElement = enclosingNodeOrSelfMatchingPredicate(element, e => e.tagName.toUpperCase() === 'SELECT');\n" +
+    '        return isElementDisplayed(enclosingSelectElement);\n' +
+    '      }\n' +
+    '\n' +
+    "    case 'INPUT':\n" +
+    "      if (element.type === 'hidden') {\n" +
+    '        return false;\n' +
+    '      }\n' +
+    '\n' +
+    '      break;\n' +
+    '\n' +
+    '    default:\n' +
+    '      break;\n' +
+    '  }\n' +
+    '\n' +
+    "  if (cascadedStylePropertyForElement(element, 'visibility') !== 'visible') {\n" +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  let hasAncestorWithZeroOpacity = !!enclosingElementOrSelfMatchingPredicate(element, e => {\n' +
+    "    return Number(cascadedStylePropertyForElement(e, 'opacity')) === 0;\n" +
+    '  });\n' +
+    '  let hasAncestorWithDisplayNone = !!enclosingElementOrSelfMatchingPredicate(element, e => {\n' +
+    "    return cascadedStylePropertyForElement(e, 'display') === 'none';\n" +
+    '  });\n' +
+    '\n' +
+    '  if (hasAncestorWithZeroOpacity || hasAncestorWithDisplayNone) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  if (!elementSubtreeHasNonZeroDimensions(element)) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  if (isElementSubtreeHiddenByOverflow(element)) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  return true;\n' +
+    '}).apply(null, arguments)',
+  args: [
+    {
+      'element-6066-11e4-a52e-4f735466cecf': '837588d3-2d03-4d6a-9f74-59ff1599b24e',
+      ELEMENT: '837588d3-2d03-4d6a-9f74-59ff1599b24e'
+    }
+  ]
+}
+[0-0] 2020-04-22T13:24:09.874Z INFO webdriver: RESULT false
+[0-0] 2020-04-22T13:24:10.317Z INFO webdriver: COMMAND executeScript(<fn>, <object>)
+[0-0] 2020-04-22T13:24:10.318Z INFO webdriver: [POST] https://hub-cloud.browserstack.com/wd/hub/session/159f50ea349902344c9c07db5f73339cb6a8ba75/execute/sync
+[0-0] 2020-04-22T13:24:10.318Z INFO webdriver: DATA {
+  script: 'return (function isElementDisplayed(element) {\n' +
+    '  function nodeIsElement(node) {\n' +
+    '    if (!node) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    switch (node.nodeType) {\n' +
+    '      case Node.ELEMENT_NODE:\n' +
+    '      case Node.DOCUMENT_NODE:\n' +
+    '      case Node.DOCUMENT_FRAGMENT_NODE:\n' +
+    '        return true;\n' +
+    '\n' +
+    '      default:\n' +
+    '        return false;\n' +
+    '    }\n' +
+    '  }\n' +
+    '\n' +
+    '  function parentElementForElement(element) {\n' +
+    '    if (!element) {\n' +
+    '      return null;\n' +
+    '    }\n' +
+    '\n' +
+    '    return enclosingNodeOrSelfMatchingPredicate(element.parentNode, nodeIsElement);\n' +
+    '  }\n' +
+    '\n' +
+    '  function enclosingNodeOrSelfMatchingPredicate(targetNode, predicate) {\n' +
+    '    for (let node = targetNode; node && node !== targetNode.ownerDocument; node = node.parentNode) if (predicate(node)) {\n' +
+    '      return node;\n' +
+    '    }\n' +
+    '\n' +
+    '    return null;\n' +
+    '  }\n' +
+    '\n' +
+    '  function enclosingElementOrSelfMatchingPredicate(targetElement, predicate) {\n' +
+    '    for (let element = targetElement; element && element !== targetElement.ownerDocument; element = parentElementForElement(element)) if (predicate(element)) {\n' +
+    '      return element;\n' +
+    '    }\n' +
+    '\n' +
+    '    return null;\n' +
+    '  }\n' +
+    '\n' +
+    '  function cascadedStylePropertyForElement(element, property) {\n' +
+    '    if (!element || !property) {\n' +
+    '      return null;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (element instanceof DocumentFragment) {\n' +
+    '      element = element.host;\n' +
+    '    }\n' +
+    '\n' +
+    '    let computedStyle = window.getComputedStyle(element);\n' +
+    '    let computedStyleProperty = computedStyle.getPropertyValue(property);\n' +
+    '\n' +
+    "    if (computedStyleProperty && computedStyleProperty !== 'inherit') {\n" +
+    '      return computedStyleProperty;\n' +
+    '    }\n' +
+    '\n' +
+    '    let parentElement = parentElementForElement(element);\n' +
+    '    return cascadedStylePropertyForElement(parentElement, property);\n' +
+    '  }\n' +
+    '\n' +
+    '  function elementSubtreeHasNonZeroDimensions(element) {\n' +
+    '    let boundingBox = element.getBoundingClientRect();\n' +
+    '\n' +
+    '    if (boundingBox.width > 0 && boundingBox.height > 0) {\n' +
+    '      return true;\n' +
+    '    }\n' +
+    '\n' +
+    "    if (element.tagName.toUpperCase() === 'PATH' && boundingBox.width + boundingBox.height > 0) {\n" +
+    "      let strokeWidth = cascadedStylePropertyForElement(element, 'stroke-width');\n" +
+    '      return !!strokeWidth && parseInt(strokeWidth, 10) > 0;\n' +
+    '    }\n' +
+    '\n' +
+    "    let cascadedOverflow = cascadedStylePropertyForElement(element, 'overflow');\n" +
+    '\n' +
+    "    if (cascadedOverflow === 'hidden') {\n" +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    return Array.from(element.childNodes).some(childNode => {\n' +
+    '      if (childNode.nodeType === Node.TEXT_NODE) {\n' +
+    '        return true;\n' +
+    '      }\n' +
+    '\n' +
+    '      if (nodeIsElement(childNode)) {\n' +
+    '        return elementSubtreeHasNonZeroDimensions(childNode);\n' +
+    '      }\n' +
+    '\n' +
+    '      return false;\n' +
+    '    });\n' +
+    '  }\n' +
+    '\n' +
+    '  function elementOverflowsContainer(element) {\n' +
+    "    let cascadedOverflow = cascadedStylePropertyForElement(element, 'overflow');\n" +
+    '\n' +
+    "    if (cascadedOverflow !== 'hidden') {\n" +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    return true;\n' +
+    '  }\n' +
+    '\n' +
+    '  function isElementSubtreeHiddenByOverflow(element) {\n' +
+    '    if (!element) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (!elementOverflowsContainer(element)) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (!element.childNodes.length) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    return Array.from(element.childNodes).every(childNode => {\n' +
+    '      if (childNode.nodeType === Node.TEXT_NODE) {\n' +
+    '        return false;\n' +
+    '      }\n' +
+    '\n' +
+    '      if (!nodeIsElement(childNode)) {\n' +
+    '        return true;\n' +
+    '      }\n' +
+    '\n' +
+    '      if (!elementSubtreeHasNonZeroDimensions(childNode)) {\n' +
+    '        return true;\n' +
+    '      }\n' +
+    '\n' +
+    '      return isElementSubtreeHiddenByOverflow(childNode);\n' +
+    '    });\n' +
+    '  }\n' +
+    '\n' +
+    '  function isElementInsideShadowRoot(element) {\n' +
+    '    if (!element) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (element.parentNode && element.parentNode.host) {\n' +
+    '      return true;\n' +
+    '    }\n' +
+    '\n' +
+    '    return isElementInsideShadowRoot(element.parentNode);\n' +
+    '  }\n' +
+    '\n' +
+    '  if (!isElementInsideShadowRoot(element) && !document.contains(element)) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  switch (element.tagName.toUpperCase()) {\n' +
+    "    case 'BODY':\n" +
+    '      return true;\n' +
+    '\n' +
+    "    case 'SCRIPT':\n" +
+    "    case 'NOSCRIPT':\n" +
+    '      return false;\n' +
+    '\n' +
+    "    case 'OPTGROUP':\n" +
+    "    case 'OPTION':\n" +
+    '      {\n' +
+    "        let enclosingSelectElement = enclosingNodeOrSelfMatchingPredicate(element, e => e.tagName.toUpperCase() === 'SELECT');\n" +
+    '        return isElementDisplayed(enclosingSelectElement);\n' +
+    '      }\n' +
+    '\n' +
+    "    case 'INPUT':\n" +
+    "      if (element.type === 'hidden') {\n" +
+    '        return false;\n' +
+    '      }\n' +
+    '\n' +
+    '      break;\n' +
+    '\n' +
+    '    default:\n' +
+    '      break;\n' +
+    '  }\n' +
+    '\n' +
+    "  if (cascadedStylePropertyForElement(element, 'visibility') !== 'visible') {\n" +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  let hasAncestorWithZeroOpacity = !!enclosingElementOrSelfMatchingPredicate(element, e => {\n' +
+    "    return Number(cascadedStylePropertyForElement(e, 'opacity')) === 0;\n" +
+    '  });\n' +
+    '  let hasAncestorWithDisplayNone = !!enclosingElementOrSelfMatchingPredicate(element, e => {\n' +
+    "    return cascadedStylePropertyForElement(e, 'display') === 'none';\n" +
+    '  });\n' +
+    '\n' +
+    '  if (hasAncestorWithZeroOpacity || hasAncestorWithDisplayNone) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  if (!elementSubtreeHasNonZeroDimensions(element)) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  if (isElementSubtreeHiddenByOverflow(element)) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  return true;\n' +
+    '}).apply(null, arguments)',
+  args: [
+    {
+      'element-6066-11e4-a52e-4f735466cecf': '837588d3-2d03-4d6a-9f74-59ff1599b24e',
+      ELEMENT: '837588d3-2d03-4d6a-9f74-59ff1599b24e'
+    }
+  ]
+}
+[0-0] 2020-04-22T13:24:10.374Z INFO webdriver: RESULT false
+[0-0] 2020-04-22T13:24:10.821Z INFO webdriver: COMMAND executeScript(<fn>, <object>)
+[0-0] 2020-04-22T13:24:10.822Z INFO webdriver: [POST] https://hub-cloud.browserstack.com/wd/hub/session/159f50ea349902344c9c07db5f73339cb6a8ba75/execute/sync
+[0-0] 2020-04-22T13:24:10.822Z INFO webdriver: DATA {
+  script: 'return (function isElementDisplayed(element) {\n' +
+    '  function nodeIsElement(node) {\n' +
+    '    if (!node) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    switch (node.nodeType) {\n' +
+    '      case Node.ELEMENT_NODE:\n' +
+    '      case Node.DOCUMENT_NODE:\n' +
+    '      case Node.DOCUMENT_FRAGMENT_NODE:\n' +
+    '        return true;\n' +
+    '\n' +
+    '      default:\n' +
+    '        return false;\n' +
+    '    }\n' +
+    '  }\n' +
+    '\n' +
+    '  function parentElementForElement(element) {\n' +
+    '    if (!element) {\n' +
+    '      return null;\n' +
+    '    }\n' +
+    '\n' +
+    '    return enclosingNodeOrSelfMatchingPredicate(element.parentNode, nodeIsElement);\n' +
+    '  }\n' +
+    '\n' +
+    '  function enclosingNodeOrSelfMatchingPredicate(targetNode, predicate) {\n' +
+    '    for (let node = targetNode; node && node !== targetNode.ownerDocument; node = node.parentNode) if (predicate(node)) {\n' +
+    '      return node;\n' +
+    '    }\n' +
+    '\n' +
+    '    return null;\n' +
+    '  }\n' +
+    '\n' +
+    '  function enclosingElementOrSelfMatchingPredicate(targetElement, predicate) {\n' +
+    '    for (let element = targetElement; element && element !== targetElement.ownerDocument; element = parentElementForElement(element)) if (predicate(element)) {\n' +
+    '      return element;\n' +
+    '    }\n' +
+    '\n' +
+    '    return null;\n' +
+    '  }\n' +
+    '\n' +
+    '  function cascadedStylePropertyForElement(element, property) {\n' +
+    '    if (!element || !property) {\n' +
+    '      return null;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (element instanceof DocumentFragment) {\n' +
+    '      element = element.host;\n' +
+    '    }\n' +
+    '\n' +
+    '    let computedStyle = window.getComputedStyle(element);\n' +
+    '    let computedStyleProperty = computedStyle.getPropertyValue(property);\n' +
+    '\n' +
+    "    if (computedStyleProperty && computedStyleProperty !== 'inherit') {\n" +
+    '      return computedStyleProperty;\n' +
+    '    }\n' +
+    '\n' +
+    '    let parentElement = parentElementForElement(element);\n' +
+    '    return cascadedStylePropertyForElement(parentElement, property);\n' +
+    '  }\n' +
+    '\n' +
+    '  function elementSubtreeHasNonZeroDimensions(element) {\n' +
+    '    let boundingBox = element.getBoundingClientRect();\n' +
+    '\n' +
+    '    if (boundingBox.width > 0 && boundingBox.height > 0) {\n' +
+    '      return true;\n' +
+    '    }\n' +
+    '\n' +
+    "    if (element.tagName.toUpperCase() === 'PATH' && boundingBox.width + boundingBox.height > 0) {\n" +
+    "      let strokeWidth = cascadedStylePropertyForElement(element, 'stroke-width');\n" +
+    '      return !!strokeWidth && parseInt(strokeWidth, 10) > 0;\n' +
+    '    }\n' +
+    '\n' +
+    "    let cascadedOverflow = cascadedStylePropertyForElement(element, 'overflow');\n" +
+    '\n' +
+    "    if (cascadedOverflow === 'hidden') {\n" +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    return Array.from(element.childNodes).some(childNode => {\n' +
+    '      if (childNode.nodeType === Node.TEXT_NODE) {\n' +
+    '        return true;\n' +
+    '      }\n' +
+    '\n' +
+    '      if (nodeIsElement(childNode)) {\n' +
+    '        return elementSubtreeHasNonZeroDimensions(childNode);\n' +
+    '      }\n' +
+    '\n' +
+    '      return false;\n' +
+    '    });\n' +
+    '  }\n' +
+    '\n' +
+    '  function elementOverflowsContainer(element) {\n' +
+    "    let cascadedOverflow = cascadedStylePropertyForElement(element, 'overflow');\n" +
+    '\n' +
+    "    if (cascadedOverflow !== 'hidden') {\n" +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    return true;\n' +
+    '  }\n' +
+    '\n' +
+    '  function isElementSubtreeHiddenByOverflow(element) {\n' +
+    '    if (!element) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (!elementOverflowsContainer(element)) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (!element.childNodes.length) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    return Array.from(element.childNodes).every(childNode => {\n' +
+    '      if (childNode.nodeType === Node.TEXT_NODE) {\n' +
+    '        return false;\n' +
+    '      }\n' +
+    '\n' +
+    '      if (!nodeIsElement(childNode)) {\n' +
+    '        return true;\n' +
+    '      }\n' +
+    '\n' +
+    '      if (!elementSubtreeHasNonZeroDimensions(childNode)) {\n' +
+    '        return true;\n' +
+    '      }\n' +
+    '\n' +
+    '      return isElementSubtreeHiddenByOverflow(childNode);\n' +
+    '    });\n' +
+    '  }\n' +
+    '\n' +
+    '  function isElementInsideShadowRoot(element) {\n' +
+    '    if (!element) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (element.parentNode && element.parentNode.host) {\n' +
+    '      return true;\n' +
+    '    }\n' +
+    '\n' +
+    '    return isElementInsideShadowRoot(element.parentNode);\n' +
+    '  }\n' +
+    '\n' +
+    '  if (!isElementInsideShadowRoot(element) && !document.contains(element)) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  switch (element.tagName.toUpperCase()) {\n' +
+    "    case 'BODY':\n" +
+    '      return true;\n' +
+    '\n' +
+    "    case 'SCRIPT':\n" +
+    "    case 'NOSCRIPT':\n" +
+    '      return false;\n' +
+    '\n' +
+    "    case 'OPTGROUP':\n" +
+    "    case 'OPTION':\n" +
+    '      {\n' +
+    "        let enclosingSelectElement = enclosingNodeOrSelfMatchingPredicate(element, e => e.tagName.toUpperCase() === 'SELECT');\n" +
+    '        return isElementDisplayed(enclosingSelectElement);\n' +
+    '      }\n' +
+    '\n' +
+    "    case 'INPUT':\n" +
+    "      if (element.type === 'hidden') {\n" +
+    '        return false;\n' +
+    '      }\n' +
+    '\n' +
+    '      break;\n' +
+    '\n' +
+    '    default:\n' +
+    '      break;\n' +
+    '  }\n' +
+    '\n' +
+    "  if (cascadedStylePropertyForElement(element, 'visibility') !== 'visible') {\n" +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  let hasAncestorWithZeroOpacity = !!enclosingElementOrSelfMatchingPredicate(element, e => {\n' +
+    "    return Number(cascadedStylePropertyForElement(e, 'opacity')) === 0;\n" +
+    '  });\n' +
+    '  let hasAncestorWithDisplayNone = !!enclosingElementOrSelfMatchingPredicate(element, e => {\n' +
+    "    return cascadedStylePropertyForElement(e, 'display') === 'none';\n" +
+    '  });\n' +
+    '\n' +
+    '  if (hasAncestorWithZeroOpacity || hasAncestorWithDisplayNone) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  if (!elementSubtreeHasNonZeroDimensions(element)) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  if (isElementSubtreeHiddenByOverflow(element)) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  return true;\n' +
+    '}).apply(null, arguments)',
+  args: [
+    {
+      'element-6066-11e4-a52e-4f735466cecf': '837588d3-2d03-4d6a-9f74-59ff1599b24e',
+      ELEMENT: '837588d3-2d03-4d6a-9f74-59ff1599b24e'
+    }
+  ]
+}
+[0-0] 2020-04-22T13:24:10.888Z INFO webdriver: RESULT false
+[0-0] 2020-04-22T13:24:11.318Z INFO webdriver: COMMAND executeScript(<fn>, <object>)
+[0-0] 2020-04-22T13:24:11.319Z INFO webdriver: [POST] https://hub-cloud.browserstack.com/wd/hub/session/159f50ea349902344c9c07db5f73339cb6a8ba75/execute/sync
+[0-0] 2020-04-22T13:24:11.319Z INFO webdriver: DATA {
+  script: 'return (function isElementDisplayed(element) {\n' +
+    '  function nodeIsElement(node) {\n' +
+    '    if (!node) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    switch (node.nodeType) {\n' +
+    '      case Node.ELEMENT_NODE:\n' +
+    '      case Node.DOCUMENT_NODE:\n' +
+    '      case Node.DOCUMENT_FRAGMENT_NODE:\n' +
+    '        return true;\n' +
+    '\n' +
+    '      default:\n' +
+    '        return false;\n' +
+    '    }\n' +
+    '  }\n' +
+    '\n' +
+    '  function parentElementForElement(element) {\n' +
+    '    if (!element) {\n' +
+    '      return null;\n' +
+    '    }\n' +
+    '\n' +
+    '    return enclosingNodeOrSelfMatchingPredicate(element.parentNode, nodeIsElement);\n' +
+    '  }\n' +
+    '\n' +
+    '  function enclosingNodeOrSelfMatchingPredicate(targetNode, predicate) {\n' +
+    '    for (let node = targetNode; node && node !== targetNode.ownerDocument; node = node.parentNode) if (predicate(node)) {\n' +
+    '      return node;\n' +
+    '    }\n' +
+    '\n' +
+    '    return null;\n' +
+    '  }\n' +
+    '\n' +
+    '  function enclosingElementOrSelfMatchingPredicate(targetElement, predicate) {\n' +
+    '    for (let element = targetElement; element && element !== targetElement.ownerDocument; element = parentElementForElement(element)) if (predicate(element)) {\n' +
+    '      return element;\n' +
+    '    }\n' +
+    '\n' +
+    '    return null;\n' +
+    '  }\n' +
+    '\n' +
+    '  function cascadedStylePropertyForElement(element, property) {\n' +
+    '    if (!element || !property) {\n' +
+    '      return null;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (element instanceof DocumentFragment) {\n' +
+    '      element = element.host;\n' +
+    '    }\n' +
+    '\n' +
+    '    let computedStyle = window.getComputedStyle(element);\n' +
+    '    let computedStyleProperty = computedStyle.getPropertyValue(property);\n' +
+    '\n' +
+    "    if (computedStyleProperty && computedStyleProperty !== 'inherit') {\n" +
+    '      return computedStyleProperty;\n' +
+    '    }\n' +
+    '\n' +
+    '    let parentElement = parentElementForElement(element);\n' +
+    '    return cascadedStylePropertyForElement(parentElement, property);\n' +
+    '  }\n' +
+    '\n' +
+    '  function elementSubtreeHasNonZeroDimensions(element) {\n' +
+    '    let boundingBox = element.getBoundingClientRect();\n' +
+    '\n' +
+    '    if (boundingBox.width > 0 && boundingBox.height > 0) {\n' +
+    '      return true;\n' +
+    '    }\n' +
+    '\n' +
+    "    if (element.tagName.toUpperCase() === 'PATH' && boundingBox.width + boundingBox.height > 0) {\n" +
+    "      let strokeWidth = cascadedStylePropertyForElement(element, 'stroke-width');\n" +
+    '      return !!strokeWidth && parseInt(strokeWidth, 10) > 0;\n' +
+    '    }\n' +
+    '\n' +
+    "    let cascadedOverflow = cascadedStylePropertyForElement(element, 'overflow');\n" +
+    '\n' +
+    "    if (cascadedOverflow === 'hidden') {\n" +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    return Array.from(element.childNodes).some(childNode => {\n' +
+    '      if (childNode.nodeType === Node.TEXT_NODE) {\n' +
+    '        return true;\n' +
+    '      }\n' +
+    '\n' +
+    '      if (nodeIsElement(childNode)) {\n' +
+    '        return elementSubtreeHasNonZeroDimensions(childNode);\n' +
+    '      }\n' +
+    '\n' +
+    '      return false;\n' +
+    '    });\n' +
+    '  }\n' +
+    '\n' +
+    '  function elementOverflowsContainer(element) {\n' +
+    "    let cascadedOverflow = cascadedStylePropertyForElement(element, 'overflow');\n" +
+    '\n' +
+    "    if (cascadedOverflow !== 'hidden') {\n" +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    return true;\n' +
+    '  }\n' +
+    '\n' +
+    '  function isElementSubtreeHiddenByOverflow(element) {\n' +
+    '    if (!element) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (!elementOverflowsContainer(element)) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (!element.childNodes.length) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    return Array.from(element.childNodes).every(childNode => {\n' +
+    '      if (childNode.nodeType === Node.TEXT_NODE) {\n' +
+    '        return false;\n' +
+    '      }\n' +
+    '\n' +
+    '      if (!nodeIsElement(childNode)) {\n' +
+    '        return true;\n' +
+    '      }\n' +
+    '\n' +
+    '      if (!elementSubtreeHasNonZeroDimensions(childNode)) {\n' +
+    '        return true;\n' +
+    '      }\n' +
+    '\n' +
+    '      return isElementSubtreeHiddenByOverflow(childNode);\n' +
+    '    });\n' +
+    '  }\n' +
+    '\n' +
+    '  function isElementInsideShadowRoot(element) {\n' +
+    '    if (!element) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (element.parentNode && element.parentNode.host) {\n' +
+    '      return true;\n' +
+    '    }\n' +
+    '\n' +
+    '    return isElementInsideShadowRoot(element.parentNode);\n' +
+    '  }\n' +
+    '\n' +
+    '  if (!isElementInsideShadowRoot(element) && !document.contains(element)) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  switch (element.tagName.toUpperCase()) {\n' +
+    "    case 'BODY':\n" +
+    '      return true;\n' +
+    '\n' +
+    "    case 'SCRIPT':\n" +
+    "    case 'NOSCRIPT':\n" +
+    '      return false;\n' +
+    '\n' +
+    "    case 'OPTGROUP':\n" +
+    "    case 'OPTION':\n" +
+    '      {\n' +
+    "        let enclosingSelectElement = enclosingNodeOrSelfMatchingPredicate(element, e => e.tagName.toUpperCase() === 'SELECT');\n" +
+    '        return isElementDisplayed(enclosingSelectElement);\n' +
+    '      }\n' +
+    '\n' +
+    "    case 'INPUT':\n" +
+    "      if (element.type === 'hidden') {\n" +
+    '        return false;\n' +
+    '      }\n' +
+    '\n' +
+    '      break;\n' +
+    '\n' +
+    '    default:\n' +
+    '      break;\n' +
+    '  }\n' +
+    '\n' +
+    "  if (cascadedStylePropertyForElement(element, 'visibility') !== 'visible') {\n" +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  let hasAncestorWithZeroOpacity = !!enclosingElementOrSelfMatchingPredicate(element, e => {\n' +
+    "    return Number(cascadedStylePropertyForElement(e, 'opacity')) === 0;\n" +
+    '  });\n' +
+    '  let hasAncestorWithDisplayNone = !!enclosingElementOrSelfMatchingPredicate(element, e => {\n' +
+    "    return cascadedStylePropertyForElement(e, 'display') === 'none';\n" +
+    '  });\n' +
+    '\n' +
+    '  if (hasAncestorWithZeroOpacity || hasAncestorWithDisplayNone) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  if (!elementSubtreeHasNonZeroDimensions(element)) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  if (isElementSubtreeHiddenByOverflow(element)) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  return true;\n' +
+    '}).apply(null, arguments)',
+  args: [
+    {
+      'element-6066-11e4-a52e-4f735466cecf': '837588d3-2d03-4d6a-9f74-59ff1599b24e',
+      ELEMENT: '837588d3-2d03-4d6a-9f74-59ff1599b24e'
+    }
+  ]
+}
+[0-0] 2020-04-22T13:24:11.397Z INFO webdriver: RESULT false
+[0-0] 2020-04-22T13:24:11.821Z INFO webdriver: COMMAND executeScript(<fn>, <object>)
+[0-0] 2020-04-22T13:24:11.821Z INFO webdriver: [POST] https://hub-cloud.browserstack.com/wd/hub/session/159f50ea349902344c9c07db5f73339cb6a8ba75/execute/sync
+[0-0] 2020-04-22T13:24:11.821Z INFO webdriver: DATA {
+  script: 'return (function isElementDisplayed(element) {\n' +
+    '  function nodeIsElement(node) {\n' +
+    '    if (!node) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    switch (node.nodeType) {\n' +
+    '      case Node.ELEMENT_NODE:\n' +
+    '      case Node.DOCUMENT_NODE:\n' +
+    '      case Node.DOCUMENT_FRAGMENT_NODE:\n' +
+    '        return true;\n' +
+    '\n' +
+    '      default:\n' +
+    '        return false;\n' +
+    '    }\n' +
+    '  }\n' +
+    '\n' +
+    '  function parentElementForElement(element) {\n' +
+    '    if (!element) {\n' +
+    '      return null;\n' +
+    '    }\n' +
+    '\n' +
+    '    return enclosingNodeOrSelfMatchingPredicate(element.parentNode, nodeIsElement);\n' +
+    '  }\n' +
+    '\n' +
+    '  function enclosingNodeOrSelfMatchingPredicate(targetNode, predicate) {\n' +
+    '    for (let node = targetNode; node && node !== targetNode.ownerDocument; node = node.parentNode) if (predicate(node)) {\n' +
+    '      return node;\n' +
+    '    }\n' +
+    '\n' +
+    '    return null;\n' +
+    '  }\n' +
+    '\n' +
+    '  function enclosingElementOrSelfMatchingPredicate(targetElement, predicate) {\n' +
+    '    for (let element = targetElement; element && element !== targetElement.ownerDocument; element = parentElementForElement(element)) if (predicate(element)) {\n' +
+    '      return element;\n' +
+    '    }\n' +
+    '\n' +
+    '    return null;\n' +
+    '  }\n' +
+    '\n' +
+    '  function cascadedStylePropertyForElement(element, property) {\n' +
+    '    if (!element || !property) {\n' +
+    '      return null;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (element instanceof DocumentFragment) {\n' +
+    '      element = element.host;\n' +
+    '    }\n' +
+    '\n' +
+    '    let computedStyle = window.getComputedStyle(element);\n' +
+    '    let computedStyleProperty = computedStyle.getPropertyValue(property);\n' +
+    '\n' +
+    "    if (computedStyleProperty && computedStyleProperty !== 'inherit') {\n" +
+    '      return computedStyleProperty;\n' +
+    '    }\n' +
+    '\n' +
+    '    let parentElement = parentElementForElement(element);\n' +
+    '    return cascadedStylePropertyForElement(parentElement, property);\n' +
+    '  }\n' +
+    '\n' +
+    '  function elementSubtreeHasNonZeroDimensions(element) {\n' +
+    '    let boundingBox = element.getBoundingClientRect();\n' +
+    '\n' +
+    '    if (boundingBox.width > 0 && boundingBox.height > 0) {\n' +
+    '      return true;\n' +
+    '    }\n' +
+    '\n' +
+    "    if (element.tagName.toUpperCase() === 'PATH' && boundingBox.width + boundingBox.height > 0) {\n" +
+    "      let strokeWidth = cascadedStylePropertyForElement(element, 'stroke-width');\n" +
+    '      return !!strokeWidth && parseInt(strokeWidth, 10) > 0;\n' +
+    '    }\n' +
+    '\n' +
+    "    let cascadedOverflow = cascadedStylePropertyForElement(element, 'overflow');\n" +
+    '\n' +
+    "    if (cascadedOverflow === 'hidden') {\n" +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    return Array.from(element.childNodes).some(childNode => {\n' +
+    '      if (childNode.nodeType === Node.TEXT_NODE) {\n' +
+    '        return true;\n' +
+    '      }\n' +
+    '\n' +
+    '      if (nodeIsElement(childNode)) {\n' +
+    '        return elementSubtreeHasNonZeroDimensions(childNode);\n' +
+    '      }\n' +
+    '\n' +
+    '      return false;\n' +
+    '    });\n' +
+    '  }\n' +
+    '\n' +
+    '  function elementOverflowsContainer(element) {\n' +
+    "    let cascadedOverflow = cascadedStylePropertyForElement(element, 'overflow');\n" +
+    '\n' +
+    "    if (cascadedOverflow !== 'hidden') {\n" +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    return true;\n' +
+    '  }\n' +
+    '\n' +
+    '  function isElementSubtreeHiddenByOverflow(element) {\n' +
+    '    if (!element) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (!elementOverflowsContainer(element)) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (!element.childNodes.length) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    return Array.from(element.childNodes).every(childNode => {\n' +
+    '      if (childNode.nodeType === Node.TEXT_NODE) {\n' +
+    '        return false;\n' +
+    '      }\n' +
+    '\n' +
+    '      if (!nodeIsElement(childNode)) {\n' +
+    '        return true;\n' +
+    '      }\n' +
+    '\n' +
+    '      if (!elementSubtreeHasNonZeroDimensions(childNode)) {\n' +
+    '        return true;\n' +
+    '      }\n' +
+    '\n' +
+    '      return isElementSubtreeHiddenByOverflow(childNode);\n' +
+    '    });\n' +
+    '  }\n' +
+    '\n' +
+    '  function isElementInsideShadowRoot(element) {\n' +
+    '    if (!element) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (element.parentNode && element.parentNode.host) {\n' +
+    '      return true;\n' +
+    '    }\n' +
+    '\n' +
+    '    return isElementInsideShadowRoot(element.parentNode);\n' +
+    '  }\n' +
+    '\n' +
+    '  if (!isElementInsideShadowRoot(element) && !document.contains(element)) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  switch (element.tagName.toUpperCase()) {\n' +
+    "    case 'BODY':\n" +
+    '      return true;\n' +
+    '\n' +
+    "    case 'SCRIPT':\n" +
+    "    case 'NOSCRIPT':\n" +
+    '      return false;\n' +
+    '\n' +
+    "    case 'OPTGROUP':\n" +
+    "    case 'OPTION':\n" +
+    '      {\n' +
+    "        let enclosingSelectElement = enclosingNodeOrSelfMatchingPredicate(element, e => e.tagName.toUpperCase() === 'SELECT');\n" +
+    '        return isElementDisplayed(enclosingSelectElement);\n' +
+    '      }\n' +
+    '\n' +
+    "    case 'INPUT':\n" +
+    "      if (element.type === 'hidden') {\n" +
+    '        return false;\n' +
+    '      }\n' +
+    '\n' +
+    '      break;\n' +
+    '\n' +
+    '    default:\n' +
+    '      break;\n' +
+    '  }\n' +
+    '\n' +
+    "  if (cascadedStylePropertyForElement(element, 'visibility') !== 'visible') {\n" +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  let hasAncestorWithZeroOpacity = !!enclosingElementOrSelfMatchingPredicate(element, e => {\n' +
+    "    return Number(cascadedStylePropertyForElement(e, 'opacity')) === 0;\n" +
+    '  });\n' +
+    '  let hasAncestorWithDisplayNone = !!enclosingElementOrSelfMatchingPredicate(element, e => {\n' +
+    "    return cascadedStylePropertyForElement(e, 'display') === 'none';\n" +
+    '  });\n' +
+    '\n' +
+    '  if (hasAncestorWithZeroOpacity || hasAncestorWithDisplayNone) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  if (!elementSubtreeHasNonZeroDimensions(element)) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  if (isElementSubtreeHiddenByOverflow(element)) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  return true;\n' +
+    '}).apply(null, arguments)',
+  args: [
+    {
+      'element-6066-11e4-a52e-4f735466cecf': '837588d3-2d03-4d6a-9f74-59ff1599b24e',
+      ELEMENT: '837588d3-2d03-4d6a-9f74-59ff1599b24e'
+    }
+  ]
+}
+[0-0] 2020-04-22T13:24:11.903Z INFO webdriver: RESULT false
+[0-0] 2020-04-22T13:24:12.321Z INFO webdriver: COMMAND executeScript(<fn>, <object>)
+[0-0] 2020-04-22T13:24:12.321Z INFO webdriver: [POST] https://hub-cloud.browserstack.com/wd/hub/session/159f50ea349902344c9c07db5f73339cb6a8ba75/execute/sync
+[0-0] 2020-04-22T13:24:12.321Z INFO webdriver: DATA {
+  script: 'return (function isElementDisplayed(element) {\n' +
+    '  function nodeIsElement(node) {\n' +
+    '    if (!node) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    switch (node.nodeType) {\n' +
+    '      case Node.ELEMENT_NODE:\n' +
+    '      case Node.DOCUMENT_NODE:\n' +
+    '      case Node.DOCUMENT_FRAGMENT_NODE:\n' +
+    '        return true;\n' +
+    '\n' +
+    '      default:\n' +
+    '        return false;\n' +
+    '    }\n' +
+    '  }\n' +
+    '\n' +
+    '  function parentElementForElement(element) {\n' +
+    '    if (!element) {\n' +
+    '      return null;\n' +
+    '    }\n' +
+    '\n' +
+    '    return enclosingNodeOrSelfMatchingPredicate(element.parentNode, nodeIsElement);\n' +
+    '  }\n' +
+    '\n' +
+    '  function enclosingNodeOrSelfMatchingPredicate(targetNode, predicate) {\n' +
+    '    for (let node = targetNode; node && node !== targetNode.ownerDocument; node = node.parentNode) if (predicate(node)) {\n' +
+    '      return node;\n' +
+    '    }\n' +
+    '\n' +
+    '    return null;\n' +
+    '  }\n' +
+    '\n' +
+    '  function enclosingElementOrSelfMatchingPredicate(targetElement, predicate) {\n' +
+    '    for (let element = targetElement; element && element !== targetElement.ownerDocument; element = parentElementForElement(element)) if (predicate(element)) {\n' +
+    '      return element;\n' +
+    '    }\n' +
+    '\n' +
+    '    return null;\n' +
+    '  }\n' +
+    '\n' +
+    '  function cascadedStylePropertyForElement(element, property) {\n' +
+    '    if (!element || !property) {\n' +
+    '      return null;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (element instanceof DocumentFragment) {\n' +
+    '      element = element.host;\n' +
+    '    }\n' +
+    '\n' +
+    '    let computedStyle = window.getComputedStyle(element);\n' +
+    '    let computedStyleProperty = computedStyle.getPropertyValue(property);\n' +
+    '\n' +
+    "    if (computedStyleProperty && computedStyleProperty !== 'inherit') {\n" +
+    '      return computedStyleProperty;\n' +
+    '    }\n' +
+    '\n' +
+    '    let parentElement = parentElementForElement(element);\n' +
+    '    return cascadedStylePropertyForElement(parentElement, property);\n' +
+    '  }\n' +
+    '\n' +
+    '  function elementSubtreeHasNonZeroDimensions(element) {\n' +
+    '    let boundingBox = element.getBoundingClientRect();\n' +
+    '\n' +
+    '    if (boundingBox.width > 0 && boundingBox.height > 0) {\n' +
+    '      return true;\n' +
+    '    }\n' +
+    '\n' +
+    "    if (element.tagName.toUpperCase() === 'PATH' && boundingBox.width + boundingBox.height > 0) {\n" +
+    "      let strokeWidth = cascadedStylePropertyForElement(element, 'stroke-width');\n" +
+    '      return !!strokeWidth && parseInt(strokeWidth, 10) > 0;\n' +
+    '    }\n' +
+    '\n' +
+    "    let cascadedOverflow = cascadedStylePropertyForElement(element, 'overflow');\n" +
+    '\n' +
+    "    if (cascadedOverflow === 'hidden') {\n" +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    return Array.from(element.childNodes).some(childNode => {\n' +
+    '      if (childNode.nodeType === Node.TEXT_NODE) {\n' +
+    '        return true;\n' +
+    '      }\n' +
+    '\n' +
+    '      if (nodeIsElement(childNode)) {\n' +
+    '        return elementSubtreeHasNonZeroDimensions(childNode);\n' +
+    '      }\n' +
+    '\n' +
+    '      return false;\n' +
+    '    });\n' +
+    '  }\n' +
+    '\n' +
+    '  function elementOverflowsContainer(element) {\n' +
+    "    let cascadedOverflow = cascadedStylePropertyForElement(element, 'overflow');\n" +
+    '\n' +
+    "    if (cascadedOverflow !== 'hidden') {\n" +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    return true;\n' +
+    '  }\n' +
+    '\n' +
+    '  function isElementSubtreeHiddenByOverflow(element) {\n' +
+    '    if (!element) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (!elementOverflowsContainer(element)) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (!element.childNodes.length) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    return Array.from(element.childNodes).every(childNode => {\n' +
+    '      if (childNode.nodeType === Node.TEXT_NODE) {\n' +
+    '        return false;\n' +
+    '      }\n' +
+    '\n' +
+    '      if (!nodeIsElement(childNode)) {\n' +
+    '        return true;\n' +
+    '      }\n' +
+    '\n' +
+    '      if (!elementSubtreeHasNonZeroDimensions(childNode)) {\n' +
+    '        return true;\n' +
+    '      }\n' +
+    '\n' +
+    '      return isElementSubtreeHiddenByOverflow(childNode);\n' +
+    '    });\n' +
+    '  }\n' +
+    '\n' +
+    '  function isElementInsideShadowRoot(element) {\n' +
+    '    if (!element) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (element.parentNode && element.parentNode.host) {\n' +
+    '      return true;\n' +
+    '    }\n' +
+    '\n' +
+    '    return isElementInsideShadowRoot(element.parentNode);\n' +
+    '  }\n' +
+    '\n' +
+    '  if (!isElementInsideShadowRoot(element) && !document.contains(element)) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  switch (element.tagName.toUpperCase()) {\n' +
+    "    case 'BODY':\n" +
+    '      return true;\n' +
+    '\n' +
+    "    case 'SCRIPT':\n" +
+    "    case 'NOSCRIPT':\n" +
+    '      return false;\n' +
+    '\n' +
+    "    case 'OPTGROUP':\n" +
+    "    case 'OPTION':\n" +
+    '      {\n' +
+    "        let enclosingSelectElement = enclosingNodeOrSelfMatchingPredicate(element, e => e.tagName.toUpperCase() === 'SELECT');\n" +
+    '        return isElementDisplayed(enclosingSelectElement);\n' +
+    '      }\n' +
+    '\n' +
+    "    case 'INPUT':\n" +
+    "      if (element.type === 'hidden') {\n" +
+    '        return false;\n' +
+    '      }\n' +
+    '\n' +
+    '      break;\n' +
+    '\n' +
+    '    default:\n' +
+    '      break;\n' +
+    '  }\n' +
+    '\n' +
+    "  if (cascadedStylePropertyForElement(element, 'visibility') !== 'visible') {\n" +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  let hasAncestorWithZeroOpacity = !!enclosingElementOrSelfMatchingPredicate(element, e => {\n' +
+    "    return Number(cascadedStylePropertyForElement(e, 'opacity')) === 0;\n" +
+    '  });\n' +
+    '  let hasAncestorWithDisplayNone = !!enclosingElementOrSelfMatchingPredicate(element, e => {\n' +
+    "    return cascadedStylePropertyForElement(e, 'display') === 'none';\n" +
+    '  });\n' +
+    '\n' +
+    '  if (hasAncestorWithZeroOpacity || hasAncestorWithDisplayNone) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  if (!elementSubtreeHasNonZeroDimensions(element)) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  if (isElementSubtreeHiddenByOverflow(element)) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  return true;\n' +
+    '}).apply(null, arguments)',
+  args: [
+    {
+      'element-6066-11e4-a52e-4f735466cecf': '837588d3-2d03-4d6a-9f74-59ff1599b24e',
+      ELEMENT: '837588d3-2d03-4d6a-9f74-59ff1599b24e'
+    }
+  ]
+}
+[0-0] 2020-04-22T13:24:12.372Z INFO webdriver: RESULT false
+[0-0] 2020-04-22T13:24:12.816Z INFO webdriver: COMMAND executeScript(<fn>, <object>)
+[0-0] 2020-04-22T13:24:12.817Z INFO webdriver: [POST] https://hub-cloud.browserstack.com/wd/hub/session/159f50ea349902344c9c07db5f73339cb6a8ba75/execute/sync
+[0-0] 2020-04-22T13:24:12.817Z INFO webdriver: DATA {
+  script: 'return (function isElementDisplayed(element) {\n' +
+    '  function nodeIsElement(node) {\n' +
+    '    if (!node) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    switch (node.nodeType) {\n' +
+    '      case Node.ELEMENT_NODE:\n' +
+    '      case Node.DOCUMENT_NODE:\n' +
+    '      case Node.DOCUMENT_FRAGMENT_NODE:\n' +
+    '        return true;\n' +
+    '\n' +
+    '      default:\n' +
+    '        return false;\n' +
+    '    }\n' +
+    '  }\n' +
+    '\n' +
+    '  function parentElementForElement(element) {\n' +
+    '    if (!element) {\n' +
+    '      return null;\n' +
+    '    }\n' +
+    '\n' +
+    '    return enclosingNodeOrSelfMatchingPredicate(element.parentNode, nodeIsElement);\n' +
+    '  }\n' +
+    '\n' +
+    '  function enclosingNodeOrSelfMatchingPredicate(targetNode, predicate) {\n' +
+    '    for (let node = targetNode; node && node !== targetNode.ownerDocument; node = node.parentNode) if (predicate(node)) {\n' +
+    '      return node;\n' +
+    '    }\n' +
+    '\n' +
+    '    return null;\n' +
+    '  }\n' +
+    '\n' +
+    '  function enclosingElementOrSelfMatchingPredicate(targetElement, predicate) {\n' +
+    '    for (let element = targetElement; element && element !== targetElement.ownerDocument; element = parentElementForElement(element)) if (predicate(element)) {\n' +
+    '      return element;\n' +
+    '    }\n' +
+    '\n' +
+    '    return null;\n' +
+    '  }\n' +
+    '\n' +
+    '  function cascadedStylePropertyForElement(element, property) {\n' +
+    '    if (!element || !property) {\n' +
+    '      return null;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (element instanceof DocumentFragment) {\n' +
+    '      element = element.host;\n' +
+    '    }\n' +
+    '\n' +
+    '    let computedStyle = window.getComputedStyle(element);\n' +
+    '    let computedStyleProperty = computedStyle.getPropertyValue(property);\n' +
+    '\n' +
+    "    if (computedStyleProperty && computedStyleProperty !== 'inherit') {\n" +
+    '      return computedStyleProperty;\n' +
+    '    }\n' +
+    '\n' +
+    '    let parentElement = parentElementForElement(element);\n' +
+    '    return cascadedStylePropertyForElement(parentElement, property);\n' +
+    '  }\n' +
+    '\n' +
+    '  function elementSubtreeHasNonZeroDimensions(element) {\n' +
+    '    let boundingBox = element.getBoundingClientRect();\n' +
+    '\n' +
+    '    if (boundingBox.width > 0 && boundingBox.height > 0) {\n' +
+    '      return true;\n' +
+    '    }\n' +
+    '\n' +
+    "    if (element.tagName.toUpperCase() === 'PATH' && boundingBox.width + boundingBox.height > 0) {\n" +
+    "      let strokeWidth = cascadedStylePropertyForElement(element, 'stroke-width');\n" +
+    '      return !!strokeWidth && parseInt(strokeWidth, 10) > 0;\n' +
+    '    }\n' +
+    '\n' +
+    "    let cascadedOverflow = cascadedStylePropertyForElement(element, 'overflow');\n" +
+    '\n' +
+    "    if (cascadedOverflow === 'hidden') {\n" +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    return Array.from(element.childNodes).some(childNode => {\n' +
+    '      if (childNode.nodeType === Node.TEXT_NODE) {\n' +
+    '        return true;\n' +
+    '      }\n' +
+    '\n' +
+    '      if (nodeIsElement(childNode)) {\n' +
+    '        return elementSubtreeHasNonZeroDimensions(childNode);\n' +
+    '      }\n' +
+    '\n' +
+    '      return false;\n' +
+    '    });\n' +
+    '  }\n' +
+    '\n' +
+    '  function elementOverflowsContainer(element) {\n' +
+    "    let cascadedOverflow = cascadedStylePropertyForElement(element, 'overflow');\n" +
+    '\n' +
+    "    if (cascadedOverflow !== 'hidden') {\n" +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    return true;\n' +
+    '  }\n' +
+    '\n' +
+    '  function isElementSubtreeHiddenByOverflow(element) {\n' +
+    '    if (!element) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (!elementOverflowsContainer(element)) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (!element.childNodes.length) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    return Array.from(element.childNodes).every(childNode => {\n' +
+    '      if (childNode.nodeType === Node.TEXT_NODE) {\n' +
+    '        return false;\n' +
+    '      }\n' +
+    '\n' +
+    '      if (!nodeIsElement(childNode)) {\n' +
+    '        return true;\n' +
+    '      }\n' +
+    '\n' +
+    '      if (!elementSubtreeHasNonZeroDimensions(childNode)) {\n' +
+    '        return true;\n' +
+    '      }\n' +
+    '\n' +
+    '      return isElementSubtreeHiddenByOverflow(childNode);\n' +
+    '    });\n' +
+    '  }\n' +
+    '\n' +
+    '  function isElementInsideShadowRoot(element) {\n' +
+    '    if (!element) {\n' +
+    '      return false;\n' +
+    '    }\n' +
+    '\n' +
+    '    if (element.parentNode && element.parentNode.host) {\n' +
+    '      return true;\n' +
+    '    }\n' +
+    '\n' +
+    '    return isElementInsideShadowRoot(element.parentNode);\n' +
+    '  }\n' +
+    '\n' +
+    '  if (!isElementInsideShadowRoot(element) && !document.contains(element)) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  switch (element.tagName.toUpperCase()) {\n' +
+    "    case 'BODY':\n" +
+    '      return true;\n' +
+    '\n' +
+    "    case 'SCRIPT':\n" +
+    "    case 'NOSCRIPT':\n" +
+    '      return false;\n' +
+    '\n' +
+    "    case 'OPTGROUP':\n" +
+    "    case 'OPTION':\n" +
+    '      {\n' +
+    "        let enclosingSelectElement = enclosingNodeOrSelfMatchingPredicate(element, e => e.tagName.toUpperCase() === 'SELECT');\n" +
+    '        return isElementDisplayed(enclosingSelectElement);\n' +
+    '      }\n' +
+    '\n' +
+    "    case 'INPUT':\n" +
+    "      if (element.type === 'hidden') {\n" +
+    '        return false;\n' +
+    '      }\n' +
+    '\n' +
+    '      break;\n' +
+    '\n' +
+    '    default:\n' +
+    '      break;\n' +
+    '  }\n' +
+    '\n' +
+    "  if (cascadedStylePropertyForElement(element, 'visibility') !== 'visible') {\n" +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  let hasAncestorWithZeroOpacity = !!enclosingElementOrSelfMatchingPredicate(element, e => {\n' +
+    "    return Number(cascadedStylePropertyForElement(e, 'opacity')) === 0;\n" +
+    '  });\n' +
+    '  let hasAncestorWithDisplayNone = !!enclosingElementOrSelfMatchingPredicate(element, e => {\n' +
+    "    return cascadedStylePropertyForElement(e, 'display') === 'none';\n" +
+    '  });\n' +
+    '\n' +
+    '  if (hasAncestorWithZeroOpacity || hasAncestorWithDisplayNone) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  if (!elementSubtreeHasNonZeroDimensions(element)) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  if (isElementSubtreeHiddenByOverflow(element)) {\n' +
+    '    return false;\n' +
+    '  }\n' +
+    '\n' +
+    '  return true;\n' +
+    '}).apply(null, arguments)',
+  args: [
+    {
+      'element-6066-11e4-a52e-4f735466cecf': '837588d3-2d03-4d6a-9f74-59ff1599b24e',
+      ELEMENT: '837588d3-2d03-4d6a-9f74-59ff1599b24e'
+    }
+  ]
+}
+[0-0] 2020-04-22T13:24:12.863Z INFO webdriver: RESULT false
+[0-0] Error in "Stale elements shows the rerendered element as displayed"
+element (".inner") still not displayed after 10000ms
+[0-0] 2020-04-22T13:24:14.057Z INFO webdriver: COMMAND deleteSession()
+[0-0] 2020-04-22T13:24:14.057Z INFO webdriver: [DELETE] https://hub-cloud.browserstack.com/wd/hub/session/159f50ea349902344c9c07db5f73339cb6a8ba75
+[0-0] 2020-04-22T13:24:14.593Z INFO webdriver: RESULT 
+[0-0] FAILED in Edge - /tests/stale-element.js
+2020-04-22T13:24:14.708Z INFO @wdio/cli:launcher: Run onComplete hook
+
+ "spec" Reporter:
+------------------------------------------------------------------
+[MicrosoftEdge  windows #0-0] Spec: /Users/davebrotherstone/work/stale-element-repro/tests/stale-element.js
+[MicrosoftEdge  windows #0-0] Running: MicrosoftEdge on windows
+[MicrosoftEdge  windows #0-0] Session ID: 159f50ea349902344c9c07db5f73339cb6a8ba75
+[MicrosoftEdge  windows #0-0]
+[MicrosoftEdge  windows #0-0] Stale elements
+[MicrosoftEdge  windows #0-0]    ✖ shows the rerendered element as displayed
+[MicrosoftEdge  windows #0-0]
+[MicrosoftEdge  windows #0-0] 1 failing (12.7s)
+[MicrosoftEdge  windows #0-0]
+[MicrosoftEdge  windows #0-0] 1) Stale elements shows the rerendered element as displayed
+[MicrosoftEdge  windows #0-0] element (".inner") still not displayed after 10000ms
+[MicrosoftEdge  windows #0-0] Error: element (".inner") still not displayed after 10000ms
+[MicrosoftEdge  windows #0-0]     at /Users/davebrotherstone/work/stale-element-repro/node_modules/webdriverio/build/commands/browser/waitUntil.js:34:15
+[MicrosoftEdge  windows #0-0]     at async Element.wrapCommandFn (/Users/davebrotherstone/work/stale-element-repro/node_modules/@wdio/utils/build/shim.js:74:23)
+[MicrosoftEdge  windows #0-0]     at async Element.elementErrorHandlerCallbackFn (/Users/davebrotherstone/work/stale-element-repro/node_modules/webdriverio/build/middlewares.js:21:24)
+[MicrosoftEdge  windows #0-0]     at async Element.wrapCommandFn (/Users/davebrotherstone/work/stale-element-repro/node_modules/@wdio/utils/build/shim.js:74:23)
+[MicrosoftEdge  windows #0-0]     at async Element.wrapCommandFn (/Users/davebrotherstone/work/stale-element-repro/node_modules/@wdio/utils/build/shim.js:74:23)
+[MicrosoftEdge  windows #0-0]     at async Element.elementErrorHandlerCallbackFn (/Users/davebrotherstone/work/stale-element-repro/node_modules/webdriverio/build/middlewares.js:21:24)
+[MicrosoftEdge  windows #0-0]     at async Element.wrapCommandFn (/Users/davebrotherstone/work/stale-element-repro/node_modules/@wdio/utils/build/shim.js:74:23)
+[MicrosoftEdge  windows #0-0]     at async Context.<anonymous> (/Users/davebrotherstone/work/stale-element-repro/tests/stale-element.js:10:5)
+[MicrosoftEdge  windows #0-0]     at async Context.executeAsync (/Users/davebrotherstone/work/stale-element-repro/node_modules/@wdio/utils/build/shim.js:123:12)
+[MicrosoftEdge  windows #0-0]     at async Context.testFrameworkFnWrapper (/Users/davebrotherstone/work/stale-element-repro/node_modules/@wdio/utils/build/test-framework/testFnWrapper.js:57:14)
+
+
+Spec Files:	 0 passed, 1 failed, 1 total (100% completed) in 00:00:22 
+
+2020-04-22T13:24:14.710Z INFO @wdio/local-runner: Shutting down spawned worker
+2020-04-22T13:24:14.961Z INFO @wdio/local-runner: Waiting for 0 to shut down gracefully
+2020-04-22T13:24:14.962Z INFO @wdio/local-runner: shutting down
+npm ERR! Test failed.  See above for more details.
