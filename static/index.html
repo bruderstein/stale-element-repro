@@ -1,0 +1,12 @@
+<!doctype html>
+<html>
+  <body>
+    Hello. This next box is re-rendered a lot:
+    <div class="container"></div>
+    <script>
+      setInterval(() => {
+        document.querySelector('.container').innerHTML = '<span class="inner">This is getting repeatedly replaced</span>';
+      }, 100);
+    </script>
+  </body>
+</html>
