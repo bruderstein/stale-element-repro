@@ -1,0 +1,29 @@
+{
+  "name": "stale-element-repro",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bruderstein/stale-element-repro.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bruderstein/stale-element-repro/issues"
+  },
+  "homepage": "https://github.com/bruderstein/stale-element-repro#readme",
+  "devDependencies": {
+    "@wdio/cli": "^5.0.0",
+    "webdriverio": "^5.0.0",
+    "@wdio/browserstack-service": "^5.0.0",
+    "@wdio/local-runner": "^5.0.0",
+    "@wdio/mocha-framework": "^5.0.0",
+    "@wdio/spec-reporter": "^5.0.0",
+    "chromedriver": "^81.0.0"
+  }
+}
