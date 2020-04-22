@@ -1,0 +1,171 @@
+
+> stale-element-repro@1.0.0 test /Users/davebrotherstone/work/stale-element-repro
+> wdio run wdio-v6.conf.js
+
+
+Execution of 1 spec files started at 2020-04-22T13:33:14.053Z
+
+2020-04-22T13:33:14.080Z INFO @wdio/cli:launcher: Run onPrepare hook
+2020-04-22T13:33:14.080Z INFO @wdio/browserstack-service: browserstackLocal is not enabled - skipping...
+2020-04-22T13:33:14.081Z INFO @wdio/cli:launcher: Run onWorkerStart hook
+2020-04-22T13:33:14.083Z INFO @wdio/local-runner: Start worker 0-0 with arg: run,wdio-v6.conf.js
+[0-0] 2020-04-22T13:33:14.357Z INFO @wdio/local-runner: Run worker command: run
+[0-0] 2020-04-22T13:33:14.364Z INFO webdriverio: Initiate new session using the ./protocol-stub protocol
+[0-0] RUNNING in Edge - /tests/stale-element.js
+[0-0] 2020-04-22T13:33:14.435Z INFO webdriverio: Initiate new session using the webdriver protocol
+[0-0] 2020-04-22T13:33:14.437Z INFO webdriver: [POST] https://hub-cloud.browserstack.com/wd/hub/session
+[0-0] 2020-04-22T13:33:14.437Z INFO webdriver: DATA {
+  capabilities: {
+    alwaysMatch: { browserName: 'Edge', browserVersion: '80.0' },
+    firstMatch: [ {} ]
+  },
+  desiredCapabilities: { browserName: 'Edge', browserVersion: '80.0' }
+}
+[0-0] 2020-04-22T13:33:21.599Z INFO @wdio/browserstack-service: msedge session: https://automate.browserstack.com/builds/d3aeb084f830d967f580cd25de455aa69fbf9b23/sessions/84d8dfc44f1948a5baf635ea2b64c8db24e55375
+[0-0] 2020-04-22T13:33:21.664Z INFO webdriver: COMMAND navigateTo("https://stale-element-repro.netlify.app/")
+[0-0] 2020-04-22T13:33:21.665Z INFO webdriver: [POST] https://hub-cloud.browserstack.com/wd/hub/session/84d8dfc44f1948a5baf635ea2b64c8db24e55375/url
+[0-0] 2020-04-22T13:33:21.665Z INFO webdriver: DATA { url: 'https://stale-element-repro.netlify.app/' }
+[0-0] 2020-04-22T13:33:22.106Z INFO webdriver: COMMAND findElement("css selector", ".start")
+[0-0] 2020-04-22T13:33:22.106Z INFO webdriver: [POST] https://hub-cloud.browserstack.com/wd/hub/session/84d8dfc44f1948a5baf635ea2b64c8db24e55375/element
+[0-0] 2020-04-22T13:33:22.106Z INFO webdriver: DATA { using: 'css selector', value: '.start' }
+[0-0] 2020-04-22T13:33:22.186Z INFO webdriver: RESULT { ELEMENT: '0.718884914131479-1' }
+[0-0] 2020-04-22T13:33:22.192Z INFO webdriver: COMMAND elementClick("0.718884914131479-1")
+[0-0] 2020-04-22T13:33:22.192Z INFO webdriver: [POST] https://hub-cloud.browserstack.com/wd/hub/session/84d8dfc44f1948a5baf635ea2b64c8db24e55375/element/0.718884914131479-1/click
+[0-0] 2020-04-22T13:33:22.280Z INFO webdriver: COMMAND findElement("css selector", ".inner")
+[0-0] 2020-04-22T13:33:22.280Z INFO webdriver: [POST] https://hub-cloud.browserstack.com/wd/hub/session/84d8dfc44f1948a5baf635ea2b64c8db24e55375/element
+[0-0] 2020-04-22T13:33:22.280Z INFO webdriver: DATA { using: 'css selector', value: '.inner' }
+[0-0] 2020-04-22T13:33:22.347Z INFO webdriver: RESULT {
+  message: 'no such element: Unable to locate element: {"method":"css selector","selector":".inner"}\n' +
+    '  (Session info: MicrosoftEdge=80.0.361.62)\n' +
+    '  (Driver info: msedgedriver=80.0.361.57 (331c514ec445cec5e9a634d7f3bc684de2c15721),platform=Windows NT 10.0.15063 x86_64)'
+}
+[0-0] 2020-04-22T13:33:22.350Z INFO webdriver: COMMAND findElement("css selector", ".inner")
+[0-0] 2020-04-22T13:33:22.350Z INFO webdriver: [POST] https://hub-cloud.browserstack.com/wd/hub/session/84d8dfc44f1948a5baf635ea2b64c8db24e55375/element
+[0-0] 2020-04-22T13:33:22.350Z INFO webdriver: DATA { using: 'css selector', value: '.inner' }
+[0-0] 2020-04-22T13:33:22.414Z INFO webdriver: RESULT {
+  message: 'no such element: Unable to locate element: {"method":"css selector","selector":".inner"}\n' +
+    '  (Session info: MicrosoftEdge=80.0.361.62)\n' +
+    '  (Driver info: msedgedriver=80.0.361.57 (331c514ec445cec5e9a634d7f3bc684de2c15721),platform=Windows NT 10.0.15063 x86_64)'
+}
+[0-0] 2020-04-22T13:33:22.856Z INFO webdriver: COMMAND findElement("css selector", ".inner")
+[0-0] 2020-04-22T13:33:22.856Z INFO webdriver: [POST] https://hub-cloud.browserstack.com/wd/hub/session/84d8dfc44f1948a5baf635ea2b64c8db24e55375/element
+[0-0] 2020-04-22T13:33:22.856Z INFO webdriver: DATA { using: 'css selector', value: '.inner' }
+[0-0] 2020-04-22T13:33:22.937Z INFO webdriver: RESULT { ELEMENT: '0.718884914131479-2' }
+[0-0] 2020-04-22T13:33:22.939Z INFO webdriver: COMMAND isElementDisplayed("0.718884914131479-2")
+[0-0] 2020-04-22T13:33:22.939Z INFO webdriver: [GET] https://hub-cloud.browserstack.com/wd/hub/session/84d8dfc44f1948a5baf635ea2b64c8db24e55375/element/0.718884914131479-2/displayed
+[0-0] 2020-04-22T13:33:22.990Z INFO webdriver: RESULT true
+[0-0] 2020-04-22T13:33:22.991Z INFO webdriver: COMMAND isElementDisplayed("0.718884914131479-2")
+[0-0] 2020-04-22T13:33:22.991Z INFO webdriver: [GET] https://hub-cloud.browserstack.com/wd/hub/session/84d8dfc44f1948a5baf635ea2b64c8db24e55375/element/0.718884914131479-2/displayed
+[0-0] 2020-04-22T13:33:23.043Z WARN webdriver: Request encountered a stale element - terminating request
+[0-0] 2020-04-22T13:33:23.044Z INFO webdriver: COMMAND findElement("css selector", ".inner")
+[0-0] 2020-04-22T13:33:23.044Z INFO webdriver: [POST] https://hub-cloud.browserstack.com/wd/hub/session/84d8dfc44f1948a5baf635ea2b64c8db24e55375/element
+[0-0] 2020-04-22T13:33:23.044Z INFO webdriver: DATA { using: 'css selector', value: '.inner' }
+[0-0] 2020-04-22T13:33:23.092Z INFO webdriver: RESULT { ELEMENT: '0.718884914131479-3' }
+[0-0] 2020-04-22T13:33:23.094Z INFO webdriver: COMMAND isElementDisplayed("0.718884914131479-2")
+[0-0] 2020-04-22T13:33:23.095Z INFO webdriver: [GET] https://hub-cloud.browserstack.com/wd/hub/session/84d8dfc44f1948a5baf635ea2b64c8db24e55375/element/0.718884914131479-2/displayed
+[0-0] 2020-04-22T13:33:23.142Z WARN webdriver: Request encountered a stale element - terminating request
+[0-0] 2020-04-22T13:33:23.143Z INFO webdriver: COMMAND findElement("css selector", ".inner")
+[0-0] 2020-04-22T13:33:23.143Z INFO webdriver: [POST] https://hub-cloud.browserstack.com/wd/hub/session/84d8dfc44f1948a5baf635ea2b64c8db24e55375/element
+[0-0] 2020-04-22T13:33:23.143Z INFO webdriver: DATA { using: 'css selector', value: '.inner' }
+[0-0] 2020-04-22T13:33:23.192Z INFO webdriver: RESULT { ELEMENT: '0.718884914131479-3' }
+[0-0] 2020-04-22T13:33:23.194Z INFO webdriver: COMMAND isElementDisplayed("0.718884914131479-3")
+[0-0] 2020-04-22T13:33:23.194Z INFO webdriver: [GET] https://hub-cloud.browserstack.com/wd/hub/session/84d8dfc44f1948a5baf635ea2b64c8db24e55375/element/0.718884914131479-3/displayed
+[0-0] 2020-04-22T13:33:23.245Z INFO webdriver: RESULT true
+[0-0] 2020-04-22T13:33:23.245Z INFO webdriver: COMMAND isElementDisplayed("0.718884914131479-3")
+[0-0] 2020-04-22T13:33:23.246Z INFO webdriver: [GET] https://hub-cloud.browserstack.com/wd/hub/session/84d8dfc44f1948a5baf635ea2b64c8db24e55375/element/0.718884914131479-3/displayed
+[0-0] 2020-04-22T13:33:23.292Z WARN webdriver: Request encountered a stale element - terminating request
+[0-0] 2020-04-22T13:33:23.293Z INFO webdriver: COMMAND findElement("css selector", ".inner")
+[0-0] 2020-04-22T13:33:23.293Z INFO webdriver: [POST] https://hub-cloud.browserstack.com/wd/hub/session/84d8dfc44f1948a5baf635ea2b64c8db24e55375/element
+[0-0] 2020-04-22T13:33:23.293Z INFO webdriver: DATA { using: 'css selector', value: '.inner' }
+[0-0] 2020-04-22T13:33:23.340Z INFO webdriver: RESULT { ELEMENT: '0.718884914131479-4' }
+[0-0] 2020-04-22T13:33:23.342Z INFO webdriver: COMMAND isElementDisplayed("0.718884914131479-3")
+[0-0] 2020-04-22T13:33:23.343Z INFO webdriver: [GET] https://hub-cloud.browserstack.com/wd/hub/session/84d8dfc44f1948a5baf635ea2b64c8db24e55375/element/0.718884914131479-3/displayed
+[0-0] 2020-04-22T13:33:23.397Z WARN webdriver: Request encountered a stale element - terminating request
+[0-0] 2020-04-22T13:33:23.397Z INFO webdriver: COMMAND findElement("css selector", ".inner")
+[0-0] 2020-04-22T13:33:23.397Z INFO webdriver: [POST] https://hub-cloud.browserstack.com/wd/hub/session/84d8dfc44f1948a5baf635ea2b64c8db24e55375/element
+[0-0] 2020-04-22T13:33:23.397Z INFO webdriver: DATA { using: 'css selector', value: '.inner' }
+[0-0] 2020-04-22T13:33:23.451Z INFO webdriver: RESULT { ELEMENT: '0.718884914131479-4' }
+[0-0] 2020-04-22T13:33:23.454Z INFO webdriver: COMMAND isElementDisplayed("0.718884914131479-4")
+[0-0] 2020-04-22T13:33:23.454Z INFO webdriver: [GET] https://hub-cloud.browserstack.com/wd/hub/session/84d8dfc44f1948a5baf635ea2b64c8db24e55375/element/0.718884914131479-4/displayed
+[0-0] 2020-04-22T13:33:23.509Z INFO webdriver: RESULT true
+[0-0] 2020-04-22T13:33:23.510Z INFO webdriver: COMMAND isElementDisplayed("0.718884914131479-4")
+[0-0] 2020-04-22T13:33:23.510Z INFO webdriver: [GET] https://hub-cloud.browserstack.com/wd/hub/session/84d8dfc44f1948a5baf635ea2b64c8db24e55375/element/0.718884914131479-4/displayed
+[0-0] 2020-04-22T13:33:23.558Z WARN webdriver: Request encountered a stale element - terminating request
+[0-0] 2020-04-22T13:33:23.558Z INFO webdriver: COMMAND findElement("css selector", ".inner")
+[0-0] 2020-04-22T13:33:23.559Z INFO webdriver: [POST] https://hub-cloud.browserstack.com/wd/hub/session/84d8dfc44f1948a5baf635ea2b64c8db24e55375/element
+[0-0] 2020-04-22T13:33:23.559Z INFO webdriver: DATA { using: 'css selector', value: '.inner' }
+[0-0] 2020-04-22T13:33:23.671Z INFO webdriver: RESULT { ELEMENT: '0.718884914131479-5' }
+[0-0] 2020-04-22T13:33:23.673Z INFO webdriver: COMMAND isElementDisplayed("0.718884914131479-4")
+[0-0] 2020-04-22T13:33:23.674Z INFO webdriver: [GET] https://hub-cloud.browserstack.com/wd/hub/session/84d8dfc44f1948a5baf635ea2b64c8db24e55375/element/0.718884914131479-4/displayed
+[0-0] 2020-04-22T13:33:23.725Z WARN webdriver: Request encountered a stale element - terminating request
+[0-0] 2020-04-22T13:33:23.725Z INFO webdriver: COMMAND findElement("css selector", ".inner")
+[0-0] 2020-04-22T13:33:23.725Z INFO webdriver: [POST] https://hub-cloud.browserstack.com/wd/hub/session/84d8dfc44f1948a5baf635ea2b64c8db24e55375/element
+[0-0] 2020-04-22T13:33:23.726Z INFO webdriver: DATA { using: 'css selector', value: '.inner' }
+[0-0] 2020-04-22T13:33:23.776Z INFO webdriver: RESULT { ELEMENT: '0.718884914131479-5' }
+[0-0] 2020-04-22T13:33:23.778Z INFO webdriver: COMMAND isElementDisplayed("0.718884914131479-5")
+[0-0] 2020-04-22T13:33:23.778Z INFO webdriver: [GET] https://hub-cloud.browserstack.com/wd/hub/session/84d8dfc44f1948a5baf635ea2b64c8db24e55375/element/0.718884914131479-5/displayed
+[0-0] 2020-04-22T13:33:23.836Z WARN webdriver: Request encountered a stale element - terminating request
+[0-0] 2020-04-22T13:33:23.836Z INFO webdriver: COMMAND findElement("css selector", ".inner")
+[0-0] 2020-04-22T13:33:23.837Z INFO webdriver: [POST] https://hub-cloud.browserstack.com/wd/hub/session/84d8dfc44f1948a5baf635ea2b64c8db24e55375/element
+[0-0] 2020-04-22T13:33:23.837Z INFO webdriver: DATA { using: 'css selector', value: '.inner' }
+[0-0] 2020-04-22T13:33:23.887Z INFO webdriver: RESULT { ELEMENT: '0.718884914131479-6' }
+[0-0] 2020-04-22T13:33:23.890Z INFO webdriver: COMMAND isElementDisplayed("0.718884914131479-5")
+[0-0] 2020-04-22T13:33:23.890Z INFO webdriver: [GET] https://hub-cloud.browserstack.com/wd/hub/session/84d8dfc44f1948a5baf635ea2b64c8db24e55375/element/0.718884914131479-5/displayed
+[0-0] 2020-04-22T13:33:23.950Z WARN webdriver: Request encountered a stale element - terminating request
+[0-0] 2020-04-22T13:33:24.015Z INFO webdriver: COMMAND isElementDisplayed("0.718884914131479-6")
+[0-0] 2020-04-22T13:33:24.015Z INFO webdriver: [GET] https://hub-cloud.browserstack.com/wd/hub/session/84d8dfc44f1948a5baf635ea2b64c8db24e55375/element/0.718884914131479-6/displayed
+[0-0] 2020-04-22T13:33:24.065Z WARN webdriver: Request encountered a stale element - terminating request
+[0-0] 2020-04-22T13:33:24.066Z INFO webdriver: COMMAND findElement("css selector", ".inner")
+[0-0] 2020-04-22T13:33:24.066Z INFO webdriver: [POST] https://hub-cloud.browserstack.com/wd/hub/session/84d8dfc44f1948a5baf635ea2b64c8db24e55375/element
+[0-0] 2020-04-22T13:33:24.066Z INFO webdriver: DATA { using: 'css selector', value: '.inner' }
+[0-0] 2020-04-22T13:33:24.114Z INFO webdriver: RESULT { ELEMENT: '0.718884914131479-7' }
+[0-0] 2020-04-22T13:33:24.116Z INFO webdriver: COMMAND isElementDisplayed("0.718884914131479-6")
+[0-0] 2020-04-22T13:33:24.117Z INFO webdriver: [GET] https://hub-cloud.browserstack.com/wd/hub/session/84d8dfc44f1948a5baf635ea2b64c8db24e55375/element/0.718884914131479-6/displayed
+[0-0] 2020-04-22T13:33:24.161Z WARN webdriver: Request encountered a stale element - terminating request
+[0-0] 2020-04-22T13:33:24.161Z INFO webdriver: COMMAND findElement("css selector", ".inner")
+[0-0] 2020-04-22T13:33:24.161Z INFO webdriver: [POST] https://hub-cloud.browserstack.com/wd/hub/session/84d8dfc44f1948a5baf635ea2b64c8db24e55375/element
+[0-0] 2020-04-22T13:33:24.161Z INFO webdriver: DATA { using: 'css selector', value: '.inner' }
+[0-0] 2020-04-22T13:33:24.211Z INFO webdriver: RESULT { ELEMENT: '0.718884914131479-7' }
+[0-0] 2020-04-22T13:33:24.214Z INFO webdriver: COMMAND isElementDisplayed("0.718884914131479-7")
+[0-0] 2020-04-22T13:33:24.214Z INFO webdriver: [GET] https://hub-cloud.browserstack.com/wd/hub/session/84d8dfc44f1948a5baf635ea2b64c8db24e55375/element/0.718884914131479-7/displayed
+[0-0] 2020-04-22T13:33:24.268Z INFO webdriver: RESULT true
+[0-0] 2020-04-22T13:33:24.269Z INFO webdriver: COMMAND isElementDisplayed("0.718884914131479-7")
+[0-0] 2020-04-22T13:33:24.269Z INFO webdriver: [GET] https://hub-cloud.browserstack.com/wd/hub/session/84d8dfc44f1948a5baf635ea2b64c8db24e55375/element/0.718884914131479-7/displayed
+[0-0] 2020-04-22T13:33:24.316Z WARN webdriver: Request encountered a stale element - terminating request
+[0-0] 2020-04-22T13:33:24.317Z INFO webdriver: COMMAND findElement("css selector", ".inner")
+[0-0] 2020-04-22T13:33:24.317Z INFO webdriver: [POST] https://hub-cloud.browserstack.com/wd/hub/session/84d8dfc44f1948a5baf635ea2b64c8db24e55375/element
+[0-0] 2020-04-22T13:33:24.317Z INFO webdriver: DATA { using: 'css selector', value: '.inner' }
+[0-0] 2020-04-22T13:33:24.378Z INFO webdriver: RESULT { ELEMENT: '0.718884914131479-8' }
+[0-0] 2020-04-22T13:33:24.379Z INFO webdriver: COMMAND isElementDisplayed("0.718884914131479-7")
+[0-0] 2020-04-22T13:33:24.379Z INFO webdriver: [GET] https://hub-cloud.browserstack.com/wd/hub/session/84d8dfc44f1948a5baf635ea2b64c8db24e55375/element/0.718884914131479-7/displayed
+[0-0] 2020-04-22T13:33:24.427Z WARN webdriver: Request encountered a stale element - terminating request
+[0-0] 2020-04-22T13:33:24.427Z INFO webdriver: COMMAND findElement("css selector", ".inner")
+[0-0] 2020-04-22T13:33:24.427Z INFO webdriver: [POST] https://hub-cloud.browserstack.com/wd/hub/session/84d8dfc44f1948a5baf635ea2b64c8db24e55375/element
+[0-0] 2020-04-22T13:33:24.427Z INFO webdriver: DATA { using: 'css selector', value: '.inner' }
+[0-0] 2020-04-22T13:33:24.475Z INFO webdriver: RESULT { ELEMENT: '0.718884914131479-8' }
+[0-0] 2020-04-22T13:33:24.476Z INFO webdriver: COMMAND isElementDisplayed("0.718884914131479-8")
+[0-0] 2020-04-22T13:33:24.476Z INFO webdriver: [GET] https://hub-cloud.browserstack.com/wd/hub/session/84d8dfc44f1948a5baf635ea2b64c8db24e55375/element/0.718884914131479-8/displayed
+[0-0] 2020-04-22T13:33:24.530Z INFO webdriver: RESULT true
+[0-0] 2020-04-22T13:33:25.553Z INFO webdriver: COMMAND deleteSession()
+[0-0] 2020-04-22T13:33:25.553Z INFO webdriver: [DELETE] https://hub-cloud.browserstack.com/wd/hub/session/84d8dfc44f1948a5baf635ea2b64c8db24e55375
+[0-0] 2020-04-22T13:33:25.632Z INFO webdriver: RESULT 
+[0-0] PASSED in Edge - /tests/stale-element.js
+2020-04-22T13:33:25.747Z INFO @wdio/cli:launcher: Run onComplete hook
+
+ "spec" Reporter:
+------------------------------------------------------------------
+[msedge 80.0.361.62 WINDOWS #0-0] Spec: /Users/davebrotherstone/work/stale-element-repro/tests/stale-element.js
+[msedge 80.0.361.62 WINDOWS #0-0] Running: msedge (v80.0.361.62) on WINDOWS
+[msedge 80.0.361.62 WINDOWS #0-0] Session ID: 84d8dfc44f1948a5baf635ea2b64c8db24e55375
+[msedge 80.0.361.62 WINDOWS #0-0]
+[msedge 80.0.361.62 WINDOWS #0-0] Stale elements
+[msedge 80.0.361.62 WINDOWS #0-0]    ✓ shows the rerendered element as displayed
+[msedge 80.0.361.62 WINDOWS #0-0]
+[msedge 80.0.361.62 WINDOWS #0-0] 1 passing (4s)
+
+
+Spec Files:	 1 passed, 1 total (100% completed) in 00:00:11 
+
+2020-04-22T13:33:25.747Z INFO @wdio/local-runner: Shutting down spawned worker
+2020-04-22T13:33:26.003Z INFO @wdio/local-runner: Waiting for 0 to shut down gracefully
+2020-04-22T13:33:26.004Z INFO @wdio/local-runner: shutting down
