@@ -30,7 +30,7 @@ exports.config = {
     // ** HERE **
     // Enable `transformResponse` below in order to enable JSON protocol to use /displayed
     // the same effects are seen either way
-    // transformResponse,
+    // transformResponse,  // COMMENT OUT to return to W3C protocol
     logLevel: 'info',
     bail: 0,
     baseUrl: 'https://stale-element-repro.netlify.app/',
